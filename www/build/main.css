@@ -24313,11 +24313,36 @@ ion-navbar.toolbar {
   }
 }
 
-.ios page-intro ion-slide, .md page-intro ion-slide {
-  background-color: #32db64;
+.tutorial-page .toolbar-background {
+  background: #fff;
+  border-color: transparent;
 }
 
-.ios page-intro ion-slide img, .md page-intro ion-slide img {
-  height: 70vh !important;
-  width: auto !important;
+.tutorial-page .slide-zoom {
+  height: 100%;
+}
+
+.tutorial-page .slide-title {
+  margin-top: 2.8rem;
+}
+
+.tutorial-page .slide-image {
+  max-height: 50%;
+  max-width: 60%;
+  margin: 18px 0;
+}
+
+.tutorial-page b {
+  font-weight: 500;
+}
+
+.tutorial-page p {
+  padding: 0 40px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #60646B;
+}
+
+.tutorial-page p b {
+  color: #000000;
 }

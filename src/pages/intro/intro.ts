@@ -8,19 +8,27 @@ import { HomePage } from '../pages/home/home';
 })
 export class IntroPage {
 
-  sliderOptions: any;
-
   constructor(public navCtrl: NavController) {
 
-    this.sliderOptions = {
-      pager: true
-    };
-
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad IntroPage');
-  }
+  slides = [
+    {
+      title: "Slide 1",
+      description: "Teste de descrição",
+      image: "assets/img/ionic.png",
+    },
+    {
+      title: "Slide 2",
+      description: "Teste de descrição",
+      image: "assets/img/ionic.png",
+    },
+    {
+      title: "Slide 3",
+      description: "Teste de descrição",
+      image: "assets/img/ionic.png",
+    }
+  ];
 
   goToHome(){
     this.navCtrl.setRoot(HomePage);
