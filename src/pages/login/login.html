@@ -1,23 +1,22 @@
 <ion-content class="login-content" padding>
-  <ion-row class="logo-row">
+  <ion-row>
     <ion-col></ion-col>
     <ion-col width-67>
-      <img src="http://placehold.it/300x200"/>
+      <img src="assets/img/logotipo-cinza.png"/>
     </ion-col>
     <ion-col></ion-col>
   </ion-row>
-  <div class="login-box">
     <form (ngSubmit)="login()" #registerForm="ngForm">
       <ion-row>
         <ion-col>
           <ion-list inset>
             
             <ion-item>
-              <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+              <ion-input type="text" placeholder="E-mail" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
             </ion-item>
             
             <ion-item>
-              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+              <ion-input type="password" placeholder="Senha" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
             </ion-item>
             
           </ion-list>
@@ -26,11 +25,17 @@
       
       <ion-row>
         <ion-col class="signup-col">
-          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>
-          <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button>
+    
+            <ion-segment>
+              <ion-segment-button value="cadastre-se" (click)="createAccount()">Cadastre-se</ion-segment-button>
+              <ion-segment-button value="entrar" type="submit" [disabled]="!registerForm.form.valid">Entrar</ion-segment-button>
+            </ion-segment>
+            
+          <!--button ion-button class="register-btn" (click)="createAccount()">Cadastre-se</button>
+          <button ion-button class="submit-btn" type="submit" [disabled]="!registerForm.form.valid">Entrar</button-->
+          <button ion-button class="reset-btn" clear>Esqueceu a senha?</button>
         </ion-col>
       </ion-row>
       
     </form>
-  </div>
 </ion-content>

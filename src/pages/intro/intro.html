@@ -1,24 +1,14 @@
 <ion-content class="tutorial-page">
   <ion-slides pager>
-    <ion-slide *ngFor="let slide of slides">
-      <ion-toolbar>
-        <ion-buttons end>
-          <button ion-button color="primary">Pular</button>
-        </ion-buttons>
-      </ion-toolbar>
+    <ion-slide *ngFor="let slide of slides" [ngStyle]="{'background-color': slide.background}">
       <img [src]="slide.image" class="slide-image"/>
       <h2 class="slide-title" [innerHTML]="slide.title"></h2>
       <p [innerHTML]="slide.description"></p>
     </ion-slide>
     <ion-slide>
-      <ion-toolbar>
-      </ion-toolbar>
-      <img src="assets/img/ionic.png" class="slide-image"/>
+      <img src="assets/img/logotipo.png" class="slide-image"/>
       <h2 class="slide-title">Ultimo slide</h2>
-      <button ion-button large clear icon-right color="primary" (click)="goToLogin()">
-        Fazer Login
-        <ion-icon name="arrow-forward"></ion-icon>
-      </button>
+      <button ion-button large outline (click)="goToLogin()">Fazer Login</button>
     </ion-slide>
   </ion-slides>
 </ion-content>

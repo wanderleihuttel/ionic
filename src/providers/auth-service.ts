@@ -22,8 +22,8 @@ export class AuthService {
     } else {
       return Observable.create(observer => {
         // At this point make a request to your backend to make a real check!
-        let access = (credentials.password === "pass" && credentials.email === "email");
-        this.currentUser = new User('Simon', 'saimon@devdactic.com');
+        let access = (credentials.password === "123" && credentials.email === "123");
+        this.currentUser = new User('Jonathan', 'teste@gmail.com');
         observer.next(access);
         observer.complete();
       });

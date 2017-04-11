@@ -24317,11 +24317,6 @@ page-home .home {
   background: #56CA96;
 }
 
-.tutorial-page .toolbar-background {
-  background: #fff;
-  border-color: transparent;
-}
-
 .tutorial-page .slide-zoom {
   height: 100%;
 }
@@ -24333,7 +24328,7 @@ page-home .home {
 .tutorial-page .slide-image {
   max-height: 50%;
   max-width: 60%;
-  margin: 18px 0;
+  margin-top: 50px;
 }
 
 .tutorial-page b {
@@ -24344,26 +24339,15 @@ page-home .home {
   padding: 0 40px;
   font-size: 14px;
   line-height: 1.5;
-  color: #60646B;
+  color: #e8e8e8;
 }
 
 .tutorial-page p b {
-  color: #000000;
+  color: #ffffff;
 }
 
 page-login .login-content {
-  background: #56CA96;
-}
-
-page-login .login-content .logo-row {
-  padding-top: 50px;
-  padding-bottom: 20px;
-}
-
-page-login .login-content .login-box {
-  background: #399F8B;
-  padding: 20px 20px 0px 20px;
-  margin-top: 30px;
+  background: #4c5969;
 }
 
 page-login .login-content ion-row {
@@ -24374,8 +24358,8 @@ page-login .login-content ion-row {
 }
 
 page-login .login-content ion-item {
-  border-radius: 30px !important;
-  padding-left: 30px !important;
+  border-radius: 4px !important;
+  padding-left: 5px !important;
   font-size: 0.9em;
   margin-bottom: 10px;
   border: 1px solid #ffffff;
@@ -24384,7 +24368,7 @@ page-login .login-content ion-item {
 }
 
 page-login .login-content .signup-col {
-  margin: 0px 16px 0px 16px;
+  margin: 0;
   padding-bottom: 20px;
 }
 
@@ -24394,36 +24378,46 @@ page-login .login-content .item-inner {
 }
 
 page-login .login-content .submit-btn {
-  background: #51CFB1;
-  border-radius: 30px !important;
-  border: 1px solid #ffffff;
+  background: #FF5722;
+  color: #ffffff;
+  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px !important;
+  border: 1px solid #E64A19;
+  outline: 0 !important;
 }
 
-page-login .login-content .register-btn {
+page-login .login-content .reset-btn {
   color: #ffffff;
   font-size: 0.8em;
 }
 
-page-register .login-content {
-  background: #56CA96;
+page-login .login-content .register-btn {
+  background: #4CAF50;
+  color: #ffffff;
+  border-bottom-left-radius: 4px !important;
+  border-top-left-radius: 4px !important;
+  border: 1px solid #388E3C;
+  outline: 0 !important;
 }
 
-page-register .login-content .login-box {
-  background: #509287;
-  padding: 20px 20px 0px 20px;
-  margin-top: 30px;
+.toolbar-background {
+  background: transparent;
 }
 
-page-register .login-content ion-row {
+page-register .register-content {
+  background: #2b3747;
+}
+
+page-register .register-content ion-row {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
   text-align: center;
 }
 
-page-register .login-content ion-item {
-  border-radius: 30px !important;
-  padding-left: 30px !important;
+page-register .register-content ion-item {
+  border-radius: 4px !important;
+  padding-left: 5px !important;
   font-size: 0.9em;
   margin-bottom: 10px;
   border: 1px solid #ffffff;
@@ -24431,18 +24425,19 @@ page-register .login-content ion-item {
   box-shadow: none !important;
 }
 
-page-register .login-content .signup-col {
-  margin: 0px 16px 0px 16px;
+page-register .register-content .signup-col {
   padding-bottom: 20px;
 }
 
-page-register .login-content .item-inner {
+page-register .register-content .item-inner {
   border-bottom-color: #ffffff !important;
   box-shadow: none !important;
 }
 
-page-register .login-content .submit-btn {
-  background: #51CFB1;
-  border-radius: 30px !important;
-  border: 1px solid #ffffff;
+page-register .register-content .submit-btn {
+  background: #4CAF50;
+  color: #ffffff;
+  border-radius: 4px !important;
+  border: 1px solid #388E3C;
+  outline: 0 !important;
 }

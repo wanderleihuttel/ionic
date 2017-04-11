@@ -16,17 +16,20 @@ export class IntroPage {
     {
       title: "Slide 1",
       description: "Teste de descrição",
-      image: "assets/img/ionic.png",
+      image: "assets/img/logotipo-cinza.png",
+      background: "#27afb7"
     },
     {
       title: "Slide 2",
       description: "Teste de descrição",
-      image: "assets/img/ionic.png",
+      image: "assets/img/logotipo-cinza.png",
+      background: "#f55b5c"
     },
     {
       title: "Slide 3",
       description: "Teste de descrição",
-      image: "assets/img/ionic.png",
+      image: "assets/img/logotipo-cinza.png",
+      background: "#3498db"
     }
   ];
 

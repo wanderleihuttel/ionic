@@ -41906,8 +41906,8 @@ var AuthService = (function () {
         else {
             return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].create(function (observer) {
                 // At this point make a request to your backend to make a real check!
-                var access = (credentials.password === "pass" && credentials.email === "email");
-                _this.currentUser = new User('Simon', 'saimon@devdactic.com');
+                var access = (credentials.password === "jonathan" && credentials.email === "teste@gmail.com");
+                _this.currentUser = new User('Jonathan', 'teste@gmail.com');
                 observer.next(access);
                 observer.complete();
             });
@@ -45167,7 +45167,7 @@ var LoginPage = (function () {
 }());
 LoginPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"C:\Users\jonathan\Ionic\teste2\src\pages\login\login.html"*/'<ion-content class="login-content" padding>\n  <ion-row class="logo-row">\n    <ion-col></ion-col>\n    <ion-col width-67>\n      <img src="http://placehold.it/300x200"/>\n    </ion-col>\n    <ion-col></ion-col>\n  </ion-row>\n  <div class="login-box">\n    <form (ngSubmit)="login()" #registerForm="ngForm">\n      <ion-row>\n        <ion-col>\n          <ion-list inset>\n            \n            <ion-item>\n              <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>\n            </ion-item>\n            \n            <ion-item>\n              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>\n            </ion-item>\n            \n          </ion-list>\n        </ion-col>\n      </ion-row>\n      \n      <ion-row>\n        <ion-col class="signup-col">\n          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>\n          <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button>\n        </ion-col>\n      </ion-row>\n      \n    </form>\n  </div>\n</ion-content>'/*ion-inline-end:"C:\Users\jonathan\Ionic\teste2\src\pages\login\login.html"*/
+        selector: 'page-login',template:/*ion-inline-start:"C:\Users\jonathan\Ionic\teste2\src\pages\login\login.html"*/'<ion-content class="login-content" padding>\n  <ion-row>\n    <ion-col></ion-col>\n    <ion-col width-67>\n      <img src="assets/img/logotipo-cinza.png"/>\n    </ion-col>\n    <ion-col></ion-col>\n  </ion-row>\n    <form (ngSubmit)="login()" #registerForm="ngForm">\n      <ion-row>\n        <ion-col>\n          <ion-list inset>\n            \n            <ion-item>\n              <ion-input type="text" placeholder="E-mail" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>\n            </ion-item>\n            \n            <ion-item>\n              <ion-input type="password" placeholder="Senha" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>\n            </ion-item>\n            \n          </ion-list>\n        </ion-col>\n      </ion-row>\n      \n      <ion-row>\n        <ion-col class="signup-col">\n    \n            <ion-segment>\n              <ion-segment-button value="cadastre-se" (click)="createAccount()">Cadastre-se</ion-segment-button>\n              <ion-segment-button value="entrar" type="submit" [disabled]="!registerForm.form.valid">Entrar</ion-segment-button>\n            </ion-segment>\n            \n          <!--button ion-button class="register-btn" (click)="createAccount()">Cadastre-se</button>\n          <button ion-button class="submit-btn" type="submit" [disabled]="!registerForm.form.valid">Entrar</button-->\n          <button ion-button class="reset-btn" clear>Esqueceu a senha?</button>\n        </ion-col>\n      </ion-row>\n      \n    </form>\n</ion-content>'/*ion-inline-end:"C:\Users\jonathan\Ionic\teste2\src\pages\login\login.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
 ], LoginPage);
@@ -57108,17 +57108,20 @@ var IntroPage = (function () {
             {
                 title: "Slide 1",
                 description: "Teste de descrição",
-                image: "assets/img/ionic.png",
+                image: "assets/img/logotipo-cinza.png",
+                background: "#27afb7"
             },
             {
                 title: "Slide 2",
                 description: "Teste de descrição",
-                image: "assets/img/ionic.png",
+                image: "assets/img/logotipo-cinza.png",
+                background: "#f55b5c"
             },
             {
                 title: "Slide 3",
                 description: "Teste de descrição",
-                image: "assets/img/ionic.png",
+                image: "assets/img/logotipo-cinza.png",
+                background: "#3498db"
             }
         ];
     }
@@ -57129,7 +57132,7 @@ var IntroPage = (function () {
 }());
 IntroPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-intro',template:/*ion-inline-start:"C:\Users\jonathan\Ionic\teste2\src\pages\intro\intro.html"*/'<ion-content class="tutorial-page">\n\n  <ion-slides pager>\n\n    <ion-slide *ngFor="let slide of slides">\n\n      <ion-toolbar>\n\n        <ion-buttons end>\n\n          <button ion-button color="primary">Pular</button>\n\n        </ion-buttons>\n\n      </ion-toolbar>\n\n      <img [src]="slide.image" class="slide-image"/>\n\n      <h2 class="slide-title" [innerHTML]="slide.title"></h2>\n\n      <p [innerHTML]="slide.description"></p>\n\n    </ion-slide>\n\n    <ion-slide>\n\n      <ion-toolbar>\n\n      </ion-toolbar>\n\n      <img src="assets/img/ionic.png" class="slide-image"/>\n\n      <h2 class="slide-title">Ultimo slide</h2>\n\n      <button ion-button large clear icon-right color="primary" (click)="goToLogin()">\n\n        Fazer Login\n\n        <ion-icon name="arrow-forward"></ion-icon>\n\n      </button>\n\n    </ion-slide>\n\n  </ion-slides>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\jonathan\Ionic\teste2\src\pages\intro\intro.html"*/
+        selector: 'page-intro',template:/*ion-inline-start:"C:\Users\jonathan\Ionic\teste2\src\pages\intro\intro.html"*/'<ion-content class="tutorial-page">\n\n  <ion-slides pager>\n\n    <ion-slide *ngFor="let slide of slides" [ngStyle]="{\'background-color\': slide.background}">\n\n      <img [src]="slide.image" class="slide-image"/>\n\n      <h2 class="slide-title" [innerHTML]="slide.title"></h2>\n\n      <p [innerHTML]="slide.description"></p>\n\n    </ion-slide>\n\n    <ion-slide>\n\n      <img src="assets/img/logotipo.png" class="slide-image"/>\n\n      <h2 class="slide-title">Ultimo slide</h2>\n\n      <button ion-button large outline (click)="goToLogin()">Fazer Login</button>\n\n    </ion-slide>\n\n  </ion-slides>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\jonathan\Ionic\teste2\src\pages\intro\intro.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
 ], IntroPage);
@@ -57201,7 +57204,7 @@ var RegisterPage = (function () {
 }());
 RegisterPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Component */])({
-        selector: 'page-register',template:/*ion-inline-start:"C:\Users\jonathan\Ionic\teste2\src\pages\register\register.html"*/'<ion-header>\n  <ion-navbar color="dark">\n    <ion-title>Register</ion-title>\n  </ion-navbar>\n</ion-header>\n \n<ion-content class="login-content" padding>\n  <div class="login-box">\n    \n    <form (ngSubmit)="register()" #registerForm="ngForm">\n      <ion-row>\n        <ion-col>\n          <ion-list inset>\n            \n            <ion-item>\n              <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>\n            </ion-item>\n            \n            <ion-item>\n              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>\n            </ion-item>\n            \n          </ion-list>\n        </ion-col>\n      </ion-row>\n      \n      <ion-row>\n        <ion-col class="signup-col">\n          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>\n        </ion-col>\n      </ion-row>\n      \n    </form>\n  </div>\n</ion-content>'/*ion-inline-end:"C:\Users\jonathan\Ionic\teste2\src\pages\register\register.html"*/
+        selector: 'page-register',template:/*ion-inline-start:"C:\Users\jonathan\Ionic\teste2\src\pages\register\register.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title></ion-title>\n  </ion-navbar>\n</ion-header>\n \n<ion-content class="register-content" padding>\n    <form (ngSubmit)="register()" #registerForm="ngForm">\n      <ion-row>\n        <ion-col>\n          <ion-list inset>\n            \n            <ion-item>\n              <ion-input type="text" placeholder="Nome completo" name="nome" [(ngModel)]="registerCredentials.nome" required></ion-input>\n            </ion-item>\n            \n            <ion-item>\n              <ion-input type="text" placeholder="E-mail" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>\n            </ion-item>\n            \n            <ion-item>\n              <ion-input type="password" placeholder="Senha" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>\n            </ion-item>\n              \n            <ion-item>\n              <ion-input type="password" placeholder="Confirme a senha" name="confirm_password" required></ion-input>\n            </ion-item>\n            \n          </ion-list>\n        </ion-col>\n      </ion-row>\n      \n      <ion-row>\n        <ion-col class="signup-col">\n          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Cadastrar</button>\n        </ion-col>\n      </ion-row>\n      \n    </form>\n</ion-content>'/*ion-inline-end:"C:\Users\jonathan\Ionic\teste2\src\pages\register\register.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* AlertController */]])
 ], RegisterPage);
