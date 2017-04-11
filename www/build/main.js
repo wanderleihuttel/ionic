@@ -41906,7 +41906,7 @@ var AuthService = (function () {
         else {
             return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].create(function (observer) {
                 // At this point make a request to your backend to make a real check!
-                var access = (credentials.password === "jonathan" && credentials.email === "teste@gmail.com");
+                var access = (credentials.password === "123" && credentials.email === "123");
                 _this.currentUser = new User('Jonathan', 'teste@gmail.com');
                 observer.next(access);
                 observer.complete();
@@ -114420,3 +114420,5 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dyna
 /***/ })
 /******/ ]);
 //# sourceMappingURL=main.js.map
+
+(function(w){var i=w.Ionic=w.Ionic||{};i.version='3.0.1';i.angular='4.0.0';})(window);

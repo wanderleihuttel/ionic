@@ -24357,19 +24357,20 @@ page-login .login-content ion-row {
   text-align: center;
 }
 
+page-login .login-content ion-list {
+  border: 2px solid #ADADAD;
+  border-radius: 10px !important;
+}
+
 page-login .login-content ion-item {
-  border-radius: 4px !important;
   padding-left: 5px !important;
   font-size: 0.9em;
-  margin-bottom: 10px;
-  border: 1px solid #ffffff;
-  border-bottom: 0px !important;
+  border-bottom: 1px solid #4c5969 !important;
   box-shadow: none !important;
 }
 
 page-login .login-content .signup-col {
-  margin: 0;
-  padding-bottom: 20px;
+  margin: 0px 16px 0px 16px;
 }
 
 page-login .login-content .item-inner {
