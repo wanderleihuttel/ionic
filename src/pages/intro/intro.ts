@@ -14,19 +14,19 @@ export class IntroPage {
 
   slides = [
     {
-      title: "Slide 1",
+      title: "Cadastre-se",
       description: "Teste de descrição",
       image: "assets/img/logotipo-cinza.png",
       background: "#27afb7"
     },
     {
-      title: "Slide 2",
+      title: "Realize compras",
       description: "Teste de descrição",
       image: "assets/img/logotipo-cinza.png",
       background: "#f55b5c"
     },
     {
-      title: "Slide 3",
+      title: "Acesse a loja",
       description: "Teste de descrição",
       image: "assets/img/logotipo-cinza.png",
       background: "#3498db"
