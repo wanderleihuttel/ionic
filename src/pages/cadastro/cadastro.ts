@@ -4,7 +4,7 @@ import { AuthService } from '../../providers/auth-service';
 
 @Component({
   selector: 'pagina-cadastro',
-  templateUrl: 'register.html'
+  templateUrl: 'cadastro.html'
 })
 export class Cadastro {
   cadastroSucesso = false;

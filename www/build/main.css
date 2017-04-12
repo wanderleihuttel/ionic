@@ -24313,122 +24313,124 @@ ion-navbar.toolbar {
   }
 }
 
-page-home .home {
+pagina-cadastrar .cadastro-conteudo {
+  background: #c6394a;
+}
+
+pagina-cadastrar .cadastro-conteudo ion-row {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+}
+
+pagina-cadastrar .cadastro-conteudo ion-list {
+  border: 1px solid #eeeeee;
+  border-radius: 10px !important;
+}
+
+pagina-cadastrar .cadastro-conteudo ion-item {
+  font-size: 0.9em;
+  border-bottom: 1px solid #eeeeee !important;
+  box-shadow: none !important;
+}
+
+pagina-cadastrar .cadastro-conteudo .signup-col {
+  margin: 0px 16px 0px 16px;
+}
+
+pagina-cadastrar .cadastro-conteudo .item-inner {
+  border-bottom-color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+pagina-cadastrar .cadastro-conteudo .submit-btn {
+  color: #ffffff;
+  border-radius: 4px !important;
+}
+
+pagina-home .home {
   background: #ffffff;
 }
 
-.tutorial-page .slide-zoom {
+pagina-intro .slide .slide-zoom {
   height: 100%;
 }
 
-.tutorial-page .slide-title {
+pagina-intro .slide .slide-title {
   margin-top: 2.8rem;
+  color: #ffffff;
 }
 
-.tutorial-page .slide-image {
+pagina-intro .slide .last-slide-title {
+  margin-top: 2.8rem;
+  color: #000000;
+}
+
+pagina-intro .slide .slide-image {
   max-height: 50%;
   max-width: 60%;
   margin-top: 50px;
 }
 
-.tutorial-page b {
+pagina-intro .slide b {
   font-weight: 500;
 }
 
-.tutorial-page p {
+pagina-intro .slide p {
   padding: 0 40px;
   font-size: 14px;
   line-height: 1.5;
   color: #e8e8e8;
 }
 
-.tutorial-page p b {
+pagina-intro .slide p b {
   color: #ffffff;
 }
 
-page-login .login-content {
+pagina-login .login-conteudo {
   background-color: #e05244;
   background-image: linear-gradient(-28deg, #e05244 0%, #e05244 60%, #c6394a 60%, #c6394a 60%);
 }
 
-page-login .login-content ion-row {
+pagina-login .login-conteudo ion-row {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
   text-align: center;
 }
 
-page-login .login-content ion-list {
+pagina-login .login-conteudo ion-list {
   border: 1px solid #eeeeee;
-  border-radius: 10px !important;
+  border-radius: 5px !important;
 }
 
-page-login .login-content ion-item {
+pagina-login .login-conteudo ion-item {
   font-size: 0.9em;
   border-bottom: 1px solid #eeeeee !important;
   box-shadow: none !important;
 }
 
-page-login .login-content .signup-col {
+pagina-login .login-conteudo .signup-col {
   margin: 0px 16px 0px 16px;
 }
 
-page-login .login-content .item-inner {
+pagina-login .login-conteudo .item-inner {
   border-bottom-color: #ffffff !important;
   box-shadow: none !important;
 }
 
-page-login .login-content .submit-btn {
+pagina-login .login-conteudo .submit-btn {
   color: #ffffff;
   border-radius: 4px !important;
 }
 
-page-login .login-content .reset-btn {
+pagina-login .login-conteudo .reset-btn {
   color: #ffffff;
   font-size: 0.8em;
 }
 
-page-login .login-content .register-btn {
-  color: #ffffff;
-  border-radius: 4px !important;
-}
-
-.toolbar-background {
-  background: transparent;
-}
-
-page-register .register-content {
-  background: #c6394a;
-}
-
-page-register .register-content ion-row {
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-align: center;
-}
-
-page-register .register-content ion-list {
-  border: 1px solid #eeeeee;
-  border-radius: 10px !important;
-}
-
-page-register .register-content ion-item {
-  font-size: 0.9em;
-  border-bottom: 1px solid #eeeeee !important;
-  box-shadow: none !important;
-}
-
-page-register .register-content .signup-col {
-  margin: 0px 16px 0px 16px;
-}
-
-page-register .register-content .item-inner {
-  border-bottom-color: #ffffff !important;
-  box-shadow: none !important;
-}
-
-page-register .register-content .submit-btn {
+pagina-login .login-conteudo .register-btn {
   color: #ffffff;
   border-radius: 4px !important;
 }

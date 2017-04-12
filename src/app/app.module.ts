@@ -9,6 +9,9 @@ import { Intro } from '../pages/intro/intro';
 import { Login } from '../pages/login/login';
 import { Cadastro } from '../pages/cadastro/cadastro';
 import { Home } from '../pages/home/home';
+import { Categorias } from '../pages/categorias/categorias';
+import { Pedidos } from '../pages/pedidos/pedidos';
+import { Perfil } from '../pages/perfil/perfil';
 
 import { AuthService } from '../providers/auth-service';
 
@@ -18,7 +21,10 @@ import { AuthService } from '../providers/auth-service';
     Intro,
     Login,
     Cadastro,
-    Home
+    Home,
+    Categorias,
+    Pedidos,
+    Perfil
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,10 @@ import { AuthService } from '../providers/auth-service';
     Intro,
     Login,
     Cadastro,
-    Home
+    Home,
+    Categorias,
+    Pedidos,
+    Perfil
   ],
   providers: [
     StatusBar,

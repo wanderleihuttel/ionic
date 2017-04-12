@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { Login } from '../login/login';
+import { Categorias } from '../categorias/categorias';
+import { Pedidos } from '../pedidos/pedidos';
+import { Perfil } from '../perfil/perfil';
 
 @Component({
   selector: 'pagina-home',
@@ -16,8 +19,20 @@ export class Home {
     this.email = info.email;
   }
 
+  public categorias() {
+      this.nav.push(Categorias)
+  }
+
+  public pedidos() {
+      this.nav.push(Pedidos)
+  }
+
+  public perfil() {
+      this.nav.push(Perfil)
+  }
+
   public sair() {
-    this.auth.logout().subscribe(succ => {
+    this.auth.sair().subscribe(sucesso => {
         this.nav.setRoot(Login)
     });
   }

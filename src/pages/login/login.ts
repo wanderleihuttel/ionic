@@ -14,8 +14,8 @@ export class Login {
 
   constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {}
 
-  public createAccount() {
-    this.nav.push(RegisterPage);
+  public cadastro() {
+    this.nav.push(Cadastro);
   }
 
   public logar() {
