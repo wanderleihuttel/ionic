@@ -1,54 +1,54 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
-import { RegisterPage } from '../register/register';
-import { HomePage } from '../home/home';
- 
+import { Cadastro } from '../cadastro/cadastro';
+import { Home } from '../home/home';
+
 @Component({
-  selector: 'page-login',
+  selector: 'pagina-login',
   templateUrl: 'login.html'
 })
-export class LoginPage {
+export class Login {
   loading: Loading;
-  registerCredentials = {email: '', password: ''};
- 
+  dados = {email: '', senha: ''};
+
   constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {}
- 
+
   public createAccount() {
     this.nav.push(RegisterPage);
   }
- 
-  public login() {
-    this.showLoading()
-    this.auth.login(this.registerCredentials).subscribe(allowed => {
-      if (allowed) {
+
+  public logar() {
+    this.carregando()
+    this.auth.logar(this.dados).subscribe(sucesso => {
+      if (sucesso) {
         setTimeout(() => {
         this.loading.dismiss();
-        this.nav.setRoot(HomePage)
+        this.nav.setRoot(Home)
         });
       } else {
-        this.showError("Access Denied");
+        this.erro("Acesso negado");
       }
     },
     error => {
-      this.showError(error);
+      this.erro(error);
     });
   }
- 
-  showLoading() {
+
+  carregando() {
     this.loading = this.loadingCtrl.create({
-      content: 'Please wait...'
+      content: 'Aguarde...'
     });
     this.loading.present();
   }
- 
-  showError(text) {
+
+  erro(text) {
     setTimeout(() => {
       this.loading.dismiss();
     });
- 
+
     let alert = this.alertCtrl.create({
-      title: 'Fail',
+      title: 'Erro',
       subTitle: text,
       buttons: ['OK']
     });

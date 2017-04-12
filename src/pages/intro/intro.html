@@ -1,4 +1,4 @@
-<ion-content class="tutorial-page">
+<ion-content class="slide">
   <ion-slides pager>
     <ion-slide *ngFor="let slide of slides" [ngStyle]="{'background-color': slide.background}">
       <img [src]="slide.image" class="slide-image"/>
@@ -7,8 +7,9 @@
     </ion-slide>
     <ion-slide>
       <img src="assets/img/logotipo.png" class="slide-image"/>
-      <h2 class="slide-title">Ultimo slide</h2>
-      <button ion-button large outline (click)="goToLogin()">Fazer Login</button>
+      <h2 class="last-slide-title">Acesse a loja</h2>
+      <p>Teste de descrição</p>
+      <button ion-button large outline (click)="login()">Fazer login</button>
     </ion-slide>
   </ion-slides>
 </ion-content>

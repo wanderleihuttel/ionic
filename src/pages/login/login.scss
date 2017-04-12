@@ -1,51 +1,50 @@
-page-login {
- 
-  .login-content {
+pagina-login {
+
+  .login-conteudo {
         background-color: #e05244;
         background-image: -webkit-linear-gradient( -28deg, #e05244 0%, #e05244 60%, #c6394a 60%, #c6394a 60%);
         background-image: -o-linear-gradient( -28deg, #e05244 0%, #e05244 60%, #c6394a 60%, #c6394a 60%);
         background-image: -moz-linear-gradient( -28deg, #e05244 0%, #e05244 60%, #c6394a 60%, #c6394a 60%);
         background-image: linear-gradient( -28deg, #e05244 0%, #e05244 60%, #c6394a 60%, #c6394a 60%);
-      
+
     ion-row {
        align-items: center;
        text-align: center;
      }
-      
+
     ion-list {
         border: 1px solid #eeeeee;
-        border-radius: 10px !important;
+        border-radius: 5px !important;
     }
      ion-item {
-         //padding-left: 5px !important;
          font-size: 0.9em;
          border-bottom: 1px solid #eeeeee !important;
          box-shadow: none !important;
      }
-      
+
      .signup-col {
        margin: 0px 16px 0px 16px;
      }
- 
+
      .item-inner {
        border-bottom-color: #ffffff !important;
        box-shadow: none !important;
      }
- 
+
      .submit-btn {
        color: #ffffff;
        border-radius: 4px !important;
      }
- 
+
      .reset-btn {
        color: #ffffff;
        font-size: 0.8em;
      }
-      
+
      .register-btn {
          color: #ffffff;
          border-radius: 4px !important;
      }
   }
- 
+
 }

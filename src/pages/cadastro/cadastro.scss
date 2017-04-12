@@ -1,0 +1,35 @@
+pagina-cadastrar {
+  .cadastro-conteudo {
+    background: #c6394a;
+
+    ion-row {
+       align-items: center;
+       text-align: center;
+     }
+
+    ion-list {
+        border: 1px solid #eeeeee;
+        border-radius: 10px !important;
+    }
+
+     ion-item {
+         font-size: 0.9em;
+         border-bottom: 1px solid #eeeeee !important;
+         box-shadow: none !important;
+     }
+
+     .signup-col {
+       margin: 0px 16px 0px 16px;
+     }
+
+     .item-inner {
+       border-bottom-color: #ffffff !important;
+       box-shadow: none !important;
+     }
+
+     .submit-btn {
+       color: #ffffff;
+       border-radius: 4px !important;
+     }
+  }
+}

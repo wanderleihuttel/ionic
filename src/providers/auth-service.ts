@@ -1,54 +1,54 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
- 
-export class User {
-  name: string;
+
+export class Usuario {
+  nome: string;
   email: string;
- 
-  constructor(name: string, email: string) {
-    this.name = name;
+
+  constructor(nome: string, email: string) {
+    this.nome = nome;
     this.email = email;
   }
 }
- 
+
 @Injectable()
 export class AuthService {
-  currentUser: User;
- 
-  public login(credentials) {
-    if (credentials.email === null || credentials.password === null) {
-      return Observable.throw("Please insert credentials");
+  usuario: Usuario;
+
+  public logar(dados) {
+    if (dados.email === null || dados.senha === null) {
+      return Observable.throw("Preencha todos os campos");
     } else {
       return Observable.create(observer => {
-        // At this point make a request to your backend to make a real check!
-        let access = (credentials.password === "123" && credentials.email === "123");
-        this.currentUser = new User('Jonathan', 'teste@gmail.com');
+        let access = (dados.email === "123" && dados.senha === "123");
+        this.usuario = new Usuario('Jonathan', 'teste@gmail.com');
         observer.next(access);
         observer.complete();
       });
     }
   }
- 
-  public register(credentials) {
-    if (credentials.email === null || credentials.password === null) {
-      return Observable.throw("Please insert credentials");
+
+  public cadastrar(dados) {
+    if (dados.nome === null || dados.email === null || dados.senha === null || dados.confirma_senha === null) {
+      return Observable.throw("Preencha todos os campos");
+    } else if (dados.confirma_senha != dados.senha) {
+      return Observable.throw("Senhas diferentes");
     } else {
-      // At this point store the credentials to your backend!
       return Observable.create(observer => {
         observer.next(true);
         observer.complete();
       });
     }
   }
- 
-  public getUserInfo() : User {
-    return this.currentUser;
+
+  public getUsuarioDados() : Usuario {
+    return this.usuario;
   }
- 
-  public logout() {
+
+  public sair() {
     return Observable.create(observer => {
-      this.currentUser = null;
+      this.usuario = null;
       observer.next(true);
       observer.complete();
     });
