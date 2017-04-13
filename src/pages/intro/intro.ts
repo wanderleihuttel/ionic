@@ -15,13 +15,13 @@ export class Intro {
       title: "Cadastre-se",
       description: "Teste de descrição",
       image: "assets/img/logotipo-cinza.png",
-      background: "#c6394a"
+      background: "#e05244"
     },
     {
       title: "Realize compras",
       description: "Teste de descrição",
       image: "assets/img/logotipo-cinza.png",
-      background: "#e05244"
+      background: "#FF5722"
     }
   ];
 
