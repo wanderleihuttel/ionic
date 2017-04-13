@@ -1,5 +1,5 @@
-<ion-header color="header">
-  <ion-navbar>
+<ion-header>
+  <ion-navbar color="navbar-orange">
     <button ion-button icon-only menuToggle start>
         <ion-icon name="menu"></ion-icon>
     </button>
@@ -14,45 +14,24 @@
 
 <ion-menu [content]="menu">
   <ion-header>
-    <ion-toolbar>
-        <ion-title>Código: {{codigo}}</ion-title>
+    <ion-toolbar color="navbar-orange">
+        <ion-title>{{nome}}</ion-title>
     </ion-toolbar>
   </ion-header>
-    <ion-content>
-        <ion-list>
-            <ion-item (click)="categorias()" menuClose>Categorias</ion-item>
-            <ion-item (click)="pedidos()" menuClose>Pedidos</ion-item>
-            <ion-item (click)="perfil()" menuClose>Minha conta</ion-item>
-            <ion-item (click)="sair()">Sair</ion-item>
-        </ion-list>
-    </ion-content>
+  <ion-content>
+      <ion-list>
+          <button ion-item (click)="categorias()" menuClose>Categorias</button>
+          <button ion-item (click)="pedidos()" menuClose>Pedidos</button>
+          <button ion-item (click)="perfil()" menuClose>Perfil</button>
+          <button ion-item (click)="sair()">Sair</button>
+      </ion-list>
+  </ion-content>
 </ion-menu>
 
-<ion-content #menu class="home" padding>
-  <h3>Bem vindo, {{nome}}</h3>
-  <p>Seu e-mail é: {{email}}</p>
-
-  <ion-scroll scrollX="true" direction="x">
-    <ion-card *ngFor="let item of listCardsAdventure">
-      <ion-card-content>
-        <ion-card-title>
-          Teste
-          </ion-card-title>
-        <p>
-          Testando.
-        </p>
-      </ion-card-content>
-    </ion-card>
-    <ion-card>
-      <ion-card-content>
-        <ion-card-title>
-          Teste
-          </ion-card-title>
-        <p>
-          Testando.
-        </p>
-      </ion-card-content>
-    </ion-card>
-  </ion-scroll>
-
+<ion-content #menu class="home card-background-page">
+  <ion-card>
+    <img src="assets/img/cliente.jpg"/>
+    <div class="card-title">JS0101</div>
+    <div class="card-subtitle">Informe este código ao atendente, sempre que for realizar compras na loja</div>
+  </ion-card>
 </ion-content>
