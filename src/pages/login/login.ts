@@ -47,14 +47,14 @@ export class Login {
     this.loading.present();
   }
 
-  erro(text) {
+  erro(mensagem) {
     setTimeout(() => {
       this.loading.dismiss();
     });
 
     let alert = this.alertCtrl.create({
       title: 'Erro',
-      subTitle: text,
+      subTitle: mensagem,
       buttons: ['OK']
     });
     alert.present(prompt);
