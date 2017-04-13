@@ -4,5 +4,24 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="perfil-conteudo" padding>
+  <form (ngSubmit)="atualizar()" #perfil="ngForm">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-input type="text" placeholder="Nome completo" name="nome" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" placeholder="E-mail" name="email" required></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button class="submit-btn" outline block type="submit" [disabled]="!perfil.form.valid" color="light">Atualizar</button>
+      </ion-col>
+    </ion-row>
+  </form>
 </ion-content>
