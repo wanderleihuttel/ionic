@@ -3,10 +3,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 export class Usuario {
+  codigo: string;
   nome: string;
   email: string;
 
-  constructor(nome: string, email: string) {
+  constructor(codigo: string, nome: string, email: string) {
+    this.codigo = codigo;
     this.nome = nome;
     this.email = email;
   }
@@ -22,9 +24,9 @@ export class AuthService {
       return Observable.throw("Preencha todos os campos");
     } else {
       return Observable.create(observer => {
-        let access = (dados.email === "123" && dados.senha === "123");
-        this.usuario = new Usuario('Jonathan', 'teste@gmail.com');
-        observer.next(access);
+        let acesso = (dados.email === "123" && dados.senha === "123");
+        this.usuario = new Usuario('JS0101', 'Jonathan Silva', 'teste@gmail.com');
+        observer.next(acesso);
         observer.complete();
       });
     }

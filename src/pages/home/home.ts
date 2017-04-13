@@ -11,10 +11,12 @@ import { Perfil } from '../perfil/perfil';
   templateUrl: 'home.html'
 })
 export class Home {
+  codigo = '';
   nome = '';
   email = '';
   constructor(private nav: NavController, private auth: AuthService) {
     let info = this.auth.getUsuarioDados();
+    this.codigo = info.codigo;
     this.nome = info.nome;
     this.email = info.email;
   }
