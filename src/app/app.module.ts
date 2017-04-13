@@ -8,6 +8,7 @@ import { App } from './app.component';
 import { Intro } from '../pages/intro/intro';
 import { Login } from '../pages/login/login';
 import { Cadastro } from '../pages/cadastro/cadastro';
+import { Recuperar } from '../pages/recuperar/recuperar';
 import { Home } from '../pages/home/home';
 import { Categorias } from '../pages/categorias/categorias';
 import { Pedidos } from '../pages/pedidos/pedidos';
@@ -21,6 +22,7 @@ import { AuthService } from '../providers/auth-service';
     Intro,
     Login,
     Cadastro,
+    Recuperar,
     Home,
     Categorias,
     Pedidos,
@@ -36,6 +38,7 @@ import { AuthService } from '../providers/auth-service';
     Intro,
     Login,
     Cadastro,
+    Recuperar,
     Home,
     Categorias,
     Pedidos,

@@ -27,7 +27,7 @@
         <ion-col class="signup-col">
           <button ion-button class="register-btn" outline (click)="cadastro()" color="light">Cadastre-se</button>
           <button ion-button class="submit-btn" outline type="submit" [disabled]="!login.form.valid" color="light">Entrar</button>
-          <button ion-button class="reset-btn" clear>Esqueceu a senha?</button>
+          <button ion-button class="reset-btn" (click)="recuperar()" clear>Esqueceu a senha?</button>
         </ion-col>
       </ion-row>
 
