@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header color="header">
   <ion-navbar>
     <button ion-button icon-only menuToggle start>
         <ion-icon name="menu"></ion-icon>
@@ -15,9 +15,9 @@
 <ion-menu [content]="menu">
     <ion-content>
         <ion-list>
-            <button ion-item (click)="categorias()">Categorias</button>
-            <button ion-item (click)="pedidos()">Pedidos</button>
-            <button ion-item (click)="perfil()">Minha conta</button>
+            <button ion-item (click)="categorias()" menuClose>Categorias</button>
+            <button ion-item (click)="pedidos()" menuClose>Pedidos</button>
+            <button ion-item (click)="perfil()" menuClose>Minha conta</button>
             <button ion-item (click)="sair()">Sair</button>
         </ion-list>
     </ion-content>

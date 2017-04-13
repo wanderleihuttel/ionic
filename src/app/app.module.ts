@@ -13,6 +13,7 @@ import { Home } from '../pages/home/home';
 import { Categorias } from '../pages/categorias/categorias';
 import { Pedidos } from '../pages/pedidos/pedidos';
 import { Perfil } from '../pages/perfil/perfil';
+import { Detalhes } from '../pages/detalhes/detalhes';
 
 import { AuthService } from '../providers/auth-service';
 
@@ -26,7 +27,8 @@ import { AuthService } from '../providers/auth-service';
     Home,
     Categorias,
     Pedidos,
-    Perfil
+    Perfil,
+    Detalhes
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { AuthService } from '../providers/auth-service';
     Home,
     Categorias,
     Pedidos,
-    Perfil
+    Perfil,
+    Detalhes
   ],
   providers: [
     StatusBar,
