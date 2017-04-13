@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 export class Usuario {
@@ -16,6 +16,7 @@ export class Usuario {
 export class AuthService {
   usuario: Usuario;
 
+  // Logar
   public logar(dados) {
     if (dados.email === null || dados.senha === null) {
       return Observable.throw("Preencha todos os campos");
@@ -29,6 +30,7 @@ export class AuthService {
     }
   }
 
+  // Cadastrar usuário
   public cadastrar(dados) {
     if (dados.nome === null || dados.email === null || dados.senha === null || dados.confirma_senha === null) {
       return Observable.throw("Preencha todos os campos");
@@ -42,10 +44,24 @@ export class AuthService {
     }
   }
 
+  // Recuperar senha
+  public recuperar(dados) {
+    if (dados.email === null) {
+      return Observable.throw("Informe seu e-mail");
+    } else {
+      return Observable.create(observer => {
+        observer.next(true);
+        observer.complete();
+      });
+    }
+  }
+
+  // Dados do usuário
   public getUsuarioDados() : Usuario {
     return this.usuario;
   }
 
+  // Deslogar
   public sair() {
     return Observable.create(observer => {
       this.usuario = null;
