@@ -12,13 +12,13 @@ export class Intro {
 
   slides = [
     {
-      title: "Cadastre-se",
+      title: "Título 1",
       description: "Teste de descrição",
       image: "assets/img/logotipo-cinza.png",
       background: "#E64A19"
     },
     {
-      title: "Realize compras",
+      title: "Título 2",
       description: "Teste de descrição",
       image: "assets/img/logotipo-cinza.png",
       background: "#FF5722"

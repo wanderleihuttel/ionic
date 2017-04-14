@@ -25,7 +25,7 @@ export class AuthService {
     } else {
       return Observable.create(observer => {
         let acesso = (dados.email === "123" && dados.senha === "123");
-        this.usuario = new Usuario('JS0101', 'Jonathan Silva', 'teste@gmail.com');
+        this.usuario = new Usuario('JS0101', 'Jonathan Nunes da Silva', 'teste@gmail.com');
         observer.next(acesso);
         observer.complete();
       });
@@ -34,7 +34,7 @@ export class AuthService {
 
   // Cadastrar usuário
   public cadastrar(dados) {
-    if (dados.nome === null || dados.email === null || dados.senha === null || dados.confirma_senha === null) {
+    if (dados.nome === null || dados.sobrenome === null || dados.email === null || dados.senha === null || dados.confirma_senha === null) {
       return Observable.throw("Preencha todos os campos");
     } else if (dados.confirma_senha != dados.senha) {
       return Observable.throw("Senhas diferentes");

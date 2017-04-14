@@ -19,6 +19,10 @@ pagina-perfil {
          box-shadow: none !important;
      }
       
+     .atualizar-col {
+       margin: 0px 16px 0px 16px;
+     }
+      
      .item-inner {
        border-bottom-color: #ffffff !important;
        box-shadow: none !important;
@@ -27,6 +31,12 @@ pagina-perfil {
     .atualizar {
         background: #FF5722;
         text-transform: none;
+    }
+      
+    .deletar, .trocar {
+       color: #E64A19;
+       font-size: 0.8em;
+       text-transform: none;
     }
   }
 }
