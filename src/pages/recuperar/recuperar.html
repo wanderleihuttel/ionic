@@ -1,4 +1,5 @@
 <ion-content class="recuperar-conteudo" padding>
+    <div class="logotipo"></div>
     <form (ngSubmit)="recuperar()" #recupera="ngForm">
       <ion-row>
         <ion-col>
@@ -11,12 +12,12 @@
       </ion-row>
       <ion-row>
         <ion-col class="recuperar-col">
-          <button ion-button class="submit-btn" outline block type="submit" [disabled]="!recupera.form.valid" color="light">Recuperar</button>
+          <button type="submit" ion-button class="recuperar" outline block [disabled]="!recupera.form.valid" color="light">Recuperar</button>
         </ion-col>
       </ion-row>
     </form>
 
   <ion-footer>
-    <button ion-button full (click)="login()" color="light">Login</button>
+    <button ion-button class="login" full (click)="login()" color="light" no-margin>Login</button>
   </ion-footer>
 </ion-content>

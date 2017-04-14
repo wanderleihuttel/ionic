@@ -15,7 +15,7 @@ export class Intro {
       title: "Cadastre-se",
       description: "Teste de descrição",
       image: "assets/img/logotipo-cinza.png",
-      background: "#e05244"
+      background: "#E64A19"
     },
     {
       title: "Realize compras",
@@ -25,7 +25,7 @@ export class Intro {
     }
   ];
 
-  login(){
+  public login(){
     this.navCtrl.setRoot(Login);
   }
 

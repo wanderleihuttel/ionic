@@ -18,7 +18,7 @@ pagina-cadastro {
          box-shadow: none !important;
      }
 
-     .signup-col {
+     .cadastrar-col {
        margin: 0px 16px 0px 16px;
      }
 
@@ -27,13 +27,29 @@ pagina-cadastro {
        box-shadow: none !important;
      }
 
-     .submit-btn {
+     .cadastrar {
        color: #ffffff;
        border-radius: 4px !important;
+       text-transform: none;
      }
-
-    /*ion-footer button {
-      margin: 0 !important;
-    }*/
+      
+      .login {
+          text-transform: none;
+      }
+      
+      .logotipo {
+        position: absolute;
+        background-image: url(../assets/img/logotipo-laranja.png);
+        width: 162px;
+        height: 162px;
+        left: 0px;
+        bottom: 0px;
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+      }
   }
 }

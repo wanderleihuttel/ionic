@@ -1,6 +1,5 @@
 pagina-intro {
   .slide {
-
     .slide-zoom {
       height: 100%;
     }
@@ -21,6 +20,14 @@ pagina-intro {
       margin-top: 50px;
     }
 
+    .slider-pager-page {
+        color: white !important;
+    }
+
+    .slider-pager-page.active {
+        color: #e8e8e8 !important;
+    }
+    
     b {
       font-weight: 500;
     }
@@ -35,12 +42,12 @@ pagina-intro {
         color: #ffffff;
       }
     }
-    .slider-pager-page {
-      color: white !important;
-    }
-
-    .slider-pager-page.active {
-      color: #e8e8e8 !important;
-    }
+      .pagina-login {
+          background: #eeeeee;
+      }
+      .login {
+          background: #FF5722;
+          text-transform: none;
+      }
   }
 }

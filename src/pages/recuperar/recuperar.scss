@@ -21,9 +21,24 @@ pagina-recuperar {
      .recuperar-col {
        margin: 0px 16px 0px 16px;
      }
-
-    ion-footer button {
-      margin: 0 !important;
-    }
+      
+      .recuperar, .login {
+          text-transform: none;
+      }
+      
+      .logotipo {
+        position: absolute;
+        background-image: url(../assets/img/logotipo-laranja.png);
+        width: 162px;
+        height: 162px;
+        left: 0px;
+        bottom: 0px;
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+      }
   }
 }

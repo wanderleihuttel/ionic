@@ -1,10 +1,14 @@
 <ion-content class="cadastro-conteudo" padding>
+    <div class="logotipo"></div>
     <form (ngSubmit)="cadastrar()" #cadastro="ngForm">
       <ion-row>
         <ion-col>
           <ion-list inset>
             <ion-item>
-              <ion-input type="text" placeholder="Nome completo" name="nome" [(ngModel)]="dados.nome" required></ion-input>
+              <ion-input type="text" placeholder="Nome" name="nome" [(ngModel)]="dados.nome" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="Sobrenome" name="sobrenome" [(ngModel)]="dados.sobrenome" required></ion-input>
             </ion-item>
             <ion-item>
               <ion-input type="text" placeholder="E-mail" name="email" [(ngModel)]="dados.email" required></ion-input>
@@ -19,13 +23,13 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col class="signup-col">
-          <button ion-button class="submit-btn" outline block type="submit" [disabled]="!cadastro.form.valid" color="light">Cadastrar</button>
+        <ion-col class="cadastrar-col">
+          <button ion-button class="cadastrar" outline block type="submit" [disabled]="!cadastro.form.valid" color="light">Cadastrar</button>
         </ion-col>
       </ion-row>
     </form>
 
   <ion-footer>
-    <button ion-button full (click)="login()" color="light" no-margin>Login</button>
+    <button ion-button class="login" full (click)="login()" color="light" no-margin>Login</button>
   </ion-footer>
 </ion-content>

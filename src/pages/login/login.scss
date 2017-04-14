@@ -22,7 +22,7 @@ pagina-login {
          box-shadow: none !important;
      }
 
-     .signup-col {
+     .botoes-col {
        margin: 0px 16px 0px 16px;
      }
 
@@ -31,19 +31,16 @@ pagina-login {
        box-shadow: none !important;
      }
 
-     .submit-btn {
+     .login, .cadastro {
        color: #ffffff;
        border-radius: 4px !important;
+       text-transform: none;
      }
 
-     .reset-btn {
+     .recuperar {
        color: #ffffff;
        font-size: 0.8em;
-     }
-
-     .register-btn {
-         color: #ffffff;
-         border-radius: 4px !important;
+       text-transform: none;
      }
   }
 
