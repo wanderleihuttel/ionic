@@ -10,7 +10,10 @@
       <ion-col>
         <ion-list inset>
           <ion-item>
-            <ion-input type="text" placeholder="Nome completo" name="nome" required></ion-input>
+            <ion-input type="text" placeholder="Nome" name="nome" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" placeholder="Sobrenome" name="sobrenome" required></ion-input>
           </ion-item>
           <ion-item>
             <ion-input type="text" placeholder="E-mail" name="email" required></ion-input>
@@ -19,8 +22,8 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="signup-col">
-        <button ion-button class="submit-btn" outline block type="submit" [disabled]="!perfil.form.valid" color="light">Atualizar</button>
+      <ion-col class="atualizar-col">
+        <button ion-button round class="atualizar" block type="submit" [disabled]="!perfil.form.valid">Atualizar</button>
       </ion-col>
     </ion-row>
   </form>
