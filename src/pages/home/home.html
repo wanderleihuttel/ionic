@@ -3,9 +3,18 @@
     <button ion-button icon-only menuToggle start>
         <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Sistema</ion-title>
+    <ion-title *ngIf=!showSearchBar>Sistema</ion-title>
+
+    <ion-searchbar
+      *ngIf=showSearchBar
+      [(ngModel)]="myInput"
+      [showCancelButton]="true"
+      (ionInput)="onInput($event)"
+      (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="toggleShowSearchBar()">
           <ion-icon name="search"></ion-icon>
       </button>
     </ion-buttons>
@@ -27,6 +36,8 @@
       </ion-list>
   </ion-content>
 </ion-menu>
+
+<!--ion-nav #menu></ion-nav-->
 
 <ion-content #menu class="home card-background-page">
   <ion-card>

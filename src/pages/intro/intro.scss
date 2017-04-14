@@ -35,6 +35,12 @@ pagina-intro {
         color: #ffffff;
       }
     }
+    .slider-pager-page {
+      color: white !important;
+    }
 
+    .slider-pager-page.active {
+      color: #e8e8e8 !important;
+    }
   }
 }
