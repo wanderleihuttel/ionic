@@ -1,0 +1,36 @@
+pagina-atualizar-senha {
+  .atualizar-senha {
+    background: #f6f8fb;
+  }
+  .atualizar-senha-conteudo {
+    ion-row {
+       align-items: center;
+       text-align: center;
+     }
+
+    ion-list {
+        border: 1px solid #eeeeee;
+        border-radius: 5px !important;
+    }
+
+     ion-item {
+         font-size: 0.9em;
+         border-bottom: 1px solid #eeeeee !important;
+         box-shadow: none !important;
+     }
+      
+     .atualizar-senha-col {
+       margin: 0px 16px 0px 16px;
+     }
+      
+     .item-inner {
+       border-bottom-color: #ffffff !important;
+       box-shadow: none !important;
+     }
+
+    .atualizar-senha {
+        background: #FF5722;
+        text-transform: none;
+    }
+  }
+}

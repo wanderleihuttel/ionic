@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { AtualizarSenha } from '../atualizar-senha/atualizar-senha';
 
 @Component({
   selector: 'pagina-perfil',
@@ -9,4 +10,7 @@ export class Perfil {
 
   constructor(private nav: NavController) {}
 
+  public atualizar_senha() {
+    this.nav.push(AtualizarSenha);
+  }
 }

@@ -1,17 +1,14 @@
 pagina-intro {
   .slide {
+    background-color: #f9f9f9;
+
     .slide-zoom {
       height: 100%;
     }
 
     .slide-title {
       margin-top: 2.8rem;
-      color: #ffffff;
-    }
-
-    .last-slide-title {
-      margin-top: 2.8rem;
-      color: #000000;
+      color: #FF5722;
     }
 
     .slide-image {
@@ -20,34 +17,17 @@ pagina-intro {
       margin-top: 50px;
     }
 
-    .slider-pager-page {
-        color: white !important;
-    }
-
-    .slider-pager-page.active {
-        color: #e8e8e8 !important;
-    }
-    
-    b {
-      font-weight: 500;
-    }
-
     p {
       padding: 0 40px;
       font-size: 14px;
       line-height: 1.5;
-      color: #e8e8e8;
-
-      b {
-        color: #ffffff;
-      }
+      color: #212121;
     }
-      .pagina-login {
-          background: #eeeeee;
-      }
-      .login {
-          background: #FF5722;
-          text-transform: none;
-      }
+
+    .login {
+      background: #FF5722;
+      text-transform: none;
+    }
+
   }
 }

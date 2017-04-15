@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { Cadastro } from '../cadastro/cadastro';
-import { Recuperar } from '../recuperar/recuperar';
+import { RecuperarSenha } from '../recuperar-senha/recuperar-senha';
 import { Home } from '../home/home';
 
 @Component({
@@ -20,7 +20,7 @@ export class Login {
   }
 
   public recuperar() {
-    this.nav.push(Recuperar);
+    this.nav.push(RecuperarSenha);
   }
 
   public logar() {

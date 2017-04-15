@@ -25,7 +25,7 @@
       <ion-col class="atualizar-col">
         <button ion-button class="atualizar" block type="submit">Atualizar</button>
         <button ion-button class="deletar" type="submit" clear>Deletar conta</button>
-        <button ion-button class="trocar" type="submit" clear>Trocar senha</button>
+        <button ion-button class="trocar" (click)="atualizar_senha()" clear>Trocar senha</button>
       </ion-col>
     </ion-row>
   </form>

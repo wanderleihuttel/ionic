@@ -1,0 +1,23 @@
+<ion-content class="recuperar-senha-conteudo" padding>
+    <div class="logotipo"></div>
+    <form (ngSubmit)="recuperar()" #recupera="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-item>
+              <ion-input type="text" placeholder="E-mail" name="email" [(ngModel)]="dados.email" required></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="recuperar-senha-col">
+          <button type="submit" ion-button class="recuperar-senha" outline block [disabled]="!recupera.form.valid" color="light">Recuperar</button>
+        </ion-col>
+      </ion-row>
+    </form>
+
+  <ion-footer>
+    <button ion-button class="login" full (click)="login()" color="light" no-margin>Login</button>
+  </ion-footer>
+</ion-content>

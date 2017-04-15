@@ -1,13 +1,13 @@
 <ion-content class="slide">
-  <ion-slides pager>
+  <ion-slides [pager]="false">
     <ion-slide *ngFor="let slide of slides" [ngStyle]="{'background-color': slide.background}">
       <img [src]="slide.image" class="slide-image"/>
       <h2 class="slide-title" [innerHTML]="slide.title"></h2>
       <p [innerHTML]="slide.description"></p>
     </ion-slide>
-    <ion-slide class="pagina-login">
-      <img src="assets/img/logotipo.png" class="slide-image"/>
-      <h2 class="last-slide-title">Título 3</h2>
+    <ion-slide>
+      <img src="assets/img/logotipo-cinza.png" class="slide-image"/>
+      <h2 class="slide-title">Título 3</h2>
       <p>Teste de descrição</p>
       <button ion-button icon-left round class="login" (click)="login()"><ion-icon name="person"></ion-icon>Login</button>
     </ion-slide>

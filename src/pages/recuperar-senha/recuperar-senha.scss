@@ -1,0 +1,44 @@
+pagina-recuperar-senha {
+  .recuperar-senha-conteudo {
+    background: #E64A19;
+
+    ion-row {
+       align-items: center;
+       text-align: center;
+     }
+
+    ion-list {
+        border: 1px solid #eeeeee;
+        border-radius: 5px !important;
+    }
+
+     ion-item {
+         font-size: 0.9em;
+         border-bottom: 1px solid #eeeeee !important;
+         box-shadow: none !important;
+     }
+
+     .recuperar-senha-col {
+       margin: 0px 16px 0px 16px;
+     }
+      
+      .recuperar-senha, .login {
+          text-transform: none;
+      }
+      
+      .logotipo {
+        position: absolute;
+        background-image: url(../assets/img/logotipo-laranja.png);
+        width: 162px;
+        height: 162px;
+        left: 0px;
+        bottom: 0px;
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+      }
+  }
+}

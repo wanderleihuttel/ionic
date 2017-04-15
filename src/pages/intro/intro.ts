@@ -14,14 +14,12 @@ export class Intro {
     {
       title: "Título 1",
       description: "Teste de descrição",
-      image: "assets/img/logotipo-cinza.png",
-      background: "#E64A19"
+      image: "assets/img/logotipo-cinza.png"
     },
     {
       title: "Título 2",
       description: "Teste de descrição",
-      image: "assets/img/logotipo-cinza.png",
-      background: "#FF5722"
+      image: "assets/img/logotipo-cinza.png"
     }
   ];
 
