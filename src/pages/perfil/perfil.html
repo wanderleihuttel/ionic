@@ -4,8 +4,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="perfil perfil-conteudo" padding>
-  <form (ngSubmit)="atualizar()" #perfil="ngForm">
+<ion-content class="perfil" padding>
+  <form (ngSubmit)="atualizar_dados()" #perfil="ngForm">
     <ion-row>
       <ion-col>
         <ion-list inset>
@@ -22,10 +22,10 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="atualizar-col">
-        <button ion-button class="atualizar" block type="submit">Atualizar</button>
+      <ion-col class="botoes_col">
+        <button ion-button class="atualizar" block type="submit" [disabled]="!perfil.form.valid">Atualizar</button>
         <button ion-button class="deletar" type="submit" clear>Deletar conta</button>
-        <button ion-button class="trocar" (click)="atualizar_senha()" clear>Trocar senha</button>
+        <button ion-button class="trocar_senha" (click)="atualizar_senha()" clear>Trocar senha</button>
       </ion-col>
     </ion-row>
   </form>

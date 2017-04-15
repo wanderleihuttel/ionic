@@ -11,25 +11,20 @@ import { Perfil } from '../perfil/perfil';
   templateUrl: 'home.html'
 })
 export class Home {
-  // Search bar
-  public toggled: boolean;
-    
+  public showSearchBar: boolean = false;
+
   codigo = '';
   nome = '';
   email = '';
   constructor(private nav: NavController, private auth: AuthService) {
-    // Search bar
-    this.toggled = false;
-      
     let info = this.auth.getUsuarioDados();
     this.codigo = info.codigo;
     this.nome = info.nome;
     this.email = info.email;
   }
 
-  // Search bar
   public toggleShowSearchBar() {
-    this.toggled = this.toggled ? false : true;
+    this.showSearchBar = !this.showSearchBar;
   }
 
   public categorias() {

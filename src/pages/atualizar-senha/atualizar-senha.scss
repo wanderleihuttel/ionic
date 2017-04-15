@@ -1,8 +1,8 @@
 pagina-atualizar-senha {
-  .atualizar-senha {
+  .atualizar_senha {
     background: #f6f8fb;
   }
-  .atualizar-senha-conteudo {
+  .atualizar_senha_conteudo {
     ion-row {
        align-items: center;
        text-align: center;
@@ -18,17 +18,17 @@ pagina-atualizar-senha {
          border-bottom: 1px solid #eeeeee !important;
          box-shadow: none !important;
      }
-      
-     .atualizar-senha-col {
-       margin: 0px 16px 0px 16px;
-     }
-      
+    
      .item-inner {
        border-bottom-color: #ffffff !important;
        box-shadow: none !important;
      }
+    
+     .atualizar_senha_col {
+       margin: 0px 16px 0px 16px;
+     }
 
-    .atualizar-senha {
+    .atualizar_senha {
         background: #FF5722;
         text-transform: none;
     }

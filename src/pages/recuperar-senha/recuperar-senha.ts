@@ -7,15 +7,15 @@ import { AuthService } from '../../providers/auth-service';
   templateUrl: 'recuperar-senha.html'
 })
 export class RecuperarSenha {
-  recuperaSucesso = false;
+  recuperar_senhaSucesso = false;
   dados = {email: ''};
 
   constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) {}
 
-  public recuperar() {
-    this.auth.recuperar(this.dados).subscribe(sucesso => {
+  public recuperar_senha() {
+    this.auth.recuperar_senha(this.dados).subscribe(sucesso => {
       if (sucesso) {
-        this.recuperaSucesso = true;
+        this.recuperar_senhaSucesso = true;
           this.alerta("Sucesso", "Enviamos um e-mail com link de recuperação");
       } else {
         this.alerta("Erro", "Erro ao enviar e-mail");
@@ -38,7 +38,7 @@ export class RecuperarSenha {
        {
          text: 'OK',
          handler: data => {
-           if (this.recuperaSucesso) {
+           if (this.recuperar_senhaSucesso) {
              this.nav.popToRoot();
            }
          }

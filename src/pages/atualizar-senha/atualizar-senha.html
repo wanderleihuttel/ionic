@@ -4,23 +4,23 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="atualizar-senha atualizar-senha-conteudo" padding>
-  <form (ngSubmit)="atualizar()" #atualizar-senha="ngForm">
+<ion-content class="atualizar_senha atualizar_senha_conteudo" padding>
+  <form (ngSubmit)="atualizar()" #atualizar="ngForm">
     <ion-row>
       <ion-col>
         <ion-list inset>
           <ion-item>
-            <ion-input type="password" placeholder="Senha atual" name="senha_atual" required></ion-input>
+            <ion-input type="password" placeholder="Nova senha" name="nova_senha" required></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input type="password" placeholder="Nova senha" name="nova_senha" required></ion-input>
+            <ion-input type="password" placeholder="Confirme a senha" name="confirma_senha" required></ion-input>
           </ion-item>
         </ion-list>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="atualizar-senha-col">
-        <button ion-button class="atualizar-senha" block type="submit">Atualizar</button>
+      <ion-col class="atualizar_senha_col">
+        <button ion-button class="atualizar_senha" block type="submit" [disabled]="!atualizar.form.valid">Atualizar</button>
       </ion-col>
     </ion-row>
   </form>

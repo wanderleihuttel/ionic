@@ -10,6 +10,8 @@ export class Perfil {
 
   constructor(private nav: NavController) {}
 
+  public atualizar_dados(){}
+
   public atualizar_senha() {
     this.nav.push(AtualizarSenha);
   }

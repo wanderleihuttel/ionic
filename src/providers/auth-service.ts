@@ -47,7 +47,7 @@ export class AuthService {
   }
 
   // Recuperar senha
-  public recuperar(dados) {
+  public recuperar_senha(dados) {
     if (dados.email === null) {
       return Observable.throw("Informe seu e-mail");
     } else {

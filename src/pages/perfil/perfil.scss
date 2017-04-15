@@ -1,8 +1,7 @@
 pagina-perfil {
   .perfil {
     background: #f6f8fb;
-  }
-  .perfil-conteudo {
+
     ion-row {
        align-items: center;
        text-align: center;
@@ -18,22 +17,22 @@ pagina-perfil {
          border-bottom: 1px solid #eeeeee !important;
          box-shadow: none !important;
      }
-      
-     .atualizar-col {
-       margin: 0px 16px 0px 16px;
-     }
-      
+
      .item-inner {
        border-bottom-color: #ffffff !important;
        box-shadow: none !important;
+     }
+
+     .botoes_col {
+       margin: 0px 16px 0px 16px;
      }
 
     .atualizar {
         background: #FF5722;
         text-transform: none;
     }
-      
-    .deletar, .trocar {
+
+    .deletar, .trocar_senha {
        color: #E64A19;
        font-size: 0.8em;
        text-transform: none;

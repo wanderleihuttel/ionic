@@ -1,4 +1,4 @@
-<ion-content class="cadastro-conteudo" padding>
+<ion-content class="cadastro_conteudo" padding>
     <div class="logotipo"></div>
     <form (ngSubmit)="cadastrar()" #cadastro="ngForm">
       <ion-row>
@@ -23,7 +23,7 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col class="cadastrar-col">
+        <ion-col class="cadastrar_col">
           <button ion-button class="cadastrar" outline block type="submit" [disabled]="!cadastro.form.valid" color="light">Cadastrar</button>
         </ion-col>
       </ion-row>
