@@ -17,6 +17,11 @@ pagina-intro {
       margin-top: 50px;
     }
 
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      background: #FF5722;
+    }
+    
     p {
       padding: 0 40px;
       font-size: 14px;

@@ -8,7 +8,7 @@ import { AuthService } from '../../providers/auth-service';
 })
 export class Cadastro {
   cadastroSucesso = false;
-  dados = {email: '', senha: ''};
+  dados = {nome: '', sobrenome: '', email: '', senha: ''};
 
   constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) {}
 

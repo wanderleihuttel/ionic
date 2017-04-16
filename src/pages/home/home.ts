@@ -5,6 +5,7 @@ import { Login } from '../login/login';
 import { Categorias } from '../categorias/categorias';
 import { Pedidos } from '../pedidos/pedidos';
 import { Perfil } from '../perfil/perfil';
+import { Privacidade } from '../privacidade/privacidade';
 
 @Component({
   selector: 'pagina-home',
@@ -12,10 +13,11 @@ import { Perfil } from '../perfil/perfil';
 })
 export class Home {
   public showSearchBar: boolean = false;
-
+  pesquisa = '';
   codigo = '';
   nome = '';
   email = '';
+
   constructor(private nav: NavController, private auth: AuthService) {
     let info = this.auth.getUsuarioDados();
     this.codigo = info.codigo;
@@ -24,6 +26,12 @@ export class Home {
   }
 
   public toggleShowSearchBar() {
+    this.showSearchBar = !this.showSearchBar;
+  }
+
+  public onInput() {}
+
+  public onCancel() {
     this.showSearchBar = !this.showSearchBar;
   }
 
@@ -37,6 +45,10 @@ export class Home {
 
   public perfil() {
       this.nav.push(Perfil)
+  }
+
+  public privacidade() {
+      this.nav.push(Privacidade)
   }
 
   public sair() {

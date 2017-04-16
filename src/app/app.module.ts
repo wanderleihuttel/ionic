@@ -14,6 +14,7 @@ import { Home } from '../pages/home/home';
 import { Categorias } from '../pages/categorias/categorias';
 import { Pedidos } from '../pages/pedidos/pedidos';
 import { Perfil } from '../pages/perfil/perfil';
+import { Privacidade } from '../pages/privacidade/privacidade';
 import { Detalhes } from '../pages/detalhes/detalhes';
 
 import { AuthService } from '../providers/auth-service';
@@ -30,6 +31,7 @@ import { AuthService } from '../providers/auth-service';
     Categorias,
     Pedidos,
     Perfil,
+    Privacidade,
     Detalhes
   ],
   imports: [
@@ -48,6 +50,7 @@ import { AuthService } from '../providers/auth-service';
     Categorias,
     Pedidos,
     Perfil,
+    Privacidade,
     Detalhes
   ],
   providers: [

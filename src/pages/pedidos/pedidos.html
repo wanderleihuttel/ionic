@@ -5,14 +5,38 @@
 </ion-header>
 
 <ion-content class="pedidos">
-  <ion-card (click)="detalhes()" class="border">
+  <ion-card (click)="detalhes()" class="cinza">
     <ion-card-content>
       <ion-card-title>Nome do produto</ion-card-title>
-      <p>Loja: Teste</p>
+      <p>Teste</p>
     </ion-card-content>
     <ion-row>
-      <ion-col right text-right>
+      <ion-col text-right>
         <ion-note>Pendente</ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  
+  <ion-card class="amarelo">
+    <ion-card-content>
+      <ion-card-title>Nome do produto 2</ion-card-title>
+      <p>Teste 2</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col text-right>
+        <ion-note>Enviado</ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  
+  <ion-card class="verde">
+    <ion-card-content>
+      <ion-card-title>Nome do produto 3</ion-card-title>
+      <p>Teste 3</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col text-right>
+        <ion-note>Entregue</ion-note>
       </ion-col>
     </ion-row>
   </ion-card>

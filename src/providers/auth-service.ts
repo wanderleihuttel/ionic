@@ -34,11 +34,13 @@ export class AuthService {
 
   // Cadastrar usuário
   public cadastrar(dados) {
-    if (dados.nome === null || dados.sobrenome === null || dados.email === null || dados.senha === null || dados.confirma_senha === null) {
+    if (dados.nome === null || dados.sobrenome === null || dados.email === null || dados.confirma_email === null || dados.senha === null || dados.confirma_senha === null) {
       return Observable.throw("Preencha todos os campos");
     } else if (dados.confirma_senha != dados.senha) {
-      return Observable.throw("Senhas diferentes");
-    } else {
+      return Observable.throw("Senha diferente");
+    } else if (dados.confirma_email != dados.email) {
+      return Observable.throw("E-mail diferente");
+    }else {
       return Observable.create(observer => {
         observer.next(true);
         observer.complete();

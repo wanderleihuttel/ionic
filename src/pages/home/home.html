@@ -32,11 +32,11 @@
   </ion-header>
   <ion-content>
       <ion-list>
-          <button ion-item (click)="categorias()" menuClose>Categorias</button>
-          <button ion-item (click)="pedidos()" menuClose>Pedidos</button>
-          <button ion-item (click)="perfil()" menuClose>Perfil</button>
-          <button ion-item (click)="privacidade()" menuClose>Privacidade</button>
-          <button ion-item (click)="sair()">Sair</button>
+          <button ion-item detail-none (click)="categorias()" menuClose><ion-icon name="list" item-left></ion-icon>Categorias</button>
+          <button ion-item detail-none (click)="pedidos()" menuClose><ion-icon name="create" item-left></ion-icon>Pedidos</button>
+          <button ion-item detail-none (click)="perfil()" menuClose><ion-icon name="person" item-left></ion-icon>Perfil</button>
+          <button ion-item detail-none (click)="privacidade()" menuClose><ion-icon name="lock" item-left></ion-icon>Privacidade</button>
+          <button ion-item detail-none (click)="sair()"><ion-icon name="exit" item-left></ion-icon>Sair</button>
       </ion-list>
   </ion-content>
 </ion-menu>
@@ -46,5 +46,18 @@
     <img src="assets/img/cliente.jpg"/>
     <div class="card-title">JS0101</div>
     <div class="card-subtitle">Informe este código ao atendente, sempre que for realizar compras na loja</div>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>Lojas acessadas</ion-card-header>
+    <ion-list>
+      <button ion-item detail-none>
+        Loja 1
+        <p>Lorem Ipsum é simplesmente uma simulação de texto</p>
+      </button>
+      <button ion-item detail-none>
+        Loja 2
+        <p>Lorem Ipsum é simplesmente uma simulação de texto</p>
+      </button>
+    </ion-list>
   </ion-card>
 </ion-content>

@@ -10,4 +10,21 @@
 </ion-header>
 
 <ion-content class="detalhes">
+  <ion-slides class="slider" pager>
+    <ion-slide *ngFor="let slide of slides">
+      <img [src]="slide.image" class="slide-image"/>
+    </ion-slide>
+  </ion-slides>
+  <ion-card>
+    <ion-card-header>Número do pedido: 1</ion-card-header>
+    <ion-list>
+      <button ion-item detail-none>
+        <ion-icon name="cart" item-left></ion-icon>Nome do produto
+        <p>Lorem Ipsum é simplesmente uma simulação de texto</p>
+      </button>
+      <button ion-item detail-none>
+        <ion-icon name="information-circle" item-left></ion-icon>Status
+      </button>
+    </ion-list>
+  </ion-card>
 </ion-content>

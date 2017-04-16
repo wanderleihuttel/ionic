@@ -1,5 +1,23 @@
-pagina-detalhes {
+pagina-detalhes {  
   .detalhes {
-    background: #f6f8fb;
+    background-color: #f6f8fb;
+    
+    .slider {
+      height: 30%;
+    }
+    
+    .slide-zoom {
+      height: 100%;
+    }
+
+    .slide-image {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      background: #ffffff;
+    }
   }
 }

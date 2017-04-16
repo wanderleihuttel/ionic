@@ -9,4 +9,15 @@ export class Detalhes {
 
   constructor(private nav: NavController) {}
 
+  slides = [
+    {
+      image: "assets/img/cliente.jpg"
+    },
+    {
+      image: "assets/img/cliente.jpg"
+    },
+    {
+      image: "assets/img/cliente.jpg"
+    }
+  ];
 }
