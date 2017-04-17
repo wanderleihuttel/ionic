@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="navbar">
+  <ion-navbar color="navbar" no-border>
     <button ion-button icon-only (click)="menuCloseSearchBar()" menuToggle start>
         <ion-icon name="menu"></ion-icon>
     </button>
@@ -26,17 +26,17 @@
 
 <ion-menu [content]="menu">
   <ion-header>
-    <ion-toolbar color="navbar">
+    <ion-toolbar color="grey-dark">
         <ion-title>{{nome}}</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
       <ion-list>
-          <button ion-item detail-none (click)="categorias()" menuClose><ion-icon name="list" item-left></ion-icon>Categorias</button>
-          <button ion-item detail-none (click)="pedidos()" menuClose><ion-icon name="create" item-left></ion-icon>Pedidos</button>
-          <button ion-item detail-none (click)="perfil()" menuClose><ion-icon name="person" item-left></ion-icon>Perfil</button>
-          <button ion-item detail-none (click)="privacidade()" menuClose><ion-icon name="lock" item-left></ion-icon>Privacidade</button>
-          <button ion-item detail-none (click)="sair()"><ion-icon name="exit" item-left></ion-icon>Sair</button>
+          <button ion-item detail-none (click)="categorias()" menuClose><ion-icon name="list" color="orange-dark" item-left></ion-icon >Categorias</button>
+          <button ion-item detail-none (click)="pedidos()" menuClose><ion-icon name="create" color="orange-dark" item-left></ion-icon>Pedidos</button>
+          <button ion-item detail-none (click)="perfil()" menuClose><ion-icon name="person" color="orange-dark" item-left></ion-icon>Perfil</button>
+          <button ion-item detail-none (click)="privacidade()" menuClose><ion-icon name="lock" color="orange-dark" item-left></ion-icon>Privacidade</button>
+          <button ion-item detail-none (click)="sair()"><ion-icon name="exit" color="orange-dark" item-left></ion-icon>Sair</button>
       </ion-list>
   </ion-content>
 </ion-menu>
@@ -48,7 +48,17 @@
     <div class="card-subtitle">Informe este código ao atendente, sempre que for realizar compras na loja</div>
   </ion-card>
   <ion-card>
-    <ion-card-header>Lojas acessadas <ion-icon name="remove-circle" item-right></ion-icon></ion-card-header>
+    <ion-card-header>
+      <ion-row>
+        <ion-col>
+          <div class="historico">Lojas acessadas</div>
+        </ion-col>
+
+        <ion-col>
+         <button ion-button small class="apagar_historico" color="danger" icon-right>Apagar<ion-icon name="trash"></ion-icon></button>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
     <ion-list>
       <button ion-item detail-none>
         Loja 1
