@@ -1,43 +1,36 @@
-<ion-header>
+<ion-header no-border>
   <ion-navbar color="navbar">
     <ion-title>Pedidos</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="pedidos">
+    
   <ion-card (click)="detalhes()" class="cinza">
-    <ion-card-content>
-      <ion-card-title>Nome do produto</ion-card-title>
-      <p>Teste</p>
-    </ion-card-content>
-    <ion-row>
-      <ion-col text-right>
+    <ion-list>
+      <button ion-item detail-none>
+        <h2>Bicicleta Caloi</h2>
         <ion-note>Pendente</ion-note>
-      </ion-col>
-    </ion-row>
+      </button>
+    </ion-list>
   </ion-card>
-  
+
   <ion-card class="amarelo">
-    <ion-card-content>
-      <ion-card-title>Nome do produto 2</ion-card-title>
-      <p>Teste 2</p>
-    </ion-card-content>
-    <ion-row>
-      <ion-col text-right>
+    <ion-list>
+      <button ion-item detail-none>
+        <h2>Nome do produto 2</h2>
         <ion-note>Enviado</ion-note>
-      </ion-col>
-    </ion-row>
+      </button>
+    </ion-list>
   </ion-card>
-  
+
   <ion-card class="verde">
-    <ion-card-content>
-      <ion-card-title>Nome do produto 3</ion-card-title>
-      <p>Teste 3</p>
-    </ion-card-content>
-    <ion-row>
-      <ion-col text-right>
+    <ion-list>
+      <button ion-item detail-none>
+        <h2>Nome do produto 3</h2>
         <ion-note>Entregue</ion-note>
-      </ion-col>
-    </ion-row>
+      </button>
+    </ion-list>
   </ion-card>
+    
 </ion-content>

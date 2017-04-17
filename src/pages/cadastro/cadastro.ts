@@ -26,10 +26,6 @@ export class Cadastro {
     });
   }
 
-  public login() {
-    this.nav.popToRoot();
-  }
-
   alerta(titulo, mensagem) {
     let alert = this.alertCtrl.create({
       title: titulo,

@@ -1,4 +1,7 @@
 pagina-cadastro {
+    .bar-clear {
+        background: none !important;
+    }
   .cadastro_conteudo {
     background: #E64A19;
 
@@ -33,15 +36,15 @@ pagina-cadastro {
        text-transform: none;
      }
 
-      .login {
+    .login {
           text-transform: none;
       }
 
-      .logotipo {
+    .logotipo {
         position: absolute;
         background-image: url(../assets/img/logotipo-laranja.png);
-        width: 162px;
-        height: 162px;
+        width: 120px;
+        height: 120px;   
         left: 0px;
         bottom: 0px;
         -moz-transform: scaleX(-1);
@@ -50,6 +53,6 @@ pagina-cadastro {
         transform: scaleX(-1);
         filter: FlipH;
         -ms-filter: "FlipH";
-      }
+    }
   }
 }

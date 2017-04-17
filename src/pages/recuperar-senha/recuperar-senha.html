@@ -1,3 +1,7 @@
+<ion-header no-border>
+  <ion-navbar color="navbar"></ion-navbar>
+</ion-header>
+
 <ion-content class="recuperar_senha_conteudo" padding>
     <div class="logotipo"></div>
     <form (ngSubmit)="recuperar_senha()" #recuperar_senha="ngForm">
@@ -16,7 +20,4 @@
         </ion-col>
       </ion-row>
     </form>
-  <ion-footer>
-    <button ion-button class="login" full (click)="login()" color="light" no-margin>Login</button>
-  </ion-footer>
 </ion-content>

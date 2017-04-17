@@ -11,13 +11,13 @@ export class Detalhes {
 
   slides = [
     {
-      image: "assets/img/cliente.jpg"
+      image: "assets/produtos/bicicletaCaloi1.jpg"
     },
     {
-      image: "assets/img/cliente.jpg"
+      image: "assets/produtos/bicicletaCaloi2.jpg"
     },
     {
-      image: "assets/img/cliente.jpg"
+      image: "assets/produtos/bicicletaCaloi3.jpg"
     }
   ];
 }
