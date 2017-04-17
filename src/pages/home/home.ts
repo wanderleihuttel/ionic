@@ -29,6 +29,12 @@ export class Home {
     this.showSearchBar = !this.showSearchBar;
   }
 
+  public menuCloseSearchBar() {
+    if (this.showSearchBar) {
+        this.showSearchBar = false;
+    }
+  }
+
   public onInput() {}
 
   public onCancel() {
