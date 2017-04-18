@@ -26,11 +26,11 @@ pagina-recuperar-senha {
           text-transform: none;
       }
 
-      .logotipo {
+    .logotipo {
         position: absolute;
         background-image: url(../assets/img/logotipo-laranja.png);
-        width: 162px;
-        height: 162px;
+        width: 120px;
+        height: 120px;   
         left: 0px;
         bottom: 0px;
         -moz-transform: scaleX(-1);
@@ -39,6 +39,6 @@ pagina-recuperar-senha {
         transform: scaleX(-1);
         filter: FlipH;
         -ms-filter: "FlipH";
-      }
+    }
   }
 }
