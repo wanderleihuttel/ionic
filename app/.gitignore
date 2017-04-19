@@ -1,5 +1,4 @@
 /.idea
-/vendor
 /storage/session
 !/storage/session/.gitkeep
 *.php_cs.cache
