@@ -1,0 +1,12 @@
+{
+  "require": {
+    "lukasdev/drouter": "^2.4",
+    "phpmailer/phpmailer": "^5.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    },
+    "files": ["bootstrap/function.php", "bootstrap/environment.php"]
+  }
+}
