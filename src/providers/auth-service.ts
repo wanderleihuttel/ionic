@@ -60,7 +60,7 @@ export class AuthService {
       let headers = new Headers({'Content-Type': 'application/json'});
       let options = new RequestOptions({headers: headers});
 
-      var link = 'http://paguecompontos.com.br/api/cadastrar';
+      var link = 'http://app.com.br/api/cadastrar';
 
       this.http.post(link, dados, options).subscribe(data => {
          this.data = data;
