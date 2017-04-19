@@ -1,6 +1,9 @@
 pagina-cadastro {
   .cadastro_conteudo {
-    background: #E64A19;
+    background-color: #F45856;
+    background: -webkit-linear-gradient(-45deg,#f45856 0%,#a94442 100%);
+    background: -moz-linear-gradient(-45deg,#f45856 0%,#a94442 100%);
+    background: linear-gradient(135deg,#f45856 0%,#a94442 100%);
 
     ion-row {
        align-items: center;
@@ -36,20 +39,5 @@ pagina-cadastro {
     .login {
           text-transform: none;
       }
-
-    .logotipo {
-        position: absolute;
-        background-image: url(../assets/img/logotipo-laranja.png);
-        width: 120px;
-        height: 120px;   
-        left: 0px;
-        bottom: 0px;
-        -moz-transform: scaleX(-1);
-        -o-transform: scaleX(-1);
-        -webkit-transform: scaleX(-1);
-        transform: scaleX(-1);
-        filter: FlipH;
-        -ms-filter: "FlipH";
-    }
   }
 }

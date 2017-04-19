@@ -4,10 +4,33 @@ import { AuthService } from '../../providers/auth-service';
 
 @Component({
   selector: 'pagina-cadastro',
-  templateUrl: 'cadastro.html'
+  templateUrl: 'cadastro.html',
+  providers:[ AuthService ]
 })
 export class Cadastro {
-  cadastroSucesso = false;
+  dados: any;
+
+  constructor(public navCtrl: NavController, public auth: AuthService) {
+  	// Estrutura do formulário
+    this.dados = {};
+  }
+
+  cadastrar() {
+    //console.log(this.frmdata);
+    this.auth.cadastrar(JSON.stringify({
+      nome: this.dados.nome,
+      sobrenome: this.dados.sobrenome,
+      email: this.dados.email,
+      senha: this.dados.senha
+	})
+    );
+  }
+
+  ionViewDidLoad() {
+    console.log('Hello Cadastro Page');
+  }
+
+/*  cadastroSucesso = false;
   dados = {nome: '', sobrenome: '', email: '', senha: ''};
 
   constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) {}
@@ -42,5 +65,5 @@ export class Cadastro {
      ]
     });
     alert.present();
-  }
+  }*/
 }

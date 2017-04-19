@@ -24,7 +24,7 @@ export class Login {
   }
 
   public logar() {
-    this.carregando()
+    /*this.carregando()
     this.auth.logar(this.dados).subscribe(sucesso => {
       if (sucesso) {
         setTimeout(() => {
@@ -37,7 +37,7 @@ export class Login {
     },
     error => {
       this.erro(error);
-    });
+    });*/
   }
 
   carregando() {

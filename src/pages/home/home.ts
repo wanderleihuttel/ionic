@@ -19,10 +19,10 @@ export class Home {
   email = '';
 
   constructor(private nav: NavController, private auth: AuthService) {
-    let info = this.auth.getUsuarioDados();
+    /*let info = this.auth.getUsuarioDados();
     this.codigo = info.codigo;
     this.nome = info.nome;
-    this.email = info.email;
+    this.email = info.email;*/
   }
 
   public toggleShowSearchBar() {
@@ -58,9 +58,9 @@ export class Home {
   }
 
   public sair() {
-    this.auth.sair().subscribe(sucesso => {
+    //this.auth.sair().subscribe(sucesso => {
         this.nav.setRoot(Login)
-    });
+    //});
   }
 
 }

@@ -1,10 +1,10 @@
 pagina-login {
   .login_conteudo {
-        background-color: #FF5722;
-        background-image: -webkit-linear-gradient( -28deg, #FF5722 0%, #FF5722 68%, #E64A19 68%, #E64A19 68%);
-        background-image: -o-linear-gradient( -28deg, #FF5722 0%, #FF5722 68%, #E64A19 68%, #E64A19 68%);
-        background-image: -moz-linear-gradient( -28deg, #FF5722 0%, #FF5722 68%, #E64A19 68%, #E64A19 68%);
-        background-image: linear-gradient( -28deg, #FF5722 0%, #FF5722 68%, #E64A19 68%, #E64A19 68%);
+        background-color: #f9f9f9;
+        /*background-image: -webkit-linear-gradient( -28deg, #2C2527 0%, #2C2527 68%, #1D191A 68%, #1D191A 68%);
+        background-image: -o-linear-gradient( -28deg, #2C2527 0%, #2C2527 68%, #1D191A 68%, #1D191A 68%);
+        background-image: -moz-linear-gradient( -28deg, #2C2527 0%, #2C2527 68%, #1D191A 68%, #1D191A 68%);
+        background-image: linear-gradient( -28deg, #2C2527 0%, #2C2527 68%, #1D191A 68%, #1D191A 68%);*/
 
     ion-row {
        align-items: center;
@@ -31,13 +31,17 @@ pagina-login {
      }
 
      .login, .cadastro {
-       background-color: #FF5722;
+       background-color: #F45856;
+       background: -webkit-linear-gradient(-45deg,#f45856 0%,#a94442 100%);
+       background: -moz-linear-gradient(-45deg,#f45856 0%,#a94442 100%);
+       background: linear-gradient(135deg,#f45856 0%,#a94442 100%);
        border-radius: 4px !important;
+       border: none;
        text-transform: none;
      }
 
      .recuperar {
-       color: #e8e8e8;
+       color: #a94442;
        font-size: 0.8em;
        text-transform: none;
      }
