@@ -1,11 +1,30 @@
 <?php
+	use App\Http\Handler;
 
-use App\Http\Handler;
+	if (isset($_SERVER['HTTP_ORIGIN'])) {
 
-$path = dirname(__DIR__);
+		header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+		header('Access-Control-Allow-Credentials: true');
+		header('Access-Control-Max-Age: 86400');
+	}
 
-require $path . '/vendor/autoload.php';
+	if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
-$app = new Handler($path);
+		if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'])) {
+			header("Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS");
+		}
 
-$app->start()->run();
+		if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS'])) {
+			header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+		}
+
+		exit(0);
+	}
+
+	$path = dirname(__DIR__);
+
+	require $path . '/vendor/autoload.php';
+
+	$app = new Handler($path);
+
+	$app->start()->run();
