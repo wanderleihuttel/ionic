@@ -4,10 +4,7 @@
 	
 	class CadastroModel extends Model
 	{
-        public function cadastro($nome, $sobrenome, $email, $senha){
-			
-			header('Access-Control-Allow-Origin: *');
-			
+        public function cadastro($nome, $sobrenome, $email, $senha){			
 			$senha_criptografada = password_hash($senha, PASSWORD_BCRYPT, ['cost' => 12]);
 			
 			$nome_completo = $nome.' '.$sobrenome;

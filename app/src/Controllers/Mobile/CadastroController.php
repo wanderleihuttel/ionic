@@ -4,10 +4,7 @@
 	
 	class CadastroController extends Controller
 	{
-		public function cadastro(){
-			
-			header('Access-Control-Allow-Origin: *');
-			
+		public function cadastro(){			
 			$cadastro = new Cadastro($this->db);
 			
 			$nome = post('nome', FILTER_SANITIZE_STRING);
