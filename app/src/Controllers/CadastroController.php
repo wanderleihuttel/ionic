@@ -4,7 +4,7 @@
 	
 	class CadastroController extends Controller
 	{
-		public function cadastro(){			
+		public function cadastro(){
 			$cadastro = new Cadastro($this->db);
 			
 			$nome = post('nome', FILTER_SANITIZE_STRING);
