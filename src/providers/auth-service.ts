@@ -57,10 +57,10 @@ export class AuthService {
 
     } else {
 
-      let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'});
-      let options = new RequestOptions({headers: headers});
+      const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'});
+      const options = new RequestOptions({headers: headers});
 
-      var link = 'http://app.com.br/api/cadastrar';
+      const link = 'http://app.com.br/api/cadastrar';
 
       this.http.post(link, dados, options).subscribe(data => {
          this.data = data;
