@@ -21,7 +21,7 @@ pagina-intro {
       opacity: 1;
       background: #FF5722;
     }
-    
+
     p {
       padding: 0 40px;
       font-size: 14px;
@@ -30,8 +30,11 @@ pagina-intro {
     }
 
     .login {
-      background: #FF5722;
-      text-transform: none;
+       background-color: #ef6933;
+       background: -webkit-linear-gradient(-45deg,#ef6933 0%,#af3200 100%);
+       background: -moz-linear-gradient(-45deg,#ef6933 0%,#af3200 100%);
+       background: linear-gradient(135deg, #ef6933 0%, #af3200 100%);
+       text-decoration: none;
     }
 
   }

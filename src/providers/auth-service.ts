@@ -57,7 +57,7 @@ export class AuthService {
 
     } else {
 
-      let headers = new Headers({'Content-Type': 'application/json'});
+      let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'});
       let options = new RequestOptions({headers: headers});
 
       var link = 'http://app.com.br/api/cadastrar';
