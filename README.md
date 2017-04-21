@@ -22,7 +22,7 @@
    
    `DocumentRoot "C:\xampp\htdocs\app\public"`
    
-   `ErrorLog "logs/dominio1-error.log"`
+   `ErrorLog "logs/app-error.log"`
    
    `CustomLog "logs/app-access.log" common`
    
