@@ -2,7 +2,7 @@
 
 > Recortar e colar a pasta app, dentro de htdocs (Xampp)
 
-> O banco de dados está na pasta storage/backup
+> O banco de dados está na pasta app/storage/backup
 
 > Adicionar em C:\Windows\System32\drivers\etc\hosts:
 
