@@ -28,13 +28,13 @@
    
    `<Directory "C:\xampp\htdocs\app\public">`
    
-       `DirectoryIndex index.php index.html index.htm`
+       DirectoryIndex index.php index.html index.htm
        
-       `AllowOverride All`
+       AllowOverride All
        
-       `Order allow,deny`
+       Order allow,deny
        
-       `Allow from all`
+       Allow from all
        
    `</Directory>`
    
