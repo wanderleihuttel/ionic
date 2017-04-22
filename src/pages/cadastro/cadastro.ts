@@ -8,20 +8,23 @@ import { AuthService } from '../../providers/auth-service';
   providers:[ AuthService ]
 })
 export class Cadastro {
-  dados: any;
+  //dados: any;
   sucesso = false;
+  
+  dados = {nome: '', sobrenome: '', email: '', senha: ''};
 
-  constructor(private navCtrl: NavController, private auth: AuthService, private alertCtrl: AlertController) {
-    this.dados = {};
+  constructor(private nav: NavController, private auth: AuthService, private alert: AlertController) {
+    //this.dados = {};
   }
 
   cadastrar() {
-    this.auth.cadastrar(JSON.stringify({
+    /*this.auth.cadastrar(JSON.stringify({
       nome: this.dados.nome,
       sobrenome: this.dados.sobrenome,
       email: this.dados.email,
       senha: this.dados.senha
-	}).subscribe(resposta => {
+	})*/
+    this.auth.cadastrar(this.dados).subscribe(resposta => {
       if (resposta == 'cadastrou') {
           this.sucesso = true;
           this.alerta("Sucesso", "Cadastrado com sucesso");
@@ -32,32 +35,10 @@ export class Cadastro {
     error => {
       this.alerta("Error", error);
     });
-    );
   }
 
-  ionViewDidLoad() {}
-
-/*  cadastroSucesso = false;
-  dados = {nome: '', sobrenome: '', email: '', senha: ''};
-
-  constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) {}
-
-  public cadastrar() {
-    this.auth.cadastrar(this.dados).subscribe(sucesso => {
-      if (sucesso) {
-        this.cadastroSucesso = true;
-          this.alerta("Sucesso", "Cadastrado com sucesso");
-      } else {
-        this.alerta("Erro", "Erro ao cadastrar");
-      }
-    },
-    error => {
-      this.alerta("Error", error);
-    });
-  }*/
-
   alerta(titulo, mensagem) {
-    let alert = this.alertCtrl.create({
+    let alert = this.alert.create({
       title: titulo,
       subTitle: mensagem,
       buttons: [
