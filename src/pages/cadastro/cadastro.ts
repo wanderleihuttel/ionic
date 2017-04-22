@@ -9,26 +9,33 @@ import { AuthService } from '../../providers/auth-service';
 })
 export class Cadastro {
   dados: any;
+  sucesso = false;
 
-  constructor(public navCtrl: NavController, public auth: AuthService) {
-  	// Estrutura do formulário
+  constructor(private navCtrl: NavController, private auth: AuthService, private alertCtrl: AlertController) {
     this.dados = {};
   }
 
   cadastrar() {
-    //console.log(this.frmdata);
     this.auth.cadastrar(JSON.stringify({
       nome: this.dados.nome,
       sobrenome: this.dados.sobrenome,
       email: this.dados.email,
       senha: this.dados.senha
-	})
+	}).subscribe(resposta => {
+      if (resposta == 'cadastrou') {
+          this.sucesso = true;
+          this.alerta("Sucesso", "Cadastrado com sucesso");
+      } else {
+        this.alerta("Erro", "Erro ao cadastrar");
+      }
+    },
+    error => {
+      this.alerta("Error", error);
+    });
     );
   }
 
-  ionViewDidLoad() {
-    console.log('Hello Cadastro Page');
-  }
+  ionViewDidLoad() {}
 
 /*  cadastroSucesso = false;
   dados = {nome: '', sobrenome: '', email: '', senha: ''};
@@ -47,7 +54,7 @@ export class Cadastro {
     error => {
       this.alerta("Error", error);
     });
-  }
+  }*/
 
   alerta(titulo, mensagem) {
     let alert = this.alertCtrl.create({
@@ -57,7 +64,7 @@ export class Cadastro {
        {
          text: 'OK',
          handler: data => {
-           if (this.cadastroSucesso) {
+           if (this.sucesso) {
              this.nav.popToRoot();
            }
          }
@@ -65,5 +72,5 @@ export class Cadastro {
      ]
     });
     alert.present();
-  }*/
+  }
 }

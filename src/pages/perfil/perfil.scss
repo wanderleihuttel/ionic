@@ -3,44 +3,48 @@ pagina-perfil {
     background: #f6f8fb;
 
     ion-row {
-       align-items: center;
-       text-align: center;
-     }
-
-    ion-list {
-        border: 1px solid #eeeeee;
-        border-radius: 5px !important;
+      align-items: center;
+      text-align: center;
     }
 
-     ion-item {
-         font-size: 0.9em;
-         border-bottom: 1px solid #eeeeee !important;
-         box-shadow: none !important;
-     }
+    ion-list {
+      border: 1px solid #eeeeee;
+      border-radius: 5px !important;
+    }
 
-     .item-inner {
-       border-bottom-color: #ffffff !important;
-       box-shadow: none !important;
-     }
+    ion-item {
+      font-size: 0.9em;
+      border-bottom: 1px solid #eeeeee !important;
+      box-shadow: none !important;
+    }
 
-     .botoes_col {
-       margin: 0px 16px 0px 16px;
-     }
+    ion-input {
+      margin-left: 5px;
+    }
+
+    .item-inner {
+      border-bottom-color: #ffffff !important;
+      box-shadow: none !important;
+    }
+
+    .botoes_col {
+      margin: 0px 16px 0px 16px;
+    }
 
     .atualizar {
-       background-color: #F45856;
-       background: -webkit-linear-gradient(-45deg,#f45856 0%,#a94442 100%);
-       background: -moz-linear-gradient(-45deg,#f45856 0%,#a94442 100%);
-       background: linear-gradient(135deg,#f45856 0%,#a94442 100%);
-       border-radius: 4px !important;
-       border: none;
-       text-transform: none;
+      background-color: #F45856;
+      background: -webkit-linear-gradient(-45deg,#f45856 0%,#a94442 100%);
+      background: -moz-linear-gradient(-45deg,#f45856 0%,#a94442 100%);
+      background: linear-gradient(135deg,#f45856 0%,#a94442 100%);
+      border-radius: 4px !important;
+      border: none;
+      text-transform: none;
     }
 
     .deletar, .trocar_senha {
-       color: #E64A19;
-       font-size: 0.8em;
-       text-transform: none;
+      color: #E64A19;
+      font-size: 0.8em;
+      text-transform: none;
     }
   }
 }

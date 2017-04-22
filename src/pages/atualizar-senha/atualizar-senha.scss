@@ -2,40 +2,45 @@ pagina-atualizar-senha {
   .atualizar_senha {
     background: #f6f8fb;
   }
+
   .atualizar_senha_conteudo {
     ion-row {
-       align-items: center;
-       text-align: center;
-     }
-
-    ion-list {
-        border: 1px solid #eeeeee;
-        border-radius: 5px !important;
+      align-items: center;
+      text-align: center;
     }
 
-     ion-item {
-         font-size: 0.9em;
-         border-bottom: 1px solid #eeeeee !important;
-         box-shadow: none !important;
-     }
-    
-     .item-inner {
-       border-bottom-color: #ffffff !important;
-       box-shadow: none !important;
-     }
-    
-     .atualizar_senha_col {
-       margin: 0px 16px 0px 16px;
-     }
+    ion-list {
+      border: 1px solid #eeeeee;
+      border-radius: 5px !important;
+    }
+
+    ion-item {
+      font-size: 0.9em;
+      border-bottom: 1px solid #eeeeee !important;
+      box-shadow: none !important;
+    }
+
+    ion-input {
+      margin-left: 5px;
+    }
+
+    .item-inner {
+      border-bottom-color: #ffffff !important;
+      box-shadow: none !important;
+    }
+
+    .atualizar_senha_col {
+      margin: 0px 16px 0px 16px;
+    }
 
     .atualizar_senha {
-       background-color: #F45856;
-       background: -webkit-linear-gradient(-45deg,#f45856 0%,#a94442 100%);
-       background: -moz-linear-gradient(-45deg,#f45856 0%,#a94442 100%);
-       background: linear-gradient(135deg,#f45856 0%,#a94442 100%);
-       border-radius: 4px !important;
-       border: none;
-       text-transform: none;
+      background-color: #F45856;
+      background: -webkit-linear-gradient(-45deg,#f45856 0%,#a94442 100%);
+      background: -moz-linear-gradient(-45deg,#f45856 0%,#a94442 100%);
+      background: linear-gradient(135deg,#f45856 0%,#a94442 100%);
+      border-radius: 4px !important;
+      border: none;
+      text-transform: none;
     }
   }
 }

@@ -1,38 +1,43 @@
 pagina-recuperar-senha {
+  .back-button {
+    color: #E64A19 !important;
+  }
+
   .recuperar_senha_conteudo {
     background-color: #f9f9f9;
-    /*background: -webkit-linear-gradient(-45deg,#f45856 0%,#a94442 100%);
-    background: -moz-linear-gradient(-45deg,#f45856 0%,#a94442 100%);
-    background: linear-gradient(135deg,#f45856 0%,#a94442 100%);*/
 
     ion-row {
-       align-items: center;
-       text-align: center;
-     }
-
-    ion-list {
-        border: 1px solid #eeeeee;
-        border-radius: 5px !important;
+      align-items: center;
+      text-align: center;
     }
 
-     ion-item {
-         font-size: 0.9em;
-         border-bottom: 1px solid #eeeeee !important;
-         box-shadow: none !important;
-     }
+    ion-list {
+      border: 1px solid #eeeeee;
+      border-radius: 5px !important;
+    }
 
-     .recuperar_senha_col {
-       margin: 0px 16px 0px 16px;
-     }
+    ion-item {
+      font-size: 0.9em;
+      border-bottom: 1px solid #eeeeee !important;
+      box-shadow: none !important;
+    }
 
-      .recuperar_senha {
-         background-color: #ef6933;
-         background: -webkit-linear-gradient(-45deg,#ef6933 0%,#af3200 100%);
-         background: -moz-linear-gradient(-45deg,#ef6933 0%,#af3200 100%);
-         background: linear-gradient(135deg, #ef6933 0%, #af3200 100%);
-         border-radius: 4px !important;
-         border: none;
-         text-transform: none;
-      }
+    ion-input {
+      margin-left: 5px;
+    }
+
+    .recuperar_senha_col {
+      margin: 0px 16px 0px 16px;
+    }
+
+    .recuperar_senha {
+      background-color: #ef6933;
+      background: -webkit-linear-gradient(-45deg,#ef6933 0%,#af3200 100%);
+      background: -moz-linear-gradient(-45deg,#ef6933 0%,#af3200 100%);
+      background: linear-gradient(135deg, #ef6933 0%, #af3200 100%);
+      border-radius: 4px !important;
+      border: none;
+      text-transform: none;
+    }
   }
 }

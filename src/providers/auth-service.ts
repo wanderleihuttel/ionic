@@ -1,28 +1,15 @@
 import { Injectable } from '@angular/core';
+import { AlertController, LoadingController } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-/*export class Usuario {
-  codigo: string;
-  nome: string;
-  email: string;
-
-  constructor(codigo: string, nome: string, email: string) {
-    this.codigo = codigo;
-    this.nome = nome;
-    this.email = email;
-  }
-}*/
-
 @Injectable()
 export class AuthService {
-
   data: any;
 
-  constructor(public http: Http) {
+  constructor(private http: Http, private alert: AlertController, private loading: LoadingController) {
     this.data = null;
   }
-  //usuario: Usuario;
 
   // Logar
   public logar(dados) {
@@ -40,7 +27,7 @@ export class AuthService {
 
   // Cadastrar usuário
   public cadastrar(dados) {
-    if (dados.nome === null
+    /*if (dados.nome === null
         || dados.sobrenome === null
         || dados.email === null
         || dados.confirma_email === null
@@ -55,22 +42,35 @@ export class AuthService {
     } else if (dados.confirma_email != dados.email) {
       console.log("E-mail diferente");
 
-    } else {
+    } else {*/
 
-      const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'});
-      const options = new RequestOptions({headers: headers});
+      let headers = new Headers({'Content-Type': 'application/json; charset=UTF-8'});
+      let options = new RequestOptions({headers: headers});
 
-      const link = 'http://app.com.br/api/cadastrar';
+      let link = 'http://app.com.br/api/cadastrar';
 
       this.http.post(link, dados, options).subscribe(data => {
          this.data = data;
 
+         let loader = this.loading.create({
+             content: 'Aguarde! Cadastrando...',
+             duration: 1000
+         });
+         loader.present();
+
          console.log(data);
       }, error => {
-         console.log(error);
+          let alert = this.alert.create({
+              title: 'Erro',
+              subTitle: 'Erro ao cadastrar!',
+              buttons: ['OK']
+          });
+          alert.present();
+
+          console.log(error);
       });
 
-    }
+    //}
   }
 
   // Recuperar senha
