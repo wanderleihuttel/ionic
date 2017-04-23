@@ -5,7 +5,7 @@ export class PATH {
   link = '';
 
   constructor() {
-    this.link ='http://app.com.br/api/';
+    this.link = 'http://app.com.br/api/';
   }
 
   getUrl() {
