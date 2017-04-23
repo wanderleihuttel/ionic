@@ -8,14 +8,11 @@ import { AuthService } from '../../providers/auth-service';
   providers:[ AuthService ]
 })
 export class Cadastro {
-  //dados: any;
   sucesso = false;
   
   dados = {nome: '', sobrenome: '', email: '', senha: ''};
 
-  constructor(private nav: NavController, private auth: AuthService, private alert: AlertController) {
-    //this.dados = {};
-  }
+  constructor(private nav: NavController, private auth: AuthService, private alert: AlertController) {}
 
   cadastrar() {
     /*this.auth.cadastrar(JSON.stringify({
@@ -24,6 +21,7 @@ export class Cadastro {
       email: this.dados.email,
       senha: this.dados.senha
 	})*/
+      
     this.auth.cadastrar(this.dados).subscribe(resposta => {
         console.log(resposta);
       /*if (resposta == 'cadastrou') {
@@ -32,6 +30,7 @@ export class Cadastro {
       } else {
         this.alerta("Erro", "Erro ao cadastrar");
       }*/
+        
     },
     error => {
       this.alerta("Error", error);
