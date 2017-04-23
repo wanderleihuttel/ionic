@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'pagina-cadastro',
@@ -14,27 +15,30 @@ export class Cadastro {
 
   constructor(private nav: NavController, private auth: AuthService, private alert: AlertController) {}
 
-  cadastrar() {
-    /*this.auth.cadastrar(JSON.stringify({
+  cadastrar() {      
+    this.auth.cadastrar(this.jsonToURLEncoded({
       nome: this.dados.nome,
       sobrenome: this.dados.sobrenome,
       email: this.dados.email,
       senha: this.dados.senha
-	})*/
-      
-    this.auth.cadastrar(this.dados).subscribe(resposta => {
-        console.log(resposta);
-      /*if (resposta == 'cadastrou') {
+	})).subscribe(retorno => {
+      if (retorno.resposta == 'cadastrou') {
           this.sucesso = true;
           this.alerta("Sucesso", "Cadastrado com sucesso");
       } else {
         this.alerta("Erro", "Erro ao cadastrar");
-      }*/
+      }
         
     },
     error => {
       this.alerta("Error", error);
     });
+  }
+
+  private jsonToURLEncoded(jsonString){
+    return Object.keys(jsonString).map(function(key){
+      return encodeURIComponent(key) + '=' + encodeURIComponent(jsonString[key]);
+    }).join('&');
   }
 
   alerta(titulo, mensagem) {

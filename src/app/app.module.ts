@@ -20,6 +20,7 @@ import { Privacidade } from '../pages/privacidade/privacidade';
 import { Detalhes } from '../pages/detalhes/detalhes';
 
 import { AuthService } from '../providers/auth-service';
+import { PATH } from '../providers/path';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,9 @@ import { AuthService } from '../providers/auth-service';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService,
+    PATH
   ]
 })
 export class AppModule {}
