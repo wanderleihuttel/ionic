@@ -5,6 +5,7 @@
 	class CadastroController extends Controller
 	{
 		public function cadastro(){
+			$cadastro = new Cadastro($this->db);
 			/*$postdata = file_get_contents("php://input");
 			
 			if (isset($postdata)) {
