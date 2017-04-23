@@ -25,12 +25,13 @@ export class Cadastro {
       senha: this.dados.senha
 	})*/
     this.auth.cadastrar(this.dados).subscribe(resposta => {
-      if (resposta == 'cadastrou') {
+        console.log(resposta);
+      /*if (resposta == 'cadastrou') {
           this.sucesso = true;
           this.alerta("Sucesso", "Cadastrado com sucesso");
       } else {
         this.alerta("Erro", "Erro ao cadastrar");
-      }
+      }*/
     },
     error => {
       this.alerta("Error", error);

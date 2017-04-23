@@ -49,26 +49,27 @@ export class AuthService {
 
       let link = 'http://app.com.br/api/cadastrar';
 
-      return this.http.post(link, dados, options).subscribe(data => {
-         this.data = data;
+      return this.http.post(link, dados, options)
+          .map(data => {
+          //.subscribe(data => {
+            this.data = data.json();
 
-         let loader = this.loading.create({
-             content: 'Aguarde! Cadastrando...',
-             duration: 1000
-         });
-         loader.present();
-
-         console.log(data);
-      }, error => {
-          let alert = this.alert.create({
+            let loader = this.loading.create({
+              content: 'Aguarde! Cadastrando...',
+              duration: 1000
+            });
+            loader.present();
+            console.log(data);
+          
+          }, error => {
+            let alert = this.alert.create({
               title: 'Erro',
               subTitle: 'Erro ao cadastrar!',
               buttons: ['OK']
+            });
+            alert.present();
+            console.log(error);
           });
-          alert.present();
-
-          console.log(error);
-      });
 
     //}
   }
