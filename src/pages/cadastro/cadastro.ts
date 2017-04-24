@@ -1,21 +1,22 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, LoadingController, ToastController, Loading } from 'ionic-angular';
 import { LoginService } from '../../providers/login-service';
 import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'pagina-cadastro',
-  templateUrl: 'cadastro.html',
-  //providers:[ LoginService ]
+  templateUrl: 'cadastro.html'
 })
 export class Cadastro {
+  loading: Loading;
   sucesso = false;
-  
+
   dados = {nome: '', sobrenome: '', email: '', senha: ''};
 
-  constructor(private nav: NavController, private cadastro: LoginService, private alert: AlertController) {}
+  constructor(private nav: NavController, private cadastro: LoginService, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {}
 
-  cadastrar() {      
+  cadastrar() {
+    this.carregando();
     this.cadastro.cadastrar(this.jsonToURLEncoded({
       nome: this.dados.nome,
       sobrenome: this.dados.sobrenome,
@@ -23,14 +24,17 @@ export class Cadastro {
       senha: this.dados.senha
 	})).subscribe(retorno => {
       if (retorno.resposta == 'cadastrou') {
+          setTimeout(() => {
+            this.loading.dismiss();
+          });
           this.sucesso = true;
-          this.alerta("Sucesso", "Cadastrado com sucesso");
+          this.alerta("Cadastrado com sucesso");
       } else {
-        this.alerta("Erro", "Erro ao cadastrar");
+        this.alerta("Erro ao cadastrar");
       }
-        
+
     }, error => {
-      this.alerta("Error", error);
+      this.alerta(error);
     });
   }
 
@@ -40,21 +44,22 @@ export class Cadastro {
     }).join('&');
   }
 
-  alerta(titulo, mensagem) {
-    let alert = this.alert.create({
-      title: titulo,
-      subTitle: mensagem,
-      buttons: [
-       {
-         text: 'OK',
-         handler: data => {
-           if (this.sucesso) {
-             this.nav.popToRoot();
-           }
-         }
-       }
-     ]
+  carregando() {
+    this.loading = this.loadingCtrl.create({content: 'Aguarde...'});
+    this.loading.present();
+  }
+
+  alerta(mensagem) {
+    setTimeout(() => {this.loading.dismiss();});
+
+    let toast = this.toastCtrl.create({
+      message: mensagem,
+      duration: 3000,
+      position: 'bottom'
     });
-    alert.present();
+    if (this.sucesso) {
+      this.nav.popToRoot();
+    }
+    toast.present();
   }
 }

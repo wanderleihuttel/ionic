@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, ToastController, Loading } from 'ionic-angular';
+import { NavController, LoadingController, ToastController, Loading } from 'ionic-angular';
 import { LoginService } from '../../providers/login-service';
 import { Cadastro } from '../cadastro/cadastro';
 import { RecuperarSenha } from '../recuperar-senha/recuperar-senha';
@@ -15,7 +15,7 @@ export class Login {
   dados = {email: '', senha: ''};
   er = /^[a-zA-Z0-9][a-zA-Z0-9\._-]+@([a-zA-Z0-9\._-]+\.)[a-zA-Z-0-9]{2,3}$/;
 
-  constructor(private nav: NavController, private login: LoginService, private alert: AlertController, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {}
+  constructor(private nav: NavController, private login: LoginService, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {}
 
   public cadastro() {
     this.nav.push(Cadastro);
@@ -73,27 +73,4 @@ export class Login {
 
     toast.present();
   }
-
-  /*alerta(mensagem) {
-    setTimeout(() => {this.loading.dismiss();});
-
-    let alert = this.alert.create({
-      subTitle: mensagem,
-      buttons: [{text: 'OK'}]
-    });
-    alert.present();
-  }*/
-
-  /*erro(mensagem) {
-    setTimeout(() => {
-      this.loading.dismiss();
-    });
-
-    let alert = this.alertCtrl.create({
-      title: 'Erro',
-      subTitle: mensagem,
-      buttons: ['OK']
-    });
-    alert.present(prompt);
-  }*/
 }
