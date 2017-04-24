@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading } from 'ionic-angular';
-import { AuthService } from '../../providers/auth-service';
+import { LoginService } from '../../providers/login-service';
 import { Cadastro } from '../cadastro/cadastro';
 import { RecuperarSenha } from '../recuperar-senha/recuperar-senha';
 import { Home } from '../home/home';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'pagina-login',
@@ -13,7 +14,7 @@ export class Login {
   loading: Loading;
   dados = {email: '', senha: ''};
 
-  constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {}
+  constructor(private nav: NavController, private login: LoginService, private alert: AlertController, private loadingCtrl: LoadingController) {}
 
   public cadastro() {
     this.nav.push(Cadastro);
@@ -24,20 +25,31 @@ export class Login {
   }
 
   public logar() {
-    /*this.carregando()
-    this.auth.logar(this.dados).subscribe(sucesso => {
-      if (sucesso) {
+    this.carregando();
+    this.login.logar(this.jsonToURLEncoded({
+      email: this.dados.email,
+      senha: this.dados.senha
+	})).subscribe(retorno => {
+      if (retorno.resposta == 'logou') {
         setTimeout(() => {
-        this.loading.dismiss();
-        this.nav.setRoot(Home)
+          this.loading.dismiss();
         });
+
+        // Gravar dados no SQLite
+
+        this.nav.setRoot(Home);
       } else {
-        this.erro("Acesso negado");
+        this.alerta("Erro", "E-mail ou senha inválido");
       }
-    },
-    error => {
-      this.erro(error);
-    });*/
+    }, error => {
+      this.alerta("Error", error);
+    });
+  }
+
+  private jsonToURLEncoded(jsonString){
+    return Object.keys(jsonString).map(function(key){
+      return encodeURIComponent(key) + '=' + encodeURIComponent(jsonString[key]);
+    }).join('&');
   }
 
   carregando() {
@@ -47,7 +59,22 @@ export class Login {
     this.loading.present();
   }
 
-  erro(mensagem) {
+  alerta(titulo, mensagem) {
+    setTimeout(() => {
+      this.loading.dismiss();
+    });
+
+    let alert = this.alert.create({
+      title: titulo,
+      subTitle: mensagem,
+      buttons: [{
+        text: 'OK'
+      }]
+    });
+    alert.present();
+  }
+
+  /*erro(mensagem) {
     setTimeout(() => {
       this.loading.dismiss();
     });
@@ -58,5 +85,5 @@ export class Login {
       buttons: ['OK']
     });
     alert.present(prompt);
-  }
+  }*/
 }

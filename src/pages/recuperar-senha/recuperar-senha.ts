@@ -1,30 +1,18 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
-import { AuthService } from '../../providers/auth-service';
+import { LoginService } from '../../providers/login-service';
 
 @Component({
   selector: 'pagina-recuperar-senha',
   templateUrl: 'recuperar-senha.html'
 })
 export class RecuperarSenha {
-  recuperar_senhaSucesso = false;
+  sucesso = false;
   dados = {email: ''};
 
-  constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) {}
+  constructor(private nav: NavController, private login: LoginService, private alertCtrl: AlertController) {}
 
-  public recuperar_senha() {
-    /*this.auth.recuperar_senha(this.dados).subscribe(sucesso => {
-      if (sucesso) {
-        this.recuperar_senhaSucesso = true;
-          this.alerta("Sucesso", "Enviamos um e-mail com link de recuperação");
-      } else {
-        this.alerta("Erro", "Erro ao enviar e-mail");
-      }
-    },
-    error => {
-      this.alerta("Error", error);
-    });*/
-  }
+  public recuperar_senha() {}
 
   alerta(titulo, mensagem) {
     let alert = this.alertCtrl.create({
@@ -34,7 +22,7 @@ export class RecuperarSenha {
        {
          text: 'OK',
          handler: data => {
-           if (this.recuperar_senhaSucesso) {
+           if (this.sucesso) {
              this.nav.popToRoot();
            }
          }

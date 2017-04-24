@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
-import { AuthService } from '../../providers/auth-service';
+import { LoginService } from '../../providers/login-service';
 import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'pagina-cadastro',
   templateUrl: 'cadastro.html',
-  providers:[ AuthService ]
+  //providers:[ LoginService ]
 })
 export class Cadastro {
   sucesso = false;
   
   dados = {nome: '', sobrenome: '', email: '', senha: ''};
 
-  constructor(private nav: NavController, private auth: AuthService, private alert: AlertController) {}
+  constructor(private nav: NavController, private cadastro: LoginService, private alert: AlertController) {}
 
   cadastrar() {      
-    this.auth.cadastrar(this.jsonToURLEncoded({
+    this.cadastro.cadastrar(this.jsonToURLEncoded({
       nome: this.dados.nome,
       sobrenome: this.dados.sobrenome,
       email: this.dados.email,
@@ -29,8 +29,7 @@ export class Cadastro {
         this.alerta("Erro", "Erro ao cadastrar");
       }
         
-    },
-    error => {
+    }, error => {
       this.alerta("Error", error);
     });
   }

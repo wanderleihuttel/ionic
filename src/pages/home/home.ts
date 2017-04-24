@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AuthService } from '../../providers/auth-service';
+import { LoginService } from '../../providers/login-service';
 import { Login } from '../login/login';
 import { Categorias } from '../categorias/categorias';
 import { Pedidos } from '../pedidos/pedidos';
@@ -18,7 +18,7 @@ export class Home {
   nome = '';
   email = '';
 
-  constructor(private nav: NavController, private auth: AuthService) {
+  constructor(private nav: NavController, private login: LoginService) {
     /*let info = this.auth.getUsuarioDados();
     this.codigo = info.codigo;
     this.nome = info.nome;

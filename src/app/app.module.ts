@@ -19,7 +19,8 @@ import { Perfil } from '../pages/perfil/perfil';
 import { Privacidade } from '../pages/privacidade/privacidade';
 import { Detalhes } from '../pages/detalhes/detalhes';
 
-import { AuthService } from '../providers/auth-service';
+import { LoginService } from '../providers/login-service';
+
 import { PATH } from '../providers/path';
 
 @NgModule({
@@ -62,7 +63,7 @@ import { PATH } from '../providers/path';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthService,
+    LoginService,
     PATH
   ]
 })
