@@ -1,19 +1,23 @@
 <?php
 	use App\Controllers\CadastroController;
+	use App\Controllers\LoginController;
+	use App\Controllers\PedidosController;
 
 	return function (App\Http\Handler $app) {
 		
 		// Utilizar app.com.br/api/
 		$mobile = function() use ($app) {
 			
-			$app
-				->get('/', function() use ($app) {
-					echo "Teste";
-				}, []);
-			
 			// Cadastro
+			$app->post('/cadastrar', CadastroController::class . ':cadastro', []);
+			
+			// Login
+			$app->post('/logar', LoginController::class . ':login', []);
+			
+			// Pedidos
 			$app
-				->post('/cadastrar', CadastroController::class . ':cadastro', []);
+				->get('/pedidos', PedidosController::class . ':pedidos', [])
+				->post('/pedir', PedidosController::class . ':pedir', []);
 		};
 		$app->group('/api', $mobile);
 	};

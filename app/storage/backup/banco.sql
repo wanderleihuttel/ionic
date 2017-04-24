@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 19-Abr-2017 às 19:55
+-- Generation Time: 24-Abr-2017 às 04:41
 -- Versão do servidor: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -9907,6 +9907,13 @@ CREATE TABLE `loja_clientes` (
   `lixeira` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Extraindo dados da tabela `loja_clientes`
+--
+
+INSERT INTO `loja_clientes` (`id`, `codigo`, `nome`, `sobrenome`, `email`, `senha`, `lixeira`) VALUES
+(2, 'JS7529', 'Jonathan', 'Silva', 'teste@gmail.com', '$2y$12$XgRPy1cJtf6wqAL23v7HP.m17R.B3dhRxVOeNd89bkW4Bhp0K4P/2', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -9971,11 +9978,18 @@ CREATE TABLE `loja_pedidos` (
   `id` int(11) NOT NULL,
   `id_loja` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
-  `pontos` smallint(6) NOT NULL,
+  `preco` float(6,0) NOT NULL,
   `status` tinyint(4) NOT NULL,
   `data` datetime NOT NULL,
   `lixeira` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `loja_pedidos`
+--
+
+INSERT INTO `loja_pedidos` (`id`, `id_loja`, `id_cliente`, `preco`, `status`, `data`, `lixeira`) VALUES
+(1, 5, 2, 100, 0, '2017-04-23 23:26:56', 0);
 
 -- --------------------------------------------------------
 
@@ -9988,10 +10002,17 @@ CREATE TABLE `loja_produtos` (
   `id_loja` int(11) NOT NULL,
   `id_categoria` tinyint(4) NOT NULL,
   `nome` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `preco` smallint(6) NOT NULL,
+  `preco` float(6,0) NOT NULL,
   `estoque` tinyint(4) NOT NULL,
   `lixeira` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `loja_produtos`
+--
+
+INSERT INTO `loja_produtos` (`id`, `id_loja`, `id_categoria`, `nome`, `preco`, `estoque`, `lixeira`) VALUES
+(1, 5, 1, 'Bicicleta Caloi', 100, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -10006,6 +10027,13 @@ CREATE TABLE `loja_produtos_pedidos` (
   `id_produto` int(11) NOT NULL,
   `lixeira` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `loja_produtos_pedidos`
+--
+
+INSERT INTO `loja_produtos_pedidos` (`id`, `id_loja`, `id_pedido`, `id_produto`, `lixeira`) VALUES
+(1, 5, 1, 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -10124,7 +10152,7 @@ ALTER TABLE `admin_pagamentos`
 -- AUTO_INCREMENT for table `loja_clientes`
 --
 ALTER TABLE `loja_clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `loja_codigos`
 --
@@ -10144,17 +10172,17 @@ ALTER TABLE `loja_lojistas`
 -- AUTO_INCREMENT for table `loja_pedidos`
 --
 ALTER TABLE `loja_pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `loja_produtos`
 --
 ALTER TABLE `loja_produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `loja_produtos_pedidos`
 --
 ALTER TABLE `loja_produtos_pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
