@@ -1,10 +1,20 @@
 pagina-home {
+  .bar-button-default, .toolbar-title {
+    color: #FF5722 !important;
+  }
+
   .card_background_page {
     background: #f6f8fb;
 
     ion-card {
       position: relative;
       text-align: center;
+    }
+
+    .card, .card-md {
+      border-radius: 0 !important;
+      margin: 0 0 4px 0 !important;
+      width: inherit !important;
     }
 
     .card-title {
@@ -23,6 +33,17 @@ pagina-home {
       top: 52%;
       width: 100%;
       color: #fff;
+    }
+
+    .sigla {
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border-radius: 50%;
+      background: #ff5722;
+      font-size: 20px;
+      color: #ffffff;
     }
 
     .historico {

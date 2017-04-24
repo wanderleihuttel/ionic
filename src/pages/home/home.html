@@ -1,5 +1,5 @@
 <ion-header no-border>
-  <ion-navbar color="navbar">
+  <ion-navbar>
     <button ion-button icon-only (click)="menuCloseSearchBar()" menuToggle start>
         <ion-icon name="menu"></ion-icon>
     </button>
@@ -47,21 +47,21 @@
     <div class="card-title">JS0101</div>
     <div class="card-subtitle">Informe este código ao atendente, sempre que for realizar compras na loja</div>
   </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <ion-row>
-        <ion-col>
-         <button ion-button small class="apagar_historico" color="danger" icon-right>Apagar histórico<ion-icon name="trash"></ion-icon></button>
-        </ion-col>
-      </ion-row>
-    </ion-card-header>
+  <!--ion-card-->
     <ion-list>
-      <button ion-item>Loja 1</button>
+      <button ion-item>
+        <ion-avatar item-left>
+          <div class="sigla">AB</div>
+        </ion-avatar>
+        <h2>Loja 1</h2>
+        <p>Endereço</p>
+      </button>
+      <!--button ion-item>Loja 1</button>
       <button ion-item>Loja 2</button>
       <button ion-item>Loja 3</button>
       <button ion-item>Loja 4</button>
       <button ion-item>Loja 5</button>
-      <button ion-item>Loja 6</button>
+      <button ion-item>Loja 6</button-->
     </ion-list>
-  </ion-card>
+  <!--/ion-card-->
 </ion-content>

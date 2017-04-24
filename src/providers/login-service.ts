@@ -18,7 +18,7 @@ export class LoginService {
       return this.http.post(this.path.getUrl() + 'cadastrar', dados, this.options).map(res => res.json())
   }
 
-  public recuperar_senha(dados) {
+  public recuperar(dados) {
       return this.http.post(this.path.getUrl() + 'recuperar', dados, this.options).map(res => res.json())
   }
 }

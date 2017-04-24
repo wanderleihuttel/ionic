@@ -12,7 +12,7 @@ export class RecuperarSenha {
 
   constructor(private nav: NavController, private login: LoginService, private alertCtrl: AlertController) {}
 
-  public recuperar_senha() {}
+  public recuperar() {}
 
   alerta(titulo, mensagem) {
     let alert = this.alertCtrl.create({
