@@ -5,6 +5,12 @@ pagina-pedidos {
   .pedidos {
     background: #f6f8fb;
   }
+  .item-md {
+    padding: 0 !important;     
+  }
+  .item-md ion-thumbnail[item-left] {
+    margin: 0 16px 0 0 !important;      
+  }
   .card-title {
     padding: 0;
     font-size: 18px;

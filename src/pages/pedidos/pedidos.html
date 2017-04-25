@@ -9,9 +9,9 @@
   <ion-card (click)="detalhes()" class="cinza">
     <ion-list>
       <button ion-item detail-none *ngFor="let pedido of pedidos">
-        <ion-avatar item-left>
-          <img src="{{pedido.foto}}">
-        </ion-avatar>
+        <ion-thumbnail item-left>
+          <img src="http://app.com.br/{{pedido.foto}}">
+        </ion-thumbnail>
         <h2>{{pedido.nome}}</h2>
         <ion-note>{{pedido.status}}</ion-note>
       </button>

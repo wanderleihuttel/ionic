@@ -25,7 +25,6 @@ export class Pedidos {
         id_usuario: 2,
     })).subscribe(retorno => {
         this.pedidos = retorno;
-        console.log(retorno);
     }, error => {
         this.alerta(error);
     });      

@@ -39,14 +39,13 @@ export class Login {
         this.login.logar(this.jsonToURLEncoded({
             email: this.dados.email,
             senha: this.dados.senha
-        }))
-        .finally(() => loading.dismiss())
-        .subscribe(retorno => {
+        })).subscribe(retorno => {
             if (retorno.resposta == 'logou') {
                 this.nav.setRoot(Home);
             } else {
                 this.alerta("E-mail ou senha inválido");
             }
+            loading.dismiss();
         }, error => {
             loading.dismiss();
             this.alerta(error);
