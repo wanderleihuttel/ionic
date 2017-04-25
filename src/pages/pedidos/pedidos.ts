@@ -8,8 +8,9 @@ import { Detalhes } from '../detalhes/detalhes';
   templateUrl: 'pedidos.html'
 })
 export class Pedidos {
+  pedidos: any[];
     
-  constructor(private nav: NavController, private pedidos: PedidosService, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {
+  constructor(private nav: NavController, private service: PedidosService, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {
       this.listarPedidos();
   }
 
@@ -20,9 +21,10 @@ export class Pedidos {
 
   // Lista os pedidos
   listarPedidos() {
-    this.pedidos.listar(this.jsonToURLEncoded({
+    this.service.listar(this.jsonToURLEncoded({
         id_usuario: 2,
     })).subscribe(retorno => {
+        this.pedidos = retorno;
         console.log(retorno);
     }, error => {
         this.alerta(error);

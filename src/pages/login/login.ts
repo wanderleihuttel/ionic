@@ -39,13 +39,12 @@ export class Login {
         this.login.logar(this.jsonToURLEncoded({
             email: this.dados.email,
             senha: this.dados.senha
-        })).subscribe(retorno => {
+        }))
+        .finally(() => loading.dismiss())
+        .subscribe(retorno => {
             if (retorno.resposta == 'logou') {
-                // Gravar dados no SQLite
-                loading.dismiss();
                 this.nav.setRoot(Home);
             } else {
-                loading.dismiss();
                 this.alerta("E-mail ou senha inválido");
             }
         }, error => {

@@ -7,15 +7,15 @@
 <ion-content class="pedidos">
 
   <ion-card (click)="detalhes()" class="cinza">
-    <!--ion-list>
-      <button ion-item detail-none *ngFor="#pedido of pedidos">
+    <ion-list>
+      <button ion-item detail-none *ngFor="let pedido of pedidos">
         <ion-avatar item-left>
           <img src="{{pedido.foto}}">
         </ion-avatar>
         <h2>{{pedido.nome}}</h2>
         <ion-note>{{pedido.status}}</ion-note>
       </button>
-    </ion-list-->
+    </ion-list>
   </ion-card>
 
 </ion-content>
