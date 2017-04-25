@@ -16,7 +16,7 @@
 			
 			// Pedidos
 			$app
-				->get('/pedidos', PedidosController::class . ':pedidos', [])
+				->post('/pedidos', PedidosController::class . ':pedidos', [])
 				->post('/pedir', PedidosController::class . ':pedir', []);
 		};
 		$app->group('/api', $mobile);

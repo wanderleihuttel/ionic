@@ -4,7 +4,7 @@
 	
 	class PedidosModel extends Model
 	{
-        public function pedidos(){
+        public function pedidos($id){
 			try {
 				$stmt = $this->db->prepare("
 					SELECT
@@ -19,7 +19,7 @@
 							WHERE `loja_pedidos`.`id_cliente` = :cliente
 				");
 				
-				$stmt->bindValue(':cliente', 2, PDO::PARAM_INT);
+				$stmt->bindValue(':cliente', $id, PDO::PARAM_INT);
 				$stmt->execute();
 				return $stmt->fetchAll(PDO::FETCH_ASSOC);
 			} catch(PDOException $e) {
