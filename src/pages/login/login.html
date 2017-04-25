@@ -21,9 +21,9 @@
       </ion-row>
       <ion-row>
         <ion-col class="botoes_col">
-          <button ion-button class="cadastro" outline (click)="cadastro()" color="light">Cadastre-se</button>
+          <button ion-button class="cadastro" outline type="button" (click)="cadastro()" color="light">Cadastre-se</button>
           <button ion-button class="login" outline type="submit" [disabled]="!login.form.valid" color="light">Entrar</button>
-          <button ion-button class="recuperar" (click)="recuperar()" clear>Esqueceu a senha?</button>
+          <button ion-button class="recuperar" type="button" (click)="recuperar()" clear>Esqueceu a senha?</button>
         </ion-col>
       </ion-row>
     </form>
