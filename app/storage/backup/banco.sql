@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 24-Abr-2017 às 04:41
+-- Generation Time: 25-Abr-2017 às 04:36
 -- Versão do servidor: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -10001,6 +10001,7 @@ CREATE TABLE `loja_produtos` (
   `id` int(11) NOT NULL,
   `id_loja` int(11) NOT NULL,
   `id_categoria` tinyint(4) NOT NULL,
+  `foto` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nome` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `preco` float(6,0) NOT NULL,
   `estoque` tinyint(4) NOT NULL,
@@ -10011,8 +10012,8 @@ CREATE TABLE `loja_produtos` (
 -- Extraindo dados da tabela `loja_produtos`
 --
 
-INSERT INTO `loja_produtos` (`id`, `id_loja`, `id_categoria`, `nome`, `preco`, `estoque`, `lixeira`) VALUES
-(1, 5, 1, 'Bicicleta Caloi', 100, 1, 0);
+INSERT INTO `loja_produtos` (`id`, `id_loja`, `id_categoria`, `foto`, `nome`, `preco`, `estoque`, `lixeira`) VALUES
+(1, 5, 1, 'bicicletaCaloi1.jpg', 'Bicicleta Caloi', 100, 1, 0);
 
 -- --------------------------------------------------------
 

@@ -4,7 +4,9 @@
 	
 	class LoginModel extends Model
 	{
-		public function login($email, $senha){			
+		public function login($email, $senha){
+			$retorno['resposta'] = 'login_invalido';
+			
 			$stmt = $this->db->prepare("SELECT `codigo`, `nome`, `sobrenome`, `email`, `senha` FROM `loja_clientes` WHERE `email` = :email");
 			$stmt->bindValue(':email', $email, PDO::PARAM_STR);
 			$stmt->execute();
@@ -21,8 +23,6 @@
 						'email' => $dados[0]['email']
 					);
 				}
-			} else {
-				$retorno['resposta'] = 'login_invalido';
 			}
 			return $retorno;
 		}

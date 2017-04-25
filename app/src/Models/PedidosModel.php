@@ -7,10 +7,18 @@
         public function pedidos(){
 			try {
 				$stmt = $this->db->prepare("
-					SELECT * FROM `loja_pedidos`
-					WHERE `id_cliente` = :cliente
-					ORDER BY `id` DESC
+					SELECT
+						`loja_pedidos`.`id` as id_pedido,
+						`loja_pedidos`.`status`,
+						`loja_produtos`.`nome`,
+						`loja_produtos`.`foto`
+							FROM `loja_produtos_pedidos`
+								INNER JOIN `loja_pedidos` ON (`loja_pedidos`.`id` = `loja_produtos_pedidos`.`id_pedido`)
+								INNER JOIN `loja_produtos` ON (`loja_produtos`.`id` = `loja_produtos_pedidos`.`id_produto`)
+
+							WHERE `loja_pedidos`.`id_cliente` = :cliente
 				");
+				
 				$stmt->bindValue(':cliente', 2, PDO::PARAM_INT);
 				$stmt->execute();
 				return $stmt->fetchAll(PDO::FETCH_ASSOC);
