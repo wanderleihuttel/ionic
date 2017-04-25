@@ -15,9 +15,7 @@
 			$app->post('/logar', LoginController::class . ':login', []);
 			
 			// Pedidos
-			$app
-				->post('/pedidos', PedidosController::class . ':pedidos', [])
-				->post('/pedir', PedidosController::class . ':pedir', []);
+			$app->post('/pedidos', PedidosController::class . ':pedidos', []);
 		};
 		$app->group('/api', $mobile);
 	};

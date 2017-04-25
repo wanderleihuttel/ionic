@@ -8,7 +8,7 @@
 			try {
 				$stmt = $this->db->prepare("
 					SELECT
-						`loja_pedidos`.`id` as id_pedido,
+						`loja_pedidos`.`id`,
 						`loja_pedidos`.`status`,
 						`loja_produtos`.`nome`,
 						`loja_produtos`.`foto`
