@@ -25,6 +25,7 @@ export class Login {
   }
 
 public logar() {
+    console.log("Clicou em Entrar");
     const loading = this.loadingCtrl.create({content: 'Aguarde...'}); 
     loading.present().then(()=>{
     if (!this.er.exec(this.dados.email)) {

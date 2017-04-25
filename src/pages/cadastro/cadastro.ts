@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, LoadingController, ToastController, Loading } from 'ionic-angular';
 import { LoginService } from '../../providers/login-service';
 import 'rxjs/add/operator/map';
 
@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
   templateUrl: 'cadastro.html'
 })
 export class Cadastro {
+  loading: Loading;
   sucesso = false;
 
   dados = {nome: '', sobrenome: '', email: '', senha: ''};
@@ -15,26 +16,25 @@ export class Cadastro {
   constructor(private nav: NavController, private cadastro: LoginService, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {}
 
   cadastrar() {
-    const loading = this.loadingCtrl.create({content: 'Aguarde...'}); 
-    loading.present().then(()=>{
-      this.cadastro.cadastrar(this.jsonToURLEncoded({
-        nome: this.dados.nome,
-        sobrenome: this.dados.sobrenome,
-        email: this.dados.email,
-        senha: this.dados.senha
-      })).subscribe(retorno => {
-        if (retorno.resposta == 'cadastrou') {
-            loading.dismiss();
+    this.carregando();
+    this.cadastro.cadastrar(this.jsonToURLEncoded({
+      nome: this.dados.nome,
+      sobrenome: this.dados.sobrenome,
+      email: this.dados.email,
+      senha: this.dados.senha
+	})).subscribe(retorno => {
+      if (retorno.resposta == 'cadastrou') {
+          setTimeout(() => {
+            this.loading.dismiss();
+          });
+          this.sucesso = true;
+          this.alerta("Cadastrado com sucesso");
+      } else {
+        this.alerta("Erro ao cadastrar");
+      }
 
-            this.sucesso = true;
-            this.alerta("Cadastrado com sucesso");
-        } else {
-          this.alerta("Erro ao cadastrar");
-        }
-
-      }, error => {
-        this.alerta(error);
-      });
+    }, error => {
+      this.alerta(error);
     });
   }
 
@@ -44,12 +44,14 @@ export class Cadastro {
     }).join('&');
   }
 
-  /*carregando() {
-    this.loading = this.loadingCtrl.create({content: 'Aguarde...'});
+  carregando() {
+    this.loading = this.loadingCtrl.create({content: 'TESTE...'});
     this.loading.present();
-  }*/
+  }
 
   alerta(mensagem) {
+    setTimeout(() => {this.loading.dismiss();});
+
     let toast = this.toastCtrl.create({
       message: mensagem,
       duration: 3000,
@@ -59,7 +61,5 @@ export class Cadastro {
       this.nav.popToRoot();
     }
     toast.present();
-      
-    //setTimeout(() => {this.loading.dismiss();});
   }
 }
