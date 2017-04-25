@@ -12,20 +12,24 @@ import 'rxjs/add/operator/map';
 })
 export class Login {
   dados = {email: '', senha: ''};
+
+  // Expressão regular
   er = /^[a-zA-Z0-9][a-zA-Z0-9\._-]+@([a-zA-Z0-9\._-]+\.)[a-zA-Z-0-9]{2,3}$/;
 
   constructor(private nav: NavController, private login: LoginService, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {}
 
+  // Página de cadastro
   public cadastro() {
     this.nav.push(Cadastro);
   }
 
+  // Página de recuperar senha
   public recuperar() {
     this.nav.push(RecuperarSenha);
   }
 
-public logar() {
-    console.log("Clicou em Entrar");
+  // Logar
+  public logar() {
     const loading = this.loadingCtrl.create({content: 'Aguarde...'}); 
     loading.present().then(()=>{
     if (!this.er.exec(this.dados.email)) {
@@ -38,7 +42,6 @@ public logar() {
         })).subscribe(retorno => {
             if (retorno.resposta == 'logou') {
                 // Gravar dados no SQLite
-                
                 loading.dismiss();
                 this.nav.setRoot(Home);
             } else {
@@ -51,33 +54,7 @@ public logar() {
         });
     }
     });
-}
-
-  /*public logar() {
-    if (!this.er.exec(this.dados.email)) {
-      this.alerta("E-mail inválido");
-    } else {
-      this.carregando();
-      this.login.logar(this.jsonToURLEncoded({
-        email: this.dados.email,
-        senha: this.dados.senha
-	  })).subscribe(retorno => {
-        if (retorno.resposta == 'logou') {
-          setTimeout(() => {
-            this.loading.dismiss();
-          });
-
-          // Gravar dados no SQLite
-
-          this.nav.setRoot(Home);
-        } else {
-          this.alerta("E-mail ou senha inválido");
-        }
-      }, error => {
-        this.alerta(error);
-      });
-    }
-  }*/
+  }
 
   private jsonToURLEncoded(jsonString){
     return Object.keys(jsonString).map(function(key){
@@ -85,11 +62,7 @@ public logar() {
     }).join('&');
   }
 
-  /*carregando() {
-    this.loading = this.loadingCtrl.create({content: 'Aguarde...'});
-    this.loading.present();
-  }*/
-
+  // Toast
   alerta(mensagem) {
     let toast = this.toastCtrl.create({
       message: mensagem,
@@ -98,7 +71,5 @@ public logar() {
     });
 
     toast.present();
-
-    //setTimeout(() => {this.loading.dismiss();});
   }
 }

@@ -7,14 +7,14 @@ import { LoginService } from '../../providers/login-service';
   templateUrl: 'recuperar-senha.html'
 })
 export class RecuperarSenha {
-  sucesso = false;
-  dados = {email: ''};
+  //dados = {email: ''};
 
   constructor(private nav: NavController, private login: LoginService, private alertCtrl: AlertController) {}
 
+  // Recuperar senha
   public recuperar() {}
 
-  alerta(titulo, mensagem) {
+  /*alerta(titulo, mensagem) {
     let alert = this.alertCtrl.create({
       title: titulo,
       subTitle: mensagem,
@@ -30,5 +30,5 @@ export class RecuperarSenha {
      ]
     });
     alert.present();
-  }
+  }*/
 }

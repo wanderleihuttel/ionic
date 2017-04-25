@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, ToastController, Loading } from 'ionic-angular';
+import { NavController, LoadingController, ToastController } from 'ionic-angular';
 import { LoginService } from '../../providers/login-service';
 import 'rxjs/add/operator/map';
 
@@ -8,33 +8,32 @@ import 'rxjs/add/operator/map';
   templateUrl: 'cadastro.html'
 })
 export class Cadastro {
-  loading: Loading;
-  sucesso = false;
-
   dados = {nome: '', sobrenome: '', email: '', senha: ''};
 
   constructor(private nav: NavController, private cadastro: LoginService, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {}
 
+  // Cadastrar usuário
   cadastrar() {
-    this.carregando();
+    const loading = this.loadingCtrl.create({content: 'Aguarde...'}); 
+    loading.present().then(()=>{
     this.cadastro.cadastrar(this.jsonToURLEncoded({
       nome: this.dados.nome,
       sobrenome: this.dados.sobrenome,
       email: this.dados.email,
       senha: this.dados.senha
 	})).subscribe(retorno => {
-      if (retorno.resposta == 'cadastrou') {
-          setTimeout(() => {
-            this.loading.dismiss();
-          });
-          this.sucesso = true;
-          this.alerta("Cadastrado com sucesso");
-      } else {
-        this.alerta("Erro ao cadastrar");
-      }
-
+        if (retorno.resposta == 'cadastrou') {
+            loading.dismiss();
+            this.nav.popToRoot();
+            console.log("Cadastrado com sucesso");
+        } else {
+            loading.dismiss();
+            this.alerta("Erro ao cadastrar");
+        }
     }, error => {
+      loading.dismiss();
       this.alerta(error);
+    });
     });
   }
 
@@ -44,22 +43,14 @@ export class Cadastro {
     }).join('&');
   }
 
-  carregando() {
-    this.loading = this.loadingCtrl.create({content: 'TESTE...'});
-    this.loading.present();
-  }
-
+  // Toast
   alerta(mensagem) {
-    setTimeout(() => {this.loading.dismiss();});
-
     let toast = this.toastCtrl.create({
       message: mensagem,
       duration: 3000,
       position: 'bottom'
     });
-    if (this.sucesso) {
-      this.nav.popToRoot();
-    }
+
     toast.present();
   }
 }
