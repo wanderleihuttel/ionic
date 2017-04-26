@@ -13,4 +13,14 @@
 			
 			echo json_encode($dados);
 		}
+		
+		public function detalhes(){
+			$detalhes = new Pedidos($this->db);
+			
+			$id = post('id', FILTER_SANITIZE_NUMBER_INT);
+			
+			$dados = $detalhes->detalhes($id);
+			
+			echo json_encode($dados);
+		}
 	}

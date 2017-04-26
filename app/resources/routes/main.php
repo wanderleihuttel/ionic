@@ -16,6 +16,9 @@
 			
 			// Pedidos
 			$app->post('/pedidos', PedidosController::class . ':pedidos', []);
+			
+			// Detalhes
+			$app->post('/detalhes', PedidosController::class . ':detalhes', []);
 		};
 		$app->group('/api', $mobile);
 	};
