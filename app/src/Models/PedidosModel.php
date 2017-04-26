@@ -11,7 +11,7 @@
 						`loja_pedidos`.`id`,
 						`loja_pedidos`.`id_loja`,
 						`loja_pedidos`.`status`,
-						`loja_produtos`.`nome`,
+						`loja_produtos`.`nome` as nome_produto,
 						`loja_produtos`.`foto`
 							FROM `loja_produtos_pedidos`
 								INNER JOIN `loja_pedidos` ON (`loja_pedidos`.`id` = `loja_produtos_pedidos`.`id_pedido`)
@@ -42,8 +42,8 @@
 
 							WHERE `loja_pedidos`.`id` = :pedido AND `admin_lojas`.`id` = :loja
 				");
+				$stmt->bindValue(':pedido', $id, PDO::PARAM_INT);
 				$stmt->bindValue(':loja', $loja, PDO::PARAM_INT);
-				$stmt->bindValue(':id', $id, PDO::PARAM_INT);
 				$stmt->execute();
 				return $stmt->fetchAll(PDO::FETCH_ASSOC);
 			} catch(PDOException $e) {
