@@ -6,13 +6,13 @@
 
 <ion-content class="pedidos">
 
-  <ion-card *ngFor="let pedido of pedidos" (click)="detalhes(pedidos)" class="cinza">
-    <ion-list>
+  <ion-card *ngFor="let pedido of pedidos" class="cinza">
+    <ion-list (click)="detalhes(pedido.id, pedido.id_loja, pedido.nome_produto)">
       <button ion-item detail-none>
         <ion-thumbnail item-left>
           <img src="http://app.com.br/{{pedido.foto}}">
         </ion-thumbnail>
-        <h2>{{pedido.nome}}</h2>
+        <h2>{{pedido.nome_produto}}</h2>
         <ion-note [ngSwitch]="pedido.status">
           <p *ngSwitchCase="'0'">Pendente</p>
           <p *ngSwitchCase="'1'">Enviado</p>

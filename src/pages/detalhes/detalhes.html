@@ -1,23 +1,23 @@
 <ion-header no-border>
   <ion-navbar color="navbar">
-    <ion-title>{{pedido.nome}}</ion-title>
+    <ion-title>{{nome_produto}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="detalhes">
   <ion-slides class="slider" pager>
-    <ion-slide *ngFor="let foto of fotos">
-      <img [src]="http://app.com.br/{{foto.imagem}}" class="slide-image"/>
-    </ion-slide>
+    <!--ion-slide *ngFor="let foto of detalhes">
+      <img [src]="http://app.com.br/{{foto.foto}}" class="slide-image"/>
+    </ion-slide-->
   </ion-slides>
   <ion-card>
     <ion-list>
       <button ion-item detail-none>
-        <h2>Número do pedido: {{pedido.id}}</h2>
+        <h2>Número do pedido: {{id_pedido}}</h2>
       </button>
     </ion-list>
   </ion-card>
-    
+
   <ion-card>
     <ion-list>
       <button ion-item detail-none>

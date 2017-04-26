@@ -9,21 +9,18 @@ import { Detalhes } from '../detalhes/detalhes';
 })
 export class Pedidos {
   pedidos: any[];
-  //dados = {id_pedido: '', id_loja: '', nome: ''};
-  dados = {};
-    
+
   constructor(private nav: NavController, private service: PedidosService, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {
-      this.listarPedidos();
+    this.listarPedidos();
   }
 
-  // Página para exibir os detalhes do pedido
-  public detalhes() {
-    this.nav.push(Detalhes);
-    /*this.nav.push(Detalhes, {
-      id_pedido: '1',
-      id_loja: '5',
-      nome: 'Bicicleta Caloi'
-    });*/
+  // Pegar o id do pedido e da loja e o nome do produto, e exibe na página de Detalhes
+  public detalhes(id, loja, nome_produto) {
+    this.nav.push(Detalhes, {
+      id_pedido: id,
+      id_loja: loja,
+      nome_produto: nome_produto
+    });
   }
 
   // Lista os pedidos
@@ -34,7 +31,7 @@ export class Pedidos {
         this.pedidos = retorno;
     }, error => {
         this.alerta(error);
-    });      
+    });
   }
 
   private jsonToURLEncoded(jsonString) {
