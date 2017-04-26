@@ -9,6 +9,8 @@ import { Detalhes } from '../detalhes/detalhes';
 })
 export class Pedidos {
   pedidos: any[];
+  //dados = {id_pedido: '', id_loja: '', nome: ''};
+  dados = {};
     
   constructor(private nav: NavController, private service: PedidosService, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {
       this.listarPedidos();
@@ -17,12 +19,17 @@ export class Pedidos {
   // Página para exibir os detalhes do pedido
   public detalhes() {
     this.nav.push(Detalhes);
+    /*this.nav.push(Detalhes, {
+      id_pedido: '1',
+      id_loja: '5',
+      nome: 'Bicicleta Caloi'
+    });*/
   }
 
   // Lista os pedidos
   listarPedidos() {
     this.service.listar(this.jsonToURLEncoded({
-        id_usuario: 2,
+        id_usuario: 2
     })).subscribe(retorno => {
         this.pedidos = retorno;
     }, error => {

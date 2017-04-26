@@ -21,6 +21,7 @@ import { Detalhes } from '../pages/detalhes/detalhes';
 
 import { LoginService } from '../providers/login-service';
 import { PedidosService } from '../providers/pedidos-service';
+import { DetalhesService } from '../providers/detalhes-service';
 
 import { PATH } from '../providers/path';
 
@@ -66,6 +67,7 @@ import { PATH } from '../providers/path';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginService,
     PedidosService,
+    DetalhesService,
     PATH
   ]
 })

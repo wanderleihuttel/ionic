@@ -6,7 +6,7 @@
 
 <ion-content class="pedidos">
 
-  <ion-card *ngFor="let pedido of pedidos" (click)="detalhes()" class="cinza">
+  <ion-card *ngFor="let pedido of pedidos" (click)="detalhes(pedidos)" class="cinza">
     <ion-list>
       <button ion-item detail-none>
         <ion-thumbnail item-left>
