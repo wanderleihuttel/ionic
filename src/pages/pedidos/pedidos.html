@@ -10,7 +10,7 @@
     <ion-list (click)="detalhes(pedido.id, pedido.id_loja, pedido.nome_loja, pedido.rua_loja, pedido.nome_produto, pedido.foto)">
       <button ion-item detail-none>
         <ion-thumbnail item-left>
-          <img src="http://app.com.br/{{pedido.foto}}">
+          <img src="http://app.com.br/produtos/{{pedido.foto}}">
         </ion-thumbnail>
         <h2>{{pedido.nome_produto}}</h2>
         <ion-note [ngSwitch]="pedido.status">

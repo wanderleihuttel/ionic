@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 
-//import { Intro } from '../pages/intro/intro';
 import { Login } from '../pages/login/login';
 
 @Component({
