@@ -1,5 +1,5 @@
 <ion-header no-border>
-  <ion-navbar>
+  <ion-navbar color="light">
     <ion-title *ngIf=!showSearchBar>Sistema</ion-title>
 
     <ion-searchbar
@@ -17,14 +17,14 @@
       <button ion-button icon-only (click)="toggleShowSearchBar()">
           <ion-icon name="search"></ion-icon>
       </button>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="popover($event)">
           <ion-icon name="more"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content class="card_background_page">
+<ion-content class="home_conteudo">
   <ion-card>
     <img src="assets/img/cliente.jpg"/>
     <div class="card-title">JS0101</div>

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, PopoverController } from 'ionic-angular';
 import { LoginService } from '../../providers/login-service';
-import { Login } from '../login/login';
 import { Pedidos } from '../pedidos/pedidos';
 import { Perfil } from '../perfil/perfil';
-import { Privacidade } from '../privacidade/privacidade';
+import { Popover } from '../popover/popover';
 
 @Component({
   selector: 'pagina-home',
@@ -17,7 +16,7 @@ export class Home {
   nome = '';
   email = '';
 
-  constructor(private nav: NavController, private login: LoginService) {
+  constructor(public nav: NavController, public popoverCtrl: PopoverController, public login: LoginService) {
     /*let info = this.auth.getUsuarioDados();
     this.codigo = info.codigo;
     this.nome = info.nome;
@@ -34,6 +33,13 @@ export class Home {
     }
   }
 
+  public popover(event) {
+    let popover = this.popoverCtrl.create(Popover);
+    popover.present({
+      ev: event
+    });
+  }
+
   public onInput() {}
 
   public onCancel() {
@@ -47,13 +53,4 @@ export class Home {
   public perfil() {
     this.nav.push(Perfil)
   }
-
-  public privacidade() {
-    this.nav.push(Privacidade)
-  }
-
-  public sair() {
-    this.nav.setRoot(Login)
-  }
-
 }

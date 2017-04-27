@@ -3,18 +3,12 @@ pagina-home {
     color: #FF5722 !important;
   }
 
-  .card_background_page {
-    background: #f6f8fb;
-
+  .home_conteudo {
+    background: #f9f9f9;
+  
     ion-card {
       position: relative;
       text-align: center;
-    }
-
-    .card, .card-md {
-      border-radius: 0 !important;
-      margin: 0 0 4px 0 !important;
-      width: inherit !important;
     }
 
     .card-title {
@@ -34,8 +28,8 @@ pagina-home {
       width: 100%;
       color: #fff;
     }
-
-    .sigla {
+  }
+    /*.sigla {
       width: 50px;
       height: 50px;
       line-height: 50px;
@@ -44,18 +38,5 @@ pagina-home {
       background: #ff5722;
       font-size: 20px;
       color: #ffffff;
-    }
-
-    .historico {
-      margin-top: 8px;
-    }
-
-    .apagar_historico {
-      float: right;
-      text-transform: none;
-    }
-  }
-  .label {
-    color: #676767;
-  }
+    }*/
 }

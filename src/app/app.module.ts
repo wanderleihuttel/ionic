@@ -8,6 +8,7 @@ import { HttpModule } from '@angular/http';
 
 import { App } from './app.component';
 import { Tabs } from '../pages/tabs/tabs';
+import { Popover } from '../pages/popover/popover';
 import { Login } from '../pages/login/login';
 import { Cadastro } from '../pages/cadastro/cadastro';
 import { RecuperarSenha } from '../pages/recuperar-senha/recuperar-senha';
@@ -27,6 +28,7 @@ import { PATH } from '../providers/path';
 @NgModule({
   declarations: [
     App,
+    Popover,
     Tabs,
     Login,
     Cadastro,
@@ -47,6 +49,7 @@ import { PATH } from '../providers/path';
   bootstrap: [IonicApp],
   entryComponents: [
     App,
+    Popover,
     Tabs,
     Login,
     Cadastro,
@@ -61,11 +64,11 @@ import { PATH } from '../providers/path';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginService,
     PedidosService,
     DetalhesService,
-    PATH
+    PATH,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}
