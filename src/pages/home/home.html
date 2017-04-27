@@ -24,44 +24,19 @@
   </ion-navbar>
 </ion-header>
 
-<ion-menu [content]="menu">
-  <ion-header no-border>
-    <ion-toolbar color="grey-dark">
-        <ion-title>{{nome}}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-      <ion-list>
-          <button ion-item detail-none (click)="categorias()" menuClose><ion-icon name="list" color="orange-dark" item-left></ion-icon >Categorias</button>
-          <button ion-item detail-none (click)="pedidos()" menuClose><ion-icon name="create" color="orange-dark" item-left></ion-icon>Pedidos</button>
-          <button ion-item detail-none (click)="perfil()" menuClose><ion-icon name="person" color="orange-dark" item-left></ion-icon>Perfil</button>
-          <button ion-item detail-none (click)="privacidade()" menuClose><ion-icon name="lock" color="orange-dark" item-left></ion-icon>Privacidade</button>
-          <button ion-item detail-none (click)="sair()"><ion-icon name="exit" color="orange-dark" item-left></ion-icon>Sair</button>
-      </ion-list>
-  </ion-content>
-</ion-menu>
-
-<ion-content #menu class="card_background_page">
+<ion-content class="card_background_page">
   <ion-card>
     <img src="assets/img/cliente.jpg"/>
     <div class="card-title">JS0101</div>
     <div class="card-subtitle">Informe este código ao atendente, sempre que for realizar compras na loja</div>
   </ion-card>
-  <!--ion-card-->
     <ion-list>
-      <button ion-item>
+      <button ion-item detail-none>
         <ion-avatar item-left>
           <div class="sigla">AB</div>
         </ion-avatar>
         <h2>Loja 1</h2>
         <p>Endereço</p>
       </button>
-      <!--button ion-item>Loja 1</button>
-      <button ion-item>Loja 2</button>
-      <button ion-item>Loja 3</button>
-      <button ion-item>Loja 4</button>
-      <button ion-item>Loja 5</button>
-      <button ion-item>Loja 6</button-->
     </ion-list>
-  <!--/ion-card-->
 </ion-content>

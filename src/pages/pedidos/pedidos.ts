@@ -15,11 +15,14 @@ export class Pedidos {
   }
 
   // Pegar o id do pedido e da loja e o nome do produto, e exibe na página de Detalhes
-  public detalhes(id, loja, nome_produto) {
+  public detalhes(id, loja, nome_loja, rua_loja, nome_produto, foto_produto) {
     this.nav.push(Detalhes, {
       id_pedido: id,
       id_loja: loja,
-      nome_produto: nome_produto
+      nome_loja: nome_loja,
+      rua_loja: rua_loja,
+      nome_produto: nome_produto,
+      foto_produto: foto_produto
     });
   }
 

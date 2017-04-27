@@ -7,8 +7,12 @@ import { DetalhesService } from '../../providers/detalhes-service';
   templateUrl: 'detalhes.html'
 })
 export class Detalhes {
-  detalhes: any[];
+  fotos: any[];
+
   id_pedido = this.params.get('id_pedido');
+  foto_produto = this.params.get('foto_produto');
+  nome_loja = this.params.get('nome_loja');
+  rua_loja = this.params.get('rua_loja');
   nome_produto = this.params.get('nome_produto');
 
   constructor(private nav: NavController, private service: DetalhesService, private toastCtrl: ToastController, private params: NavParams) {
@@ -20,7 +24,7 @@ export class Detalhes {
         id_pedido: this.params.get('id_pedido'),
         id_loja: this.params.get('id_loja')
     })).subscribe(retorno => {
-        this.detalhes = retorno;
+        this.fotos = retorno;
     }, error => {
         this.alerta(error);
     });

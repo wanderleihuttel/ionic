@@ -13,7 +13,6 @@ import { Cadastro } from '../pages/cadastro/cadastro';
 import { RecuperarSenha } from '../pages/recuperar-senha/recuperar-senha';
 import { AtualizarSenha } from '../pages/atualizar-senha/atualizar-senha';
 import { Home } from '../pages/home/home';
-import { Categorias } from '../pages/categorias/categorias';
 import { Pedidos } from '../pages/pedidos/pedidos';
 import { Perfil } from '../pages/perfil/perfil';
 import { Privacidade } from '../pages/privacidade/privacidade';
@@ -34,7 +33,6 @@ import { PATH } from '../providers/path';
     RecuperarSenha,
     AtualizarSenha,
     Home,
-    Categorias,
     Pedidos,
     Perfil,
     Privacidade,
@@ -55,7 +53,6 @@ import { PATH } from '../providers/path';
     RecuperarSenha,
     AtualizarSenha,
     Home,
-    Categorias,
     Pedidos,
     Perfil,
     Privacidade,

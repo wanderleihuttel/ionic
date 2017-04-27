@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController } from 'ionic-angular';
 import { LoginService } from '../../providers/login-service';
 import { Login } from '../login/login';
-import { Categorias } from '../categorias/categorias';
 import { Pedidos } from '../pedidos/pedidos';
 import { Perfil } from '../perfil/perfil';
 import { Privacidade } from '../privacidade/privacidade';
@@ -18,7 +17,8 @@ export class Home {
   nome = '';
   email = '';
 
-  constructor(private nav: NavController, private login: LoginService) {
+  constructor(private nav: NavController, private menuCtrl: MenuController, private login: LoginService) {
+    this.menuCtrl.enable(true, 'menu');
     /*let info = this.auth.getUsuarioDados();
     this.codigo = info.codigo;
     this.nome = info.nome;
@@ -31,7 +31,7 @@ export class Home {
 
   public menuCloseSearchBar() {
     if (this.showSearchBar) {
-        this.showSearchBar = false;
+      this.showSearchBar = false;
     }
   }
 
@@ -41,26 +41,20 @@ export class Home {
     this.showSearchBar = !this.showSearchBar;
   }
 
-  public categorias() {
-      this.nav.push(Categorias)
-  }
-
   public pedidos() {
-      this.nav.push(Pedidos)
+    this.nav.push(Pedidos)
   }
 
   public perfil() {
-      this.nav.push(Perfil)
+    this.nav.push(Perfil)
   }
 
   public privacidade() {
-      this.nav.push(Privacidade)
+    this.nav.push(Privacidade)
   }
 
   public sair() {
-    //this.auth.sair().subscribe(sucesso => {
-        this.nav.setRoot(Login)
-    //});
+    this.nav.setRoot(Login)
   }
 
 }

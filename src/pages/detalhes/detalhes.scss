@@ -19,5 +19,19 @@ pagina-detalhes {
       opacity: 1;
       background: #eeeeee;
     }
+      
+    .circulo {
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border-radius: 50%;
+      background: #ff5722;
+      font-size: 20px;
+      color: #ffffff;
+    }
+    .item-md ion-icon[item-left], .item-ios ion-icon[item-left] {
+      margin: 0 !important;
+    }
   }
 }
