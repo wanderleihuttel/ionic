@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { App } from './app.component';
+import { Tabs } from '../pages/tabs/tabs';
 import { Login } from '../pages/login/login';
 import { Cadastro } from '../pages/cadastro/cadastro';
 import { RecuperarSenha } from '../pages/recuperar-senha/recuperar-senha';
@@ -26,6 +27,7 @@ import { PATH } from '../providers/path';
 @NgModule({
   declarations: [
     App,
+    Tabs,
     Login,
     Cadastro,
     RecuperarSenha,
@@ -45,6 +47,7 @@ import { PATH } from '../providers/path';
   bootstrap: [IonicApp],
   entryComponents: [
     App,
+    Tabs,
     Login,
     Cadastro,
     RecuperarSenha,

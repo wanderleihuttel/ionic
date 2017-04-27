@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, MenuController, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, LoadingController, ToastController } from 'ionic-angular';
 import { LoginService } from '../../providers/login-service';
 import { Cadastro } from '../cadastro/cadastro';
 import { RecuperarSenha } from '../recuperar-senha/recuperar-senha';
@@ -16,9 +16,7 @@ export class Login {
   // Expressão regular
   er = /^[a-zA-Z0-9][a-zA-Z0-9\._-]+@([a-zA-Z0-9\._-]+\.)[a-zA-Z-0-9]{2,3}$/;
 
-  constructor(private nav: NavController, private menuCtrl: MenuController, private login: LoginService, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {
-    this.menuCtrl.enable(false, 'menu');
-  }
+  constructor(private nav: NavController, private login: LoginService, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {}
 
   // Página de cadastro
   public cadastro() {

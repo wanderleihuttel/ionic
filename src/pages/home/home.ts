@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, MenuController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { LoginService } from '../../providers/login-service';
 import { Login } from '../login/login';
 import { Pedidos } from '../pedidos/pedidos';
@@ -17,8 +17,7 @@ export class Home {
   nome = '';
   email = '';
 
-  constructor(private nav: NavController, private menuCtrl: MenuController, private login: LoginService) {
-    this.menuCtrl.enable(true, 'menu');
+  constructor(private nav: NavController, private login: LoginService) {
     /*let info = this.auth.getUsuarioDados();
     this.codigo = info.codigo;
     this.nome = info.nome;

@@ -1,8 +1,5 @@
 <ion-header no-border>
   <ion-navbar>
-    <button ion-button icon-only (click)="menuCloseSearchBar()" menuToggle start>
-        <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title *ngIf=!showSearchBar>Sistema</ion-title>
 
     <ion-searchbar
@@ -20,6 +17,9 @@
       <button ion-button icon-only (click)="toggleShowSearchBar()">
           <ion-icon name="search"></ion-icon>
       </button>
+      <button ion-button icon-only>
+          <ion-icon name="more"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -30,13 +30,4 @@
     <div class="card-title">JS0101</div>
     <div class="card-subtitle">Informe este código ao atendente, sempre que for realizar compras na loja</div>
   </ion-card>
-    <ion-list>
-      <button ion-item detail-none>
-        <ion-avatar item-left>
-          <div class="sigla">AB</div>
-        </ion-avatar>
-        <h2>Loja 1</h2>
-        <p>Endereço</p>
-      </button>
-    </ion-list>
 </ion-content>
