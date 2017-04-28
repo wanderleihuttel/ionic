@@ -2,7 +2,6 @@ pagina-recuperar-senha {
   .back-button {
     color: #E64A19 !important;
   }
-
   .recuperar_senha_conteudo {
     background-color: #ffdfd2;
     background-image: -webkit-radial-gradient(circle, #ffdfd2, #fdac8a 125px, #f1815e);
@@ -15,26 +14,24 @@ pagina-recuperar-senha {
       align-items: center;
       text-align: center;
     }
-
+    .item-md, .item-ios {
+      background-color: #fdfdfd;  
+    }
     ion-list {
       border: 1px solid #eeeeee;
       border-radius: 5px !important;
     }
-
     ion-item {
       font-size: 0.9em;
       border-bottom: 1px solid #eeeeee !important;
       box-shadow: none !important;
     }
-
     .text-input-md {
       padding-left: 5px;
     }
-
     .recuperar_senha_col {
       margin: 0px 16px 0px 16px;
     }
-
     .recuperar_senha {
       background-color: #FF5722;
       background: -webkit-linear-gradient(-45deg,#FF5722 0%,#E64A19 100%);
