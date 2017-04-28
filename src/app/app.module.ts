@@ -7,18 +7,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { App } from './app.component';
-import { Tabs } from '../pages/tabs/tabs';
+
+// Páginas
 import { Popover } from '../pages/popover/popover';
 import { Login } from '../pages/login/login';
 import { Cadastro } from '../pages/cadastro/cadastro';
 import { RecuperarSenha } from '../pages/recuperar-senha/recuperar-senha';
 import { AtualizarSenha } from '../pages/atualizar-senha/atualizar-senha';
-import { Home } from '../pages/home/home';
-import { Pedidos } from '../pages/pedidos/pedidos';
-import { Perfil } from '../pages/perfil/perfil';
 import { Privacidade } from '../pages/privacidade/privacidade';
 import { Detalhes } from '../pages/detalhes/detalhes';
 
+// Tabs
+import { Tabs } from '../pages/tabs/tabs';
+import { Home } from '../pages/home/home';
+import { Pedidos } from '../pages/pedidos/pedidos';
+import { Perfil } from '../pages/perfil/perfil';
+
+// Providers
 import { LoginService } from '../providers/login-service';
 import { PedidosService } from '../providers/pedidos-service';
 import { DetalhesService } from '../providers/detalhes-service';
@@ -44,7 +49,7 @@ import { PATH } from '../providers/path';
     BrowserModule,
     FormsModule,
     HttpModule,
-    IonicModule.forRoot(App)
+    IonicModule.forRoot(App, {tabsPlacement: 'top'})
   ],  
   bootstrap: [IonicApp],
   entryComponents: [

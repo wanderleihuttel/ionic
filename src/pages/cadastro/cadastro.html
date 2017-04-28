@@ -31,9 +31,12 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col class="cadastrar_col">
-          <button ion-button class="cadastrar" outline block type="submit" [disabled]="!cadastro.form.valid" color="light">Cadastrar</button>
+        <ion-col class="botoes_col">
+          <button ion-button type="submit" class="cadastrar" outline block [disabled]="!cadastro.form.valid" color="light">Cadastrar</button>
         </ion-col>
+        <!--ion-col>
+          <button ion-button type="button" class="privacidade" outline block color="light">Ao se cadastrar, você concorda com os Termos de uso e Política de privacidade</button>
+        </ion-col-->
       </ion-row>
     </form>
 </ion-content>

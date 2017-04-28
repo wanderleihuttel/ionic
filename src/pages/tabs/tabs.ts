@@ -9,9 +9,9 @@ import { Perfil } from '../perfil/perfil';
 })
 export class Tabs {
 
-  tab1Root = Home;
-  tab2Root = Pedidos;
-  tab3Root = Perfil;
+  tabHome = Home;
+  tabPedidos = Pedidos;
+  tabPerfil = Perfil;
 
   constructor() {}
 }

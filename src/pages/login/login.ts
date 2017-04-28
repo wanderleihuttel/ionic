@@ -48,7 +48,7 @@ export class Login {
             loading.dismiss();
         }, error => {
             loading.dismiss();
-            this.alerta(error);
+            this.alerta("Erro ao conectar, tente mais tarde");
         });
     }
     });

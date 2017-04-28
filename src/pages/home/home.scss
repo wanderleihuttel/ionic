@@ -4,7 +4,7 @@ pagina-home {
   }
 
   .home_conteudo {
-    background: #eeeeee;
+    background: #f9f9f9;
   
     ion-card {
       position: relative;
@@ -13,6 +13,7 @@ pagina-home {
 
     .card-title {
       position: absolute;
+      background-color: #FF9800;
       top: 36%;
       font-size: 2.0em;
       width: 100%;
