@@ -16,7 +16,7 @@ export class Login {
   // Expressão regular
   er = /^[a-zA-Z0-9][a-zA-Z0-9\._-]+@([a-zA-Z0-9\._-]+\.)[a-zA-Z-0-9]{2,3}$/;
 
-  constructor(private nav: NavController, private login: LoginService, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {}
+  constructor(public nav: NavController, public login: LoginService, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {}
 
   // Página de cadastro
   public cadastro() {
@@ -41,9 +41,17 @@ export class Login {
             senha: this.dados.senha
         })).subscribe(retorno => {
             if (retorno.resposta == 'logou') {
-                this.nav.setRoot(Home);
+
+              // LocalStorage
+              const dadosUsuario = {codigo: retorno.codigo, nome: retorno.nome, sobrenome: retorno.sobrenome, email: retorno.email};
+              localStorage.setItem("usuario", JSON.stringify(dadosUsuario));
+                
+              this.nav.setRoot(Home, {
+                  usuario: localStorage.getItem("usuario");
+              });
+
             } else {
-                this.alerta("E-mail ou senha inválido");
+              this.alerta("E-mail ou senha inválido");
             }
             loading.dismiss();
         }, error => {

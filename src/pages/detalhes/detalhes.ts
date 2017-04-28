@@ -15,7 +15,7 @@ export class Detalhes {
   rua_loja = this.params.get('rua_loja');
   nome_produto = this.params.get('nome_produto');
 
-  constructor(private nav: NavController, private service: DetalhesService, private toastCtrl: ToastController, private params: NavParams) {
+  constructor(public nav: NavController, public service: DetalhesService, public toastCtrl: ToastController, public params: NavParams) {
     this.getDetalhes();
   }
 

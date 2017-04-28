@@ -11,16 +11,11 @@ import { Popover } from '../popover/popover';
 })
 export class Home {
   public showSearchBar: boolean = false;
-  pesquisa = '';
-  codigo = '';
-  nome = '';
-  email = '';
+  usuario: {};
 
-  constructor(public nav: NavController, public popoverCtrl: PopoverController, public login: LoginService) {
-    /*let info = this.auth.getUsuarioDados();
-    this.codigo = info.codigo;
-    this.nome = info.nome;
-    this.email = info.email;*/
+  constructor(public nav: NavController, public popoverCtrl: PopoverController, public login: LoginService, public params: NavParams) {
+    this.usuario = this.params.get('usuario');
+    console.log(usuario);
   }
 
   public searchBar() {
