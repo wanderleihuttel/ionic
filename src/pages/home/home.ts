@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, PopoverController } from 'ionic-angular';
 import { LoginService } from '../../providers/login-service';
-import { Pedidos } from '../pedidos/pedidos';
-import { Perfil } from '../perfil/perfil';
+//import { Pedidos } from '../pedidos/pedidos';
+//import { Perfil } from '../perfil/perfil';
 import { Popover } from '../popover/popover';
 
 @Component({
@@ -23,17 +23,18 @@ export class Home {
     this.email = info.email;*/
   }
 
-  public toggleShowSearchBar() {
+  public searchBar() {
     this.showSearchBar = !this.showSearchBar;
   }
 
-  public menuCloseSearchBar() {
-    if (this.showSearchBar) {
+  public closeSearchBar() {
+    if (this.showSearchBar == true) {
       this.showSearchBar = false;
     }
   }
 
   public popover(event) {
+    this.closeSearchBar();
     let popover = this.popoverCtrl.create(Popover);
     popover.present({
       ev: event
@@ -46,11 +47,11 @@ export class Home {
     this.showSearchBar = !this.showSearchBar;
   }
 
-  public pedidos() {
+  /*public pedidos() {
     this.nav.push(Pedidos)
   }
 
   public perfil() {
     this.nav.push(Perfil)
-  }
+  }*/
 }
