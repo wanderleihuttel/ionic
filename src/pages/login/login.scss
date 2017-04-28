@@ -1,21 +1,19 @@
 pagina-login {
-  .back-button {
-    color: #E64A19 !important;
-  }
-
   .login_conteudo {
-    background-color: #f9f9f9;
+    background-color: #ffdfd2;
+    background-image: -webkit-radial-gradient(circle, #ffdfd2, #fdac8a 125px, #f1815e);
+    background-image:    -moz-radial-gradient(circle, #ffdfd2, #fdac8a 125px, #f1815e);
+    background-image:     -ms-radial-gradient(circle, #ffdfd2, #fdac8a 125px, #f1815e);
+    background-image:      -o-radial-gradient(circle, #ffdfd2, #fdac8a 125px, #f1815e);
+    background-image:         radial-gradient(circle, #ffdfd2, #fdac8a 125px, #f1815e);
 
     ion-row {
       align-items: center;
       text-align: center;
     }
-
-    ion-list {
-      border: 1px solid #eeeeee;
-      border-radius: 5px !important;
+    .item-md, .item-ios {
+      background-color: #fdfdfd;  
     }
-
     ion-item {
       font-size: 0.9em;
       border-bottom: 1px solid #eeeeee !important;
@@ -26,6 +24,9 @@ pagina-login {
       padding-left: 5px;
     }
 
+    .button-md, .button-ios {
+      border-radius: 0;
+    }
     .botoes_col {
       margin: 0px 16px 0px 16px;
     }
@@ -35,17 +36,19 @@ pagina-login {
       box-shadow: none !important;
     }
 
-    .login, .cadastro {
-      background-color: #ef6933;
-      background: -webkit-linear-gradient(-45deg,#ef6933 0%,#af3200 100%);
-      background: -moz-linear-gradient(-45deg,#ef6933 0%,#af3200 100%);
-      background: linear-gradient(135deg, #ef6933 0%, #af3200 100%);
-      border-radius: 4px !important;
+    .login {
+      margin: 0 !important;
+      background-color: #FF5722;
+      background: -webkit-linear-gradient(-45deg,#FF5722 0%,#E64A19 100%);
+      background: -moz-linear-gradient(-45deg,#FF5722 0%,#E64A19 100%);
+      background: linear-gradient(135deg, #FF5722 0%, #E64A19 100%);
+      border-bottom-left-radius: 4px !important;
+      border-bottom-right-radius: 4px !important;
       border: none;
       text-transform: none;
     }
 
-    .recuperar {
+    .cadastro, .recuperar {
       color: #b73907;
       font-size: 0.8em;
       text-transform: none;

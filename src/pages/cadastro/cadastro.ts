@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
   templateUrl: 'cadastro.html'
 })
 export class Cadastro {
-  dados = {nome: '', sobrenome: '', email: '', senha: ''};
+  dados = {nome: '', sobrenome: '', email: '', telefone: '', senha: ''};
 
   constructor(private nav: NavController, private cadastro: LoginService, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {}
 
@@ -20,6 +20,7 @@ export class Cadastro {
       nome: this.dados.nome,
       sobrenome: this.dados.sobrenome,
       email: this.dados.email,
+      telefone: this.dados.telefone,
       senha: this.dados.senha
 	})).subscribe(retorno => {
         if (retorno.resposta == 'cadastrou') {

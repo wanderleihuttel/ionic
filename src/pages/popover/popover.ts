@@ -13,11 +13,11 @@ export class Popover {
 
   public privacidade() {
     this.viewCtrl.dismiss();
-    this.nav.push(Privacidade)
+    this.nav.push(Privacidade);
   }
 
   public sair() {
     this.viewCtrl.dismiss();
-    this.nav.setRoot(Login)
+    this.nav.setRoot(Login);
   }
 }

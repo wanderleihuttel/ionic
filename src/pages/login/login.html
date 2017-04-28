@@ -2,7 +2,7 @@
   <ion-row>
     <ion-col></ion-col>
     <ion-col width-67>
-      <img src="assets/img/logotipo.png"/>
+      <img src="assets/img/logotipo-branco.png"/>
     </ion-col>
     <ion-col></ion-col>
   </ion-row>
@@ -16,13 +16,13 @@
             <ion-item>
               <ion-input type="password" placeholder="Senha" name="senha" [(ngModel)]="dados.senha" required></ion-input>
             </ion-item>
+            <button ion-button class="login" outline type="submit" [disabled]="!login.form.valid" block color="light">Entrar</button>
           </ion-list>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col class="botoes_col">
-          <button ion-button class="cadastro" outline type="button" (click)="cadastro()" color="light">Cadastre-se</button>
-          <button ion-button class="login" outline type="submit" [disabled]="!login.form.valid" color="light">Entrar</button>
+          <button ion-button class="cadastro" type="button" (click)="cadastro()" clear>Cadastre-se</button>
           <button ion-button class="recuperar" type="button" (click)="recuperar()" clear>Esqueceu a senha?</button>
         </ion-col>
       </ion-row>
