@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, ViewController } from 'ionic-angular';
 
 import { Login } from '../login/login';
-import { Privacidade } from '../privacidade/privacidade';
 
 @Component({
   selector: 'popover',
@@ -11,13 +10,9 @@ import { Privacidade } from '../privacidade/privacidade';
 export class Popover {
   constructor(public nav: NavController, public viewCtrl: ViewController) {}
 
-  public privacidade() {
-    this.viewCtrl.dismiss();
-    this.nav.push(Privacidade);
-  }
-
   public sair() {
     this.viewCtrl.dismiss();
+    localStorage.clear();
     this.nav.setRoot(Login);
   }
 }

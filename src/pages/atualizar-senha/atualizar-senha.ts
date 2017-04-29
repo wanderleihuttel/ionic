@@ -7,6 +7,6 @@ import { NavController } from 'ionic-angular';
 })
 export class AtualizarSenha {
 
-  constructor(private nav: NavController) {}
+  constructor(public nav: NavController) {}
 
 }

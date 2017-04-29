@@ -9,7 +9,7 @@ import { LoginService } from '../../providers/login-service';
 export class RecuperarSenha {
   dados = {email: ''};
 
-  constructor(private nav: NavController, private login: LoginService, private alertCtrl: AlertController) {}
+  constructor(public nav: NavController, public login: LoginService, public alertCtrl: AlertController) {}
 
   // Recuperar senha
   public recuperar_senha() {}

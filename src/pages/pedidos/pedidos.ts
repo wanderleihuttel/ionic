@@ -9,20 +9,23 @@ import { Detalhes } from '../detalhes/detalhes';
 })
 export class Pedidos {
   pedidos: any[];
+  usuario: {};
 
-  constructor(private nav: NavController, private service: PedidosService, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {
+  constructor(public nav: NavController, public service: PedidosService, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {
+    this.usuario = JSON.parse(localStorage.getItem('usuario'));
+    console.log(this.usuario);
     this.listarPedidos();
   }
 
   // Pegar o id do pedido e da loja e o nome do produto, e exibe na página de Detalhes
-  public detalhes(id, loja, nome_loja, rua_loja, nome_produto, foto_produto) {
+  public detalhes(pedido) {
     this.nav.push(Detalhes, {
-      id_pedido: id,
-      id_loja: loja,
-      nome_loja: nome_loja,
-      rua_loja: rua_loja,
-      nome_produto: nome_produto,
-      foto_produto: foto_produto
+      id_pedido: pedido.id,
+      id_loja: pedido.loja,
+      nome_loja: pedido.nome_loja,
+      rua_loja: pedido.rua_loja,
+      nome_produto: pedido.nome_produto,
+      foto_produto: pedido.foto_produto
     });
   }
 

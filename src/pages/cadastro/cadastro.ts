@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, ToastController } from 'ionic-angular';
+
+import { Privacidade } from '../privacidade/privacidade';
+
 import { LoginService } from '../../providers/login-service';
 import 'rxjs/add/operator/map';
 
@@ -8,9 +11,17 @@ import 'rxjs/add/operator/map';
   templateUrl: 'cadastro.html'
 })
 export class Cadastro {
-  dados = {nome: '', sobrenome: '', email: '', telefone: '', senha: ''};
+  dados = {nome: '', sobrenome: '', email: '', numero: '', senha: ''};
 
-  constructor(private nav: NavController, private cadastro: LoginService, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {}
+  constructor(public nav: NavController, public cadastro: LoginService, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {}
+
+  termos() {
+    console.log('Termos');
+  }
+
+  privacidade() {
+    this.nav.push(Privacidade);
+  }
 
   // Cadastrar usuário
   cadastrar() {
@@ -20,13 +31,13 @@ export class Cadastro {
       nome: this.dados.nome,
       sobrenome: this.dados.sobrenome,
       email: this.dados.email,
-      telefone: this.dados.telefone,
+      numero: this.dados.numero,
       senha: this.dados.senha
 	})).subscribe(retorno => {
         if (retorno.resposta == 'cadastrou') {
             loading.dismiss();
             this.nav.popToRoot();
-            console.log("Cadastrado com sucesso");
+            this.alerta("Cadastrado com sucesso");
         } else {
             loading.dismiss();
             this.alerta("Erro ao cadastrar");

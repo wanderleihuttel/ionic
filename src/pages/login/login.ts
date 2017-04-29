@@ -41,7 +41,7 @@ export class Login {
             senha: this.dados.senha
         })).subscribe(retorno => {
             if (retorno.resposta == 'logou') {
-              const dadosUsuario = {codigo: retorno.codigo, nome: retorno.nome, sobrenome: retorno.sobrenome, email: this.dados.email};
+              const dadosUsuario = {id: retorno.id, codigo: retorno.codigo, nome: retorno.nome, sobrenome: retorno.sobrenome, email: this.dados.email};
               localStorage.setItem('usuario', JSON.stringify(dadosUsuario));
               this.nav.setRoot(Home);
             } else {

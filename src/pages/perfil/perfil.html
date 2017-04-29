@@ -24,8 +24,8 @@
     <ion-row>
       <ion-col class="botoes_col">
         <button ion-button type="submit" class="atualizar" block [disabled]="!perfil.form.valid">Atualizar</button>
-        <button ion-button type="button" class="deletar" clear>Deletar conta</button>
-        <button ion-button type="button" class="trocar_senha" (click)="atualizar_senha()" clear>Trocar senha</button>
+        <button ion-button type="button" class="deletar" (click)="deletar_conta()" clear>Deletar conta</button>
+        <button ion-button type="button" class="trocar_senha" (click)="trocar_senha()" clear>Trocar senha</button>
       </ion-col>
     </ion-row>
   </form>

@@ -7,6 +7,6 @@ import { NavController } from 'ionic-angular';
 })
 export class Privacidade {
 
-  constructor(private nav: NavController) {}
+  constructor(public nav: NavController) {}
 
 }
