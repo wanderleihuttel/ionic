@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, PopoverController } from 'ionic-angular';
 import { LoginService } from '../../providers/login-service';
+
 //import { Pedidos } from '../pedidos/pedidos';
 //import { Perfil } from '../perfil/perfil';
+
 import { Popover } from '../popover/popover';
 
 @Component({
@@ -10,15 +12,14 @@ import { Popover } from '../popover/popover';
   templateUrl: 'home.html'
 })
 export class Home {
-  public showSearchBar: boolean = false;
+  public showSearchBar: boolean = false;    
   usuario: {};
 
-  constructor(public nav: NavController, public popoverCtrl: PopoverController, public login: LoginService, public params: NavParams) {
-    this.usuario = this.params.get('usuario');
-    console.log(usuario);
+  constructor(public nav: NavController, public popoverCtrl: PopoverController, public login: LoginService) {
+    this.usuario = JSON.parse(localStorage.getItem('usuario'));
   }
 
-  public searchBar() {
+  public toogleShowSearchBar() {
     this.showSearchBar = !this.showSearchBar;
   }
 
@@ -41,12 +42,4 @@ export class Home {
   public onCancel() {
     this.showSearchBar = !this.showSearchBar;
   }
-
-  /*public pedidos() {
-    this.nav.push(Pedidos)
-  }
-
-  public perfil() {
-    this.nav.push(Perfil)
-  }*/
 }

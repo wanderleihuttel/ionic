@@ -41,15 +41,9 @@ export class Login {
             senha: this.dados.senha
         })).subscribe(retorno => {
             if (retorno.resposta == 'logou') {
-
-              // LocalStorage
-              const dadosUsuario = {codigo: retorno.codigo, nome: retorno.nome, sobrenome: retorno.sobrenome, email: retorno.email};
-              localStorage.setItem("usuario", JSON.stringify(dadosUsuario));
-                
-              this.nav.setRoot(Home, {
-                  usuario: localStorage.getItem("usuario");
-              });
-
+              const dadosUsuario = {codigo: retorno.codigo, nome: retorno.nome, sobrenome: retorno.sobrenome, email: this.dados.email};
+              localStorage.setItem('usuario', JSON.stringify(dadosUsuario));
+              this.nav.setRoot(Home);
             } else {
               this.alerta("E-mail ou senha inválido");
             }

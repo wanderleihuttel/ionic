@@ -14,7 +14,7 @@
     </ion-searchbar>
 
     <ion-buttons end>
-      <button ion-button icon-only (click)="searchBar()">
+      <button ion-button icon-only (click)="toogleShowSearchBar()">
           <ion-icon name="search"></ion-icon>
       </button>
       <button ion-button icon-only (click)="popover($event)">
@@ -27,7 +27,7 @@
 <ion-content class="home_conteudo">
   <ion-card>
     <img src="assets/img/cliente.jpg"/>
-    <div class="card-title">JS0101</div>
+    <div class="card-title">{{usuario.codigo}}</div>
     <ion-card-content>
       <p>Informe este código ao atendente, sempre que for realizar compras na loja</p>
     </ion-card-content>

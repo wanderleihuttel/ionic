@@ -10,22 +10,22 @@
       <ion-col>
         <ion-list inset>
           <ion-item>
-            <ion-input type="text" placeholder="Nome" name="nome" required></ion-input>
+            <ion-input type="text" placeholder="Nome" name="nome" required>{{usuario.nome}}</ion-input>
           </ion-item>
           <ion-item>
-            <ion-input type="text" placeholder="Sobrenome" name="sobrenome" required></ion-input>
+            <ion-input type="text" placeholder="Sobrenome" name="sobrenome" required>{{usuario.sobrenome}}</ion-input>
           </ion-item>
           <ion-item>
-            <ion-input type="text" placeholder="E-mail" name="email" required></ion-input>
+            <ion-input type="email" placeholder="E-mail" name="email" required>{{usuario.email}}</ion-input>
           </ion-item>
         </ion-list>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="botoes_col">
-        <button ion-button class="atualizar" block type="submit" [disabled]="!perfil.form.valid">Atualizar</button>
-        <button ion-button class="deletar" type="submit" clear>Deletar conta</button>
-        <button ion-button class="trocar_senha" (click)="atualizar_senha()" clear>Trocar senha</button>
+        <button ion-button type="submit" class="atualizar" block [disabled]="!perfil.form.valid">Atualizar</button>
+        <button ion-button type="button" class="deletar" clear>Deletar conta</button>
+        <button ion-button type="button" class="trocar_senha" (click)="atualizar_senha()" clear>Trocar senha</button>
       </ion-col>
     </ion-row>
   </form>
