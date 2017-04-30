@@ -4,13 +4,14 @@
 	
 	class CadastroModel extends Model
 	{
-        public function cadastro($nome, $sobrenome, $email, $senha){			
+        public function cadastro($nome, $sobrenome, $numero, $email, $senha){			
 			$senha_criptografada = password_hash($senha, PASSWORD_BCRYPT, ['cost' => 12]);
 			
 			$nome_completo = $nome.' '.$sobrenome;
 			$peaces = explode(' ', $nome_completo);
 			$letras = $peaces[0][0].''.$peaces[count($peaces) - 1][0];
-			$codigo = $letras.str_pad(rand(0,9999), 4, 0, STR_PAD_LEFT);
+			$codigo = $letras.$numero;
+			//$codigo = $letras.str_pad(rand(0,9999), 4, 0, STR_PAD_LEFT);
 			
 			$stmt = $this->db->prepare("SELECT `email` FROM `loja_clientes` WHERE `email` = :email");
 			$stmt->bindValue(':email', $email, PDO::PARAM_STR);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 25-Abr-2017 às 04:36
+-- Generation Time: 30-Abr-2017 às 03:28
 -- Versão do servidor: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -9878,7 +9878,9 @@ CREATE TABLE `admin_lojas` (
 --
 
 INSERT INTO `admin_lojas` (`id`, `nome`, `estado`, `cidade`, `bairro`, `rua`, `numero`, `transacao`, `status`, `lixeira`) VALUES
-(5, 'Teste', 5, 532, 'Bairro Teste', 'Rua Teste', 316, '', 0, 0);
+(5, 'Teste', 5, 532, 'Bairro Teste', 'Rua Teste', 316, '', 0, 0),
+(6, 'Teste 2', 5, 532, 'Bairro Teste', 'Rua Teste', 316, '', 0, 0),
+(7, 'Teste 3', 5, 532, 'Bairro Teste', 'Rua Teste', 316, '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -9941,6 +9943,14 @@ CREATE TABLE `loja_fotos_produto` (
   `lixeira` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Extraindo dados da tabela `loja_fotos_produto`
+--
+
+INSERT INTO `loja_fotos_produto` (`id`, `id_produto`, `foto`, `lixeira`) VALUES
+(2, 1, 'bicicletaCaloi2.jpg', 0),
+(3, 1, 'bicicletaCaloi3.jpg', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -9966,7 +9976,9 @@ CREATE TABLE `loja_lojistas` (
 --
 
 INSERT INTO `loja_lojistas` (`id`, `id_admin_lojas`, `nome`, `sobrenome`, `cpf`, `cnpj`, `telefone`, `email`, `senha`, `tipo`, `lixeira`) VALUES
-(10, 5, 'William', 'Correa', '34911159065', '97136816000189', '77991876383', 'condeweb@live.com', '$2y$12$QqXZitihKZWmd.UPYTZkIekHrf1gWZeOX1b.UiRrqetbnjtbn8bs2', 1, 0);
+(10, 5, 'William', 'Correa', '12345678900', '12345678900000', '77991876300', 'condeweb@live.com', '$2y$12$QqXZitihKZWmd.UPYTZkIekHrf1gWZeOX1b.UiRrqetbnjtbn8bs2', 1, 0),
+(11, 6, 'Jonathan', 'Silva', '12345678901', '12345678900001', '77991876301', 'teste@live.com', '$12$QqXZitihKZWmd.UPYTZkIekHrf1gWZeOX1b.UiRrqetbnjtbn8bs2', 1, 0),
+(12, 7, 'José', 'Nunes', '12345678902', '12345678900002', '77991876302', 'fulano@live.com', '$12$QqXZitihKZWmd.UPYTZkIekHrf1gWZeOX1b.UiRrqetbnjtbn8bs2', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -9989,7 +10001,8 @@ CREATE TABLE `loja_pedidos` (
 --
 
 INSERT INTO `loja_pedidos` (`id`, `id_loja`, `id_cliente`, `preco`, `status`, `data`, `lixeira`) VALUES
-(1, 5, 2, 100, 0, '2017-04-23 23:26:56', 0);
+(1, 5, 2, 100, 0, '2017-04-23 23:26:56', 0),
+(2, 5, 2, 50, 1, '2017-04-25 20:56:55', 0);
 
 -- --------------------------------------------------------
 
@@ -10034,7 +10047,8 @@ CREATE TABLE `loja_produtos_pedidos` (
 --
 
 INSERT INTO `loja_produtos_pedidos` (`id`, `id_loja`, `id_pedido`, `id_produto`, `lixeira`) VALUES
-(1, 5, 1, 1, 0);
+(1, 5, 1, 1, 0),
+(2, 5, 2, 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -10143,7 +10157,7 @@ ALTER TABLE `admin_estados`
 -- AUTO_INCREMENT for table `admin_lojas`
 --
 ALTER TABLE `admin_lojas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `admin_pagamentos`
 --
@@ -10163,17 +10177,17 @@ ALTER TABLE `loja_codigos`
 -- AUTO_INCREMENT for table `loja_fotos_produto`
 --
 ALTER TABLE `loja_fotos_produto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `loja_lojistas`
 --
 ALTER TABLE `loja_lojistas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `loja_pedidos`
 --
 ALTER TABLE `loja_pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `loja_produtos`
 --
@@ -10183,7 +10197,7 @@ ALTER TABLE `loja_produtos`
 -- AUTO_INCREMENT for table `loja_produtos_pedidos`
 --
 ALTER TABLE `loja_produtos_pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
