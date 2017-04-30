@@ -27,6 +27,7 @@ import { Perfil } from '../pages/perfil/perfil';
 import { LoginService } from '../providers/login-service';
 import { PedidosService } from '../providers/pedidos-service';
 import { DetalhesService } from '../providers/detalhes-service';
+import { TabsService } from '../providers/tabs-service';
 
 import { PATH } from '../providers/path';
 
@@ -72,6 +73,7 @@ import { PATH } from '../providers/path';
     LoginService,
     PedidosService,
     DetalhesService,
+    TabsService,
     PATH,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

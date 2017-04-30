@@ -3,7 +3,10 @@ import { NavController, LoadingController, ToastController } from 'ionic-angular
 import { LoginService } from '../../providers/login-service';
 import { Cadastro } from '../cadastro/cadastro';
 import { RecuperarSenha } from '../recuperar-senha/recuperar-senha';
-import { Home } from '../home/home';
+
+import { TabsService } from '../../providers/tabs-service';
+import { Tabs } from '../tabs/tabs';
+
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -16,7 +19,15 @@ export class Login {
   // Expressão regular
   er = /^[a-zA-Z0-9][a-zA-Z0-9\._-]+@([a-zA-Z0-9\._-]+\.)[a-zA-Z-0-9]{2,3}$/;
 
-  constructor(public nav: NavController, public login: LoginService, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {}
+  constructor(private tabs: TabsService, public nav: NavController, public login: LoginService, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {}
+
+  /*ionViewDidEnter() {
+    this.tabs.hide()
+  }
+
+  ionViewDidLeave() {
+    this.tabs.show()
+  }*/
 
   // Página de cadastro
   public cadastro() {
@@ -41,9 +52,11 @@ export class Login {
             senha: this.dados.senha
         })).subscribe(retorno => {
             if (retorno.resposta == 'logou') {
+            
               const dadosUsuario = {id: retorno.id, codigo: retorno.codigo, nome: retorno.nome, sobrenome: retorno.sobrenome, email: this.dados.email};
               localStorage.setItem('usuario', JSON.stringify(dadosUsuario));
-              this.nav.setRoot(Home);
+            
+              this.nav.setRoot(Tabs);
             } else {
               this.alerta("E-mail ou senha inválido");
             }

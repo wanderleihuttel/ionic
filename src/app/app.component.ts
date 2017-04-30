@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { Login } from '../pages/login/login';
-import { Home } from '../pages/home/home';
+import { Tabs } from '../pages/tabs/tabs';
 
 @Component({
   templateUrl: 'app.html'
@@ -11,7 +11,7 @@ export class App {
   constructor(public platform: Platform) {
     this.platform.ready().then(() => {
       if (localStorage.getItem('usuario')) {
-        this.nav.setRoot(Home);
+        this.nav.setRoot(Tabs);
       } else {
         this.nav.setRoot(Login);
       }
