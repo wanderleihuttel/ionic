@@ -9,11 +9,11 @@ import { HttpModule } from '@angular/http';
 import { App } from './app.component';
 
 // Páginas
-import { Popover } from '../pages/popover/popover';
 import { Login } from '../pages/login/login';
 import { Cadastro } from '../pages/cadastro/cadastro';
 import { RecuperarSenha } from '../pages/recuperar-senha/recuperar-senha';
 import { AtualizarSenha } from '../pages/atualizar-senha/atualizar-senha';
+import { Termos } from '../pages/termos/termos';
 import { Privacidade } from '../pages/privacidade/privacidade';
 import { Detalhes } from '../pages/detalhes/detalhes';
 
@@ -33,7 +33,6 @@ import { PATH } from '../providers/path';
 @NgModule({
   declarations: [
     App,
-    Popover,
     Tabs,
     Login,
     Cadastro,
@@ -42,6 +41,7 @@ import { PATH } from '../providers/path';
     Home,
     Pedidos,
     Perfil,
+    Termos,
     Privacidade,
     Detalhes
   ],
@@ -54,7 +54,6 @@ import { PATH } from '../providers/path';
   bootstrap: [IonicApp],
   entryComponents: [
     App,
-    Popover,
     Tabs,
     Login,
     Cadastro,
@@ -63,6 +62,7 @@ import { PATH } from '../providers/path';
     Home,
     Pedidos,
     Perfil,
+    Termos,
     Privacidade,
     Detalhes
   ],

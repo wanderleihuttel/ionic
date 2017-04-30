@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, PopoverController } from 'ionic-angular';
-import { LoginService } from '../../providers/login-service';
+import { NavController, AlertController } from 'ionic-angular';
 
+import { Login } from '../login/login';
 //import { Pedidos } from '../pedidos/pedidos';
 //import { Perfil } from '../perfil/perfil';
 
-import { Popover } from '../popover/popover';
+import { LoginService } from '../../providers/login-service';
 
 @Component({
   selector: 'pagina-home',
@@ -15,26 +15,33 @@ export class Home {
   public showSearchBar: boolean = false;    
   usuario: {};
 
-  constructor(public nav: NavController, public popoverCtrl: PopoverController, public login: LoginService) {
+  constructor(public nav: NavController, public alertCtrl: AlertController, public login: LoginService) {
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
   }
 
-  public toogleShowSearchBar() {
+  public toggleShowSearchBar() {
     this.showSearchBar = !this.showSearchBar;
   }
 
-  public closeSearchBar() {
-    if (this.showSearchBar == true) {
-      this.showSearchBar = false;
-    }
-  }
-
-  public popover(event) {
-    this.closeSearchBar();
-    let popover = this.popoverCtrl.create(Popover);
-    popover.present({
-      ev: event
+  public sair() {
+    const alert = this.alertCtrl.create({
+      message: 'Deseja sair da sua conta?',
+      buttons: [
+        {
+          text: 'Não',
+          handler: () => {}
+        },
+        {
+          text: 'Sim',
+          handler: () => {
+            localStorage.clear();
+            this.nav.setRoot(Login);
+          }
+        }
+      ]
     });
+    
+    alert.present();
   }
 
   public onInput() {}

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, ToastController } from 'ionic-angular';
 
+import { Termos } from '../termos/termos';
 import { Privacidade } from '../privacidade/privacidade';
 
 import { LoginService } from '../../providers/login-service';
@@ -16,7 +17,7 @@ export class Cadastro {
   constructor(public nav: NavController, public cadastro: LoginService, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {}
 
   termos() {
-    console.log('Termos');
+    this.nav.push(Termos);
   }
 
   privacidade() {
