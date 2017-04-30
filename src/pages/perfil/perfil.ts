@@ -7,6 +7,9 @@ import { AtualizarSenha } from '../atualizar-senha/atualizar-senha';
   templateUrl: 'perfil.html'
 })
 export class Perfil {
+  nome = '';
+  sobrenome = '';
+  email = '';
 
   constructor(public nav: NavController, public alertCtrl: AlertController) {}
 

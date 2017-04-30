@@ -19,15 +19,15 @@ export class Login {
   // Expressão regular
   er = /^[a-zA-Z0-9][a-zA-Z0-9\._-]+@([a-zA-Z0-9\._-]+\.)[a-zA-Z-0-9]{2,3}$/;
 
-  constructor(private tabs: TabsService, public nav: NavController, public login: LoginService, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {}
+  constructor(public tabs: TabsService, public nav: NavController, public login: LoginService, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {}
 
-  /*ionViewDidEnter() {
-    this.tabs.hide()
+  ionViewDidEnter() {
+    this.tabs.hide();
   }
 
   ionViewDidLeave() {
-    this.tabs.show()
-  }*/
+    this.tabs.show();
+  }
 
   // Página de cadastro
   public cadastro() {

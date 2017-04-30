@@ -6,6 +6,7 @@ import { Pedidos } from '../pedidos/pedidos';
 import { Perfil } from '../perfil/perfil';
 
 @Component({
+  selector: 'tabs',
   templateUrl: 'tabs.html'
 })
 export class Tabs {
