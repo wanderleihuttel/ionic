@@ -12,9 +12,11 @@
 						`loja_pedidos`.`id_loja`,
 						`loja_pedidos`.`status`,
 						`loja_produtos`.`nome` as nome_produto,
-						`loja_produtos`.`foto`,
+						`loja_produtos`.`foto` as foto_produto,
 						`admin_lojas`.`nome` as nome_loja,
-						`admin_lojas`.`rua` as rua_loja
+						`admin_lojas`.`bairro` as bairro_loja,
+						`admin_lojas`.`rua` as rua_loja,
+						`admin_lojas`.`numero` as numero_loja
 							FROM `loja_produtos_pedidos`
 								INNER JOIN `loja_pedidos` ON (`loja_pedidos`.`id` = `loja_produtos_pedidos`.`id_pedido`)
 								INNER JOIN `loja_produtos` ON (`loja_produtos`.`id` = `loja_produtos_pedidos`.`id_produto`)
