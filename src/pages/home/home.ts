@@ -5,7 +5,7 @@ import { Login } from '../login/login';
 import { Pedidos } from '../pedidos/pedidos';
 import { Perfil } from '../perfil/perfil';
 
-import { LoginService } from '../../providers/login-service';
+import { PesquisaService } from '../../providers/pesquisa-service';
 
 @Component({
   selector: 'pagina-home',
@@ -15,7 +15,10 @@ export class Home {
   public showSearchBar: boolean = false;    
   usuario: {};
 
-  constructor(public nav: NavController, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, public login: LoginService) {
+  
+  lojas: any;
+
+  constructor(public nav: NavController, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, public service: PesquisaService) {
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
   }
 
@@ -77,9 +80,27 @@ export class Home {
     alert.present();
   }
 
-  public onInput() {}
+  public loja(input) {
+    let loja = input.target.value;
 
+    if (loja.length >= 4) {
+      this.service.pesquisa(this.jsonToURLEncoded({
+        nome: loja
+      })).subscribe(retorno => {
+        this.lojas = retorno;
+      }, error => {
+        console.log(error);
+      });   
+    }
+  }
+    
   public onCancel() {
     this.showSearchBar = !this.showSearchBar;
+  }
+    
+  private jsonToURLEncoded(jsonString) {
+    return Object.keys(jsonString).map(function(key) {
+      return encodeURIComponent(key) + '=' + encodeURIComponent(jsonString[key]);
+    }).join('&');
   }
 }

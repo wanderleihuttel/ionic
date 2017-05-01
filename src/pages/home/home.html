@@ -1,16 +1,16 @@
-<ion-header no-border>
+<ion-header>
   <ion-navbar color="light">
     <ion-title *ngIf=!showSearchBar>Sistema</ion-title>
 
     <ion-searchbar
       *ngIf=showSearchBar
       [(ngModel)]="pesquisa"
+      (ionInput)="loja($event)"
+      (ionCancel)="onCancel($event)"
       [showCancelButton]="true"
       cancelButtonText="Cancelar"
-      (ionInput)="onInput($event)"
-      (ionCancel)="onCancel($event)"
-      autocomplete="on"
-      placeholder="Pesquise pela loja">
+      placeholder="Pesquise pela loja"
+      autocomplete="on">
     </ion-searchbar>
 
     <ion-buttons end>
