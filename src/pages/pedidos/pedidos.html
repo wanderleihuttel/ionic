@@ -1,26 +1,6 @@
 <ion-header no-border>
-  <ion-navbar color="light">
-    <ion-title *ngIf=!showSearchBar>Sistema</ion-title>
-
-    <ion-searchbar
-      *ngIf=showSearchBar
-      [(ngModel)]="pesquisa"
-      [showCancelButton]="true"
-      cancelButtonText="Cancelar"
-      (ionInput)="onInput($event)"
-      (ionCancel)="onCancel($event)"
-      autocomplete="on"
-      placeholder="Pesquise pela loja">
-    </ion-searchbar>
-
-    <ion-buttons end>
-      <button ion-button icon-only (click)="toggleShowSearchBar()">
-          <ion-icon name="search"></ion-icon>
-      </button>
-      <button ion-button icon-only (click)="more()">
-          <ion-icon name="more"></ion-icon>
-      </button>
-    </ion-buttons>
+  <ion-navbar color="navbar">
+    <ion-title>Pedidos</ion-title>
   </ion-navbar>
 </ion-header>
 

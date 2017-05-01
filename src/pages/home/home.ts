@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, ActionSheetController, AlertController } from 'ionic-angular';
 
 import { Login } from '../login/login';
-//import { Pedidos } from '../pedidos/pedidos';
-//import { Perfil } from '../perfil/perfil';
+import { Pedidos } from '../pedidos/pedidos';
+import { Perfil } from '../perfil/perfil';
 
 import { LoginService } from '../../providers/login-service';
 
@@ -28,13 +28,25 @@ export class Home {
       buttons: [
         {
           text: 'Compartilhar',
-          role: 'share',
+          icon: 'share',
           handler: () => {
             console.log('Compartilhar');
           }
         },{
+          text: 'Pedidos',
+          icon: 'create',
+          handler: () => {
+            this.nav.push(Pedidos);
+          }
+        },{
+          text: 'Perfil',
+          icon: 'person',
+          handler: () => {
+            this.nav.push(Perfil);
+          }
+        },{
           text: 'Sair',
-          role: 'log-out',
+          icon: 'log-out',
           handler: () => {
             this.deslogar();
           }

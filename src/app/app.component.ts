@@ -1,20 +1,28 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { Home } from '../pages/home/home';
 import { Login } from '../pages/login/login';
-import { Tabs } from '../pages/tabs/tabs';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class App {
   @ViewChild(Nav) nav: Nav;
-  constructor(public platform: Platform) {
+  rootPage: any;
+
+  constructor(public platform: Platform, public splashScreen: SplashScreen) {
+    if (localStorage.getItem('usuario')) {
+      this.rootPage = Home;
+    } else {
+      this.rootPage = Login;
+    }
+    this.platformReady();
+  }
+
+  platformReady() {
     this.platform.ready().then(() => {
-      if (localStorage.getItem('usuario')) {
-        this.nav.setRoot(Tabs);
-      } else {
-        this.nav.setRoot(Login);
-      }
+      this.splashScreen.hide();
     });
   }
 }

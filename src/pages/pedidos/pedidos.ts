@@ -9,10 +9,10 @@ import { Detalhes } from '../detalhes/detalhes';
 })
 export class Pedidos {
   pedidos: any;
-  usuario: {};
+  usuario: any;
 
   constructor(public nav: NavController, public service: PedidosService, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {
-    this.usuario = localStorage.getItem('usuario');
+    this.usuario = JSON.parse(localStorage.getItem('usuario'));
     this.listarPedidos();
   }
 
@@ -32,10 +32,12 @@ export class Pedidos {
 
   // Lista os pedidos
   listarPedidos() {
-    const loading = this.loadingCtrl.create({content: 'Carregando...'}); 
+    let usuario = this.usuario;
+    
+    let loading = this.loadingCtrl.create({content: 'Carregando...'}); 
     loading.present().then(()=>{
         this.service.listar(this.jsonToURLEncoded({
-            id_usuario: 2
+            id_usuario: usuario.id
         })).subscribe(retorno => {
             this.pedidos = retorno;
             

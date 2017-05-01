@@ -16,9 +16,6 @@ import { AtualizarSenha } from '../pages/atualizar-senha/atualizar-senha';
 import { Termos } from '../pages/termos/termos';
 import { Privacidade } from '../pages/privacidade/privacidade';
 import { Detalhes } from '../pages/detalhes/detalhes';
-
-// Tabs
-import { Tabs } from '../pages/tabs/tabs';
 import { Home } from '../pages/home/home';
 import { Pedidos } from '../pages/pedidos/pedidos';
 import { Perfil } from '../pages/perfil/perfil';
@@ -27,14 +24,12 @@ import { Perfil } from '../pages/perfil/perfil';
 import { LoginService } from '../providers/login-service';
 import { PedidosService } from '../providers/pedidos-service';
 import { DetalhesService } from '../providers/detalhes-service';
-import { TabsService } from '../providers/tabs-service';
 
 import { PATH } from '../providers/path';
 
 @NgModule({
   declarations: [
     App,
-    Tabs,
     Login,
     Cadastro,
     RecuperarSenha,
@@ -50,12 +45,11 @@ import { PATH } from '../providers/path';
     BrowserModule,
     FormsModule,
     HttpModule,
-    IonicModule.forRoot(App, {tabsPlacement: 'top'})
+    IonicModule.forRoot(App)
   ],  
   bootstrap: [IonicApp],
   entryComponents: [
     App,
-    Tabs,
     Login,
     Cadastro,
     RecuperarSenha,
@@ -73,7 +67,6 @@ import { PATH } from '../providers/path';
     LoginService,
     PedidosService,
     DetalhesService,
-    TabsService,
     PATH,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
