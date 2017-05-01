@@ -8,12 +8,11 @@ import { Detalhes } from '../detalhes/detalhes';
   templateUrl: 'pedidos.html'
 })
 export class Pedidos {
-  pedidos: any[];
+  pedidos: any;
   usuario: {};
 
   constructor(public nav: NavController, public service: PedidosService, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {
-    this.usuario = JSON.parse(localStorage.getItem('usuario'));
-    console.log(this.usuario);
+    this.usuario = localStorage.getItem('usuario');
     this.listarPedidos();
   }
 
@@ -21,9 +20,11 @@ export class Pedidos {
   public detalhes(pedido) {
     this.nav.push(Detalhes, {
       id_pedido: pedido.id,
-      id_loja: pedido.loja,
+      id_loja: pedido.id_loja,
       nome_loja: pedido.nome_loja,
+      bairro_loja: pedido.bairro_loja,
       rua_loja: pedido.rua_loja,
+      numero_loja: pedido.numero_loja,
       nome_produto: pedido.nome_produto,
       foto_produto: pedido.foto_produto
     });
@@ -31,12 +32,18 @@ export class Pedidos {
 
   // Lista os pedidos
   listarPedidos() {
-    this.service.listar(this.jsonToURLEncoded({
-        id_usuario: 2
-    })).subscribe(retorno => {
-        this.pedidos = retorno;
-    }, error => {
-        this.alerta(error);
+    const loading = this.loadingCtrl.create({content: 'Carregando...'}); 
+    loading.present().then(()=>{
+        this.service.listar(this.jsonToURLEncoded({
+            id_usuario: 2
+        })).subscribe(retorno => {
+            this.pedidos = retorno;
+            
+            loading.dismiss();
+        }, error => {
+            loading.dismiss();
+            this.alerta(error);
+        });
     });
   }
 

@@ -21,13 +21,13 @@ export class Login {
 
   constructor(public tabs: TabsService, public nav: NavController, public login: LoginService, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {}
 
-  ionViewDidEnter() {
+  /*ionViewDidEnter() {
     this.tabs.hide();
   }
 
   ionViewDidLeave() {
     this.tabs.show();
-  }
+  }*/
 
   // Página de cadastro
   public cadastro() {

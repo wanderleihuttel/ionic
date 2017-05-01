@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, ActionSheetController, AlertController } from 'ionic-angular';
 
 import { Login } from '../login/login';
 //import { Pedidos } from '../pedidos/pedidos';
@@ -15,7 +15,7 @@ export class Home {
   public showSearchBar: boolean = false;    
   usuario: {};
 
-  constructor(public nav: NavController, public alertCtrl: AlertController, public login: LoginService) {
+  constructor(public nav: NavController, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, public login: LoginService) {
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
   }
 
@@ -23,7 +23,28 @@ export class Home {
     this.showSearchBar = !this.showSearchBar;
   }
 
-  public sair() {
+  public more() {
+    const actionSheet = this.actionSheetCtrl.create({
+      buttons: [
+        {
+          text: 'Compartilhar',
+          role: 'share',
+          handler: () => {
+            console.log('Compartilhar');
+          }
+        },{
+          text: 'Sair',
+          role: 'log-out',
+          handler: () => {
+            this.deslogar();
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
+  deslogar() {
     const alert = this.alertCtrl.create({
       message: 'Deseja sair da sua conta?',
       buttons: [

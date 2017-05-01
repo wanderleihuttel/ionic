@@ -2,6 +2,9 @@ tabs {
   .tabbar {
     background: #ffffff !important;      
   }
+  .tabs-md .tab-button {
+    min-height: 3em !important;      
+  }
   .tab-button[aria-selected=true] {
     color: #FF5722 !important;      
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController, NavParams } from 'ionic-angular';
+import { ToastController, NavParams } from 'ionic-angular';
 import { DetalhesService } from '../../providers/detalhes-service';
 
 @Component({
@@ -7,15 +7,17 @@ import { DetalhesService } from '../../providers/detalhes-service';
   templateUrl: 'detalhes.html'
 })
 export class Detalhes {
-  fotos: any[];
+  fotos: any;
 
   id_pedido = this.params.get('id_pedido');
   foto_produto = this.params.get('foto_produto');
   nome_loja = this.params.get('nome_loja');
+  bairro_loja = this.params.get('bairro_loja');
   rua_loja = this.params.get('rua_loja');
+  numero_loja = this.params.get('numero_loja');
   nome_produto = this.params.get('nome_produto');
 
-  constructor(public nav: NavController, public service: DetalhesService, public toastCtrl: ToastController, public params: NavParams) {
+  constructor(public service: DetalhesService, public toastCtrl: ToastController, public params: NavParams) {
     this.getDetalhes();
   }
 

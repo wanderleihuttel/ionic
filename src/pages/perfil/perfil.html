@@ -17,8 +17,8 @@
       <button ion-button icon-only (click)="toggleShowSearchBar()">
           <ion-icon name="search"></ion-icon>
       </button>
-      <button ion-button icon-only (click)="sair()">
-          <ion-icon name="log-out"></ion-icon>
+      <button ion-button icon-only (click)="more()">
+          <ion-icon name="more"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -30,13 +30,13 @@
       <ion-col>
         <ion-list inset>
           <ion-item>
-            <ion-input type="text" placeholder="Nome" name="nome" required>{{usuario.nome}}</ion-input>
+            <ion-input type="text" placeholder="Nome" name="nome" required></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input type="text" placeholder="Sobrenome" name="sobrenome" required>{{usuario.sobrenome}}</ion-input>
+            <ion-input type="text" placeholder="Sobrenome" name="sobrenome" required></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input type="email" placeholder="E-mail" name="email" required>{{usuario.email}}</ion-input>
+            <ion-input type="email" placeholder="E-mail" name="email" required></ion-input>
           </ion-item>
         </ion-list>
       </ion-col>
