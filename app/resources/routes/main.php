@@ -2,6 +2,7 @@
 	use App\Controllers\CadastroController;
 	use App\Controllers\LoginController;
 	use App\Controllers\PedidosController;
+	use App\Controllers\PesquisaController;
 
 	return function (App\Http\Handler $app) {
 		
@@ -19,6 +20,9 @@
 			
 			// Detalhes
 			$app->post('/detalhes', PedidosController::class . ':detalhes', []);
+			
+			// Pesquisa
+			$app->post('/pesquisa', PesquisaController::class . ':pesquisa', []);
 		};
 		$app->group('/api', $mobile);
 	};
