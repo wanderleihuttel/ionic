@@ -1,0 +1,14 @@
+<ion-header no-border>
+  <ion-navbar color="navbar">
+    <ion-title>{{nome_loja}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="produtos">    
+  <ion-card *ngFor="let produto of produtos">
+    <img src="http://app.com.br/produtos/{{produto.foto_produto}}"/>
+    <ion-card-content>
+      <ion-card-title>{{produto.nome_produto}}</ion-card-title>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

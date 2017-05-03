@@ -4,6 +4,7 @@ import { Searchbar, NavController, ActionSheetController, AlertController, Toast
 import { Login } from '../login/login';
 import { Pedidos } from '../pedidos/pedidos';
 import { Perfil } from '../perfil/perfil';
+import { Loja } from '../loja/loja';
 
 import { PesquisaService } from '../../providers/pesquisa-service';
 
@@ -12,7 +13,7 @@ import { PesquisaService } from '../../providers/pesquisa-service';
   templateUrl: 'home.html'
 })
 export class Home {
-  @ViewChild('searchbar') searchbar: Searchbar;
+  //@ViewChild('searchbar') searchbar: Searchbar;
 
   showSearchBar: boolean = false;
   pesquisa: string = '';
@@ -28,9 +29,9 @@ export class Home {
   public toggleShowSearchBar() {    
     this.lojas = [];
     this.showSearchBar = !this.showSearchBar;
-    setTimeout(()=>{
+    /*setTimeout(()=>{
       this.searchbar.setFocus();
-    }, 200);
+    }, 200);*/
   }
 
   public more() {
@@ -102,8 +103,12 @@ export class Home {
   }
 
   public detalhes(loja) {
-    this.lojas = [];
-    console.log(loja.id + ' ' + loja.nome);
+    /*this.lojas = [];
+    this.showSearchBar = !this.showSearchBar;*/
+    this.nav.push(Loja, {
+        id_loja: loja.id,
+        nome_loja: loja.nome
+    });
   }
   
   public cancelar() {
