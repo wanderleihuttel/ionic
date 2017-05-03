@@ -3,6 +3,7 @@
 	use App\Controllers\LoginController;
 	use App\Controllers\PedidosController;
 	use App\Controllers\PesquisaController;
+	use App\Controllers\ProdutosController;
 
 	return function (App\Http\Handler $app) {
 		
@@ -23,6 +24,9 @@
 			
 			// Pesquisa
 			$app->post('/pesquisa', PesquisaController::class . ':pesquisa', []);
+			
+			// Produtos
+			$app->post('/produtos', ProdutosController::class . ':produtos', []);
 		};
 		$app->group('/api', $mobile);
 	};

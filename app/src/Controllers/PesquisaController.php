@@ -7,8 +7,8 @@
 		public function pesquisa(){
 			$pesquisa = new Pesquisa($this->db);
 			
-			$nome = post('nome', FILTER_SANITIZE_STRING);
-			$resposta = $pesquisa->pesquisa($nome);
+			$loja = post('loja', FILTER_SANITIZE_STRING);
+			$resposta = $pesquisa->pesquisa($loja);
 			
 			echo json_encode($resposta);
 		}
