@@ -12,11 +12,11 @@ import { PesquisaService } from '../../providers/pesquisa-service';
   templateUrl: 'home.html'
 })
 export class Home {
-  showSearchBar: boolean = false;  
+  showSearchBar: boolean = false;
   pesquisa: string = '';
-    
+
   usuario: {};
-    
+
   lojas: any[];
 
   constructor(public nav: NavController, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, public toastCtrl: ToastController, public service: PesquisaService) {
@@ -24,6 +24,7 @@ export class Home {
   }
 
   public toggleShowSearchBar() {
+    this.lojas = [];
     this.showSearchBar = !this.showSearchBar;
   }
 
@@ -77,30 +78,33 @@ export class Home {
         }
       ]
     });
-    
+
     alert.present();
   }
 
   public loja(input) {
     let loja = input.target.value;
 
-    if (loja && loja.trim() != '') {
-      if (loja.length >= 4) {
-        this.service.pesquisa(this.jsonToURLEncoded({
-          nome: loja
-        })).subscribe(retorno => {
-          this.lojas = retorno.loja;
-        }, error => {
-          this.alerta('Erro ao realizar busca, tente novamente');
-        });   
-      } 
+    if (loja && loja.length >= 4) {
+      this.service.pesquisa(this.jsonToURLEncoded({
+        loja: loja
+      })).subscribe(retorno => {
+        this.lojas = retorno.loja;
+      }, error => {
+        this.alerta('Erro ao realizar busca, tente novamente');
+      });
     }
   }
-    
-  public onCancel() {
+
+  public detalhes(loja) {
+    this.lojas = [];
+    console.log(loja.id + ' ' + loja.nome);
+  }
+  
+  public cancelar() {
     this.showSearchBar = !this.showSearchBar;
   }
-    
+
   private jsonToURLEncoded(jsonString) {
     return Object.keys(jsonString).map(function(key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(jsonString[key]);
