@@ -11,8 +11,8 @@ import { App } from './app.component';
 // Páginas
 import { Login } from '../pages/login/login';
 import { Cadastro } from '../pages/cadastro/cadastro';
-import { RecuperarSenha } from '../pages/recuperar-senha/recuperar-senha';
-import { AtualizarSenha } from '../pages/atualizar-senha/atualizar-senha';
+import { RecuperarSenha } from '../pages/senha/recuperar-senha';
+import { AtualizarSenha } from '../pages/senha/atualizar-senha';
 import { Termos } from '../pages/termos/termos';
 import { Privacidade } from '../pages/privacidade/privacidade';
 import { Detalhes } from '../pages/detalhes/detalhes';

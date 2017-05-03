@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, LoadingController, ToastController } from 'ionic-angular';
 import { LoginService } from '../../providers/login-service';
 import { Cadastro } from '../cadastro/cadastro';
-import { RecuperarSenha } from '../recuperar-senha/recuperar-senha';
+import { RecuperarSenha } from '../senha/recuperar-senha';
 import { Home } from '../home/home';
 import 'rxjs/add/operator/map';
 

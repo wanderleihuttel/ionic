@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
-import { AtualizarSenha } from '../atualizar-senha/atualizar-senha';
+import { AtualizarSenha } from '../senha/atualizar-senha';
 
 @Component({
   selector: 'pagina-perfil',
