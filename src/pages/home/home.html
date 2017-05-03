@@ -3,6 +3,7 @@
     <ion-title *ngIf=!showSearchBar>Sistema</ion-title>
 
     <ion-searchbar
+      #searchbar
       *ngIf=showSearchBar
       [(ngModel)]="pesquisa"
       (ionInput)="loja($event)"
