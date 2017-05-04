@@ -1,0 +1,23 @@
+<ion-header no-border>
+  <ion-navbar color="navbar-orange">
+    <ion-title>{{nome_produto}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="detalhes">    
+  <ion-slides class="slider" pager zoom>
+    <ion-slide>
+      <img src="http://app.com.br/produtos/{{foto_produto}}" class="slide-image"/>
+    </ion-slide>
+    <ion-slide *ngFor="let foto of fotos">
+      <img src="http://app.com.br/produtos/{{foto.foto}}" class="slide-image"/>
+    </ion-slide>
+  </ion-slides>
+  <ion-card>
+    <ion-list>
+      <button ion-item detail-none>
+        <p>{{descricao}}</p>
+      </button>
+    </ion-list>
+  </ion-card>
+</ion-content>

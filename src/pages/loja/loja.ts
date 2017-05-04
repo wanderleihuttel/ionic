@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ToastController, NavParams } from 'ionic-angular';
 import { ProdutosService } from '../../providers/produtos-service';
+import { DetalhesProduto } from '../detalhes/detalhes-produto';
 
 @Component({
   selector: 'pagina-loja',
@@ -13,6 +14,15 @@ export class Loja {
 
   constructor(public service: ProdutosService, public toastCtrl: ToastController, public params: NavParams) {
     this.getProdutos();
+  }
+
+  public detalhes(produto) {
+    this.nav.push(DetalhesProduto, {
+      id_produto: produto.id,
+      id_loja: produto.id_loja,
+      nome_produto: produto.nome_produto,
+      foto_produto: produto.foto_produto
+    });
   }
 
   getProdutos() {

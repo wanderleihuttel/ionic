@@ -15,7 +15,8 @@ import { RecuperarSenha } from '../pages/senha/recuperar-senha';
 import { AtualizarSenha } from '../pages/senha/atualizar-senha';
 import { Termos } from '../pages/termos/termos';
 import { Privacidade } from '../pages/privacidade/privacidade';
-import { Detalhes } from '../pages/detalhes/detalhes';
+import { DetalhesPedido } from '../pages/detalhes/detalhes-pedido';
+import { DetalhesProduto } from '../pages/detalhes/detalhes-produto';
 import { Home } from '../pages/home/home';
 import { Pedidos } from '../pages/pedidos/pedidos';
 import { Perfil } from '../pages/perfil/perfil';
@@ -42,8 +43,9 @@ import { PATH } from '../providers/path';
     Perfil,
     Termos,
     Privacidade,
-    Detalhes,
-    Loja
+    DetalhesPedido,
+    Loja,
+    DetalhesProduto
   ],
   imports: [
     BrowserModule,
@@ -63,8 +65,9 @@ import { PATH } from '../providers/path';
     Perfil,
     Termos,
     Privacidade,
-    Detalhes,
-    Loja
+    DetalhesPedido,
+    Loja,
+    DetalhesProduto
   ],
   providers: [
     StatusBar,

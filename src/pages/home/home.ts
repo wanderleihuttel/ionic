@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { Searchbar, NavController, ActionSheetController, AlertController, ToastController } from 'ionic-angular';
+import { Component } from '@angular/core'; //ViewChild
+import { NavController, ActionSheetController, AlertController, ToastController } from 'ionic-angular'; //Searchbar
 
 import { Login } from '../login/login';
 import { Pedidos } from '../pedidos/pedidos';
@@ -29,6 +29,7 @@ export class Home {
   public toggleShowSearchBar() {    
     this.lojas = [];
     this.showSearchBar = !this.showSearchBar;
+    this.pesquisa = '';
     /*setTimeout(()=>{
       this.searchbar.setFocus();
     }, 200);*/

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, ToastController } from 'ionic-angular';
 import { PedidosService } from '../../providers/pedidos-service';
-import { Detalhes } from '../detalhes/detalhes';
+import { DetalhesPedido } from '../detalhes/detalhes-pedido';
 
 @Component({
   selector: 'pagina-pedidos',
@@ -18,7 +18,7 @@ export class Pedidos {
 
   // Pegar o id do pedido e da loja e o nome do produto, e exibe na página de Detalhes
   public detalhes(pedido) {
-    this.nav.push(Detalhes, {
+    this.nav.push(DetalhesPedido, {
       id_pedido: pedido.id,
       id_loja: pedido.id_loja,
       nome_loja: pedido.nome_loja,
