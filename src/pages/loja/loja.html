@@ -4,11 +4,20 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="produtos">    
+<ion-content class="produtos">
   <ion-card *ngFor="let produto of produtos">
     <img src="http://app.com.br/produtos/{{produto.foto_produto}}"/>
     <ion-card-content>
+      <ion-chip right>
+        <ion-icon name="pricetag" color="orange-dark"></ion-icon>
+        <ion-label>{{produto.preco}}</ion-label>
+      </ion-chip>
       <ion-card-title>{{produto.nome_produto}}</ion-card-title>
+      <p>{{produto.descricao}}</p>
     </ion-card-content>
   </ion-card>
+    
+  <ion-fab right bottom>
+      <button ion-fab color="orange-dark"><ion-icon name="happy"></ion-icon></button>
+  </ion-fab>
 </ion-content>

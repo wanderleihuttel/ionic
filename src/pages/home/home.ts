@@ -102,9 +102,7 @@ export class Home {
     }
   }
 
-  public detalhes(loja) {
-    /*this.lojas = [];
-    this.showSearchBar = !this.showSearchBar;*/
+  public produtos_loja(loja) {
     this.nav.push(Loja, {
         id_loja: loja.id,
         nome_loja: loja.nome

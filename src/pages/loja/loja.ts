@@ -17,7 +17,7 @@ export class Loja {
 
   getProdutos() {
     this.service.listarProdutos(this.jsonToURLEncoded({
-        id_loja: this.params.get('id_loja')
+        loja: this.params.get('id_loja')
     })).subscribe(retorno => {
         if (retorno.resposta === 'erro') {
           console.log('Esta loja não possui produtos cadastrados em nosso sistema');
