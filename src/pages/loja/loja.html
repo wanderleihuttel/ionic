@@ -1,6 +1,15 @@
 <ion-header no-border>
   <ion-navbar color="navbar-orange">
     <ion-title>{{nome_loja}}</ion-title>
+      
+    <ion-buttons end>
+      <button ion-button icon-only>
+          <ion-icon name="alert"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+          <ion-icon name="list"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -9,8 +18,7 @@
     <img src="http://app.com.br/produtos/{{produto.foto_produto}}"/>
     <ion-card-content>
       <ion-chip>
-        <!--ion-icon name="pricetag" color="orange-dark"></ion-icon-->
-        <ion-label>{{produto.preco}} pontos</ion-label>
+        <ion-label>{{produto.preco}}</ion-label>
       </ion-chip>
       <ion-chip>
         <ion-icon name="cube" color="orange-dark"></ion-icon>

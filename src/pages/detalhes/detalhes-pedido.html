@@ -1,10 +1,10 @@
 <ion-header no-border>
-  <ion-navbar color="navbar-orange">
+  <ion-navbar [ngClass]="{'cinza' : (status == 0), 'amarelo' : (status == 1), 'verde' : (status == 2)}">
     <ion-title>{{nome_produto}}</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content class="detalhes">    
+<ion-content class="detalhes-pedido">
   <ion-slides class="slider" pager zoom>
     <ion-slide>
       <img src="http://app.com.br/produtos/{{foto_produto}}" class="slide-image"/>

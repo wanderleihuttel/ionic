@@ -6,10 +6,11 @@ import { DetalhesService } from '../../providers/detalhes-service';
   selector: 'pagina-detalhes-produto',
   templateUrl: 'detalhes-produto.html'
 })
-export class DetalhesPedido {
+export class DetalhesProduto {
   fotos: any;
 
   nome_produto = this.params.get('nome_produto');
+  foto_produto = this.params.get('foto_produto');
   descricao = this.params.get('descricao');
 
   constructor(public service: DetalhesService, public toastCtrl: ToastController, public params: NavParams) {

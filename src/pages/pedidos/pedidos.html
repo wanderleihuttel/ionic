@@ -6,7 +6,7 @@
 
 <ion-content class="pedidos">
 
-  <ion-card *ngFor="let pedido of pedidos" class="cinza">
+  <ion-card *ngFor="let pedido of pedidos" [ngClass]="{'cinza' : (pedido.status == 0), 'amarelo' : (pedido.status == 1), 'verde' : (pedido.status == 2)}">
     <ion-list (click)="detalhes(pedido)">
       <button ion-item detail-none>
         <ion-thumbnail item-left>

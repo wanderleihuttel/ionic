@@ -10,6 +10,7 @@ export class DetalhesPedido {
   fotos: any;
 
   id_pedido = this.params.get('id_pedido');
+  status = this.params.get('status');
   foto_produto = this.params.get('foto_produto');
   nome_loja = this.params.get('nome_loja');
   bairro_loja = this.params.get('bairro_loja');

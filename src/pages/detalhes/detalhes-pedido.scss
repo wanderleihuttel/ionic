@@ -3,7 +3,7 @@ pagina-detalhes-pedido {
     background-color: #f6f8fb;
 
     .slider {
-      height: 30vh;
+      height: 35%;
     }
   
     .slide-zoom {
@@ -32,6 +32,15 @@ pagina-detalhes-pedido {
     }
     .item-md ion-icon[item-left], .item-ios ion-icon[item-left] {
       margin: 0 !important;
+    }
+    .cinza {
+      border-left: 5px solid #757575;
+    }
+    .amarelo {
+      border-left: 5px solid #FBC02D;
+    }
+    .verde {
+      border-left: 5px solid #00796B;
     }
   }
 }

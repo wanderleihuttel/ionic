@@ -20,6 +20,7 @@ export class Pedidos {
   public detalhes(pedido) {
     this.nav.push(DetalhesPedido, {
       id_pedido: pedido.id,
+      status: pedido.status,
       id_loja: pedido.id_loja,
       nome_loja: pedido.nome_loja,
       bairro_loja: pedido.bairro_loja,
