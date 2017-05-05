@@ -6,14 +6,14 @@ pagina-pedidos {
     background: #f6f8fb;
   }
   .item-md, .item-ios {
-    padding: 0 !important;     
+    padding: 0 !important;
   }
   .item-md ion-thumbnail img, .item-ios ion-thumbnail img {
     width: 100px !important;
     height: 80px !important;
   }
   .item-md ion-thumbnail[item-left], .item-ios ion-thumbnail[item-left] {
-    margin: 0 5px 0 0 !important;      
+    margin: 0 5px 0 0 !important;
   }
   .card-title {
     padding: 0;
@@ -28,7 +28,7 @@ pagina-pedidos {
   .verde {
     border-left: 5px solid #00796B;
   }
-  .login {
+  /*.login {
     background: #FF5722;
-  }
+  }*/
 }

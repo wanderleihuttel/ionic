@@ -1,0 +1,11 @@
+<ion-header no-border>
+  <ion-navbar color="navbar-orange">
+    <ion-title>Categorias</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="categorias">
+  <ion-list>
+    <button ion-item *ngFor="let categoria of categorias" (click)="categoria(categorias)">{{categoria.nome}}</button>
+  </ion-list>
+</ion-content>

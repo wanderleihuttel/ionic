@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController, NavParams } from 'ionic-angular';
-import { ProdutosService } from '../../providers/produtos-service';
+import { LojaService } from '../../providers/loja-service';
 import { DetalhesProduto } from '../detalhes/detalhes-produto';
+import { Categorias } from '../loja/categorias';
 
 @Component({
   selector: 'pagina-loja',
@@ -12,7 +13,7 @@ export class Loja {
 
   nome_loja = this.params.get('nome_loja');
 
-  constructor(public nav: NavController, public service: ProdutosService, public toastCtrl: ToastController, public params: NavParams) {
+  constructor(public nav: NavController, public service: LojaService, public toastCtrl: ToastController, public params: NavParams) {
     this.getProdutos();
   }
 
@@ -23,6 +24,12 @@ export class Loja {
       nome_produto: produto.nome_produto,
       foto_produto: produto.foto_produto,
       descricao: produto.descricao,
+    });
+  }
+
+  public categorias() {
+    this.nav.push(Categorias, {
+      loja: this.params.get('id_loja')
     });
   }
 

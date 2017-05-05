@@ -21,13 +21,14 @@ import { Home } from '../pages/home/home';
 import { Pedidos } from '../pages/pedidos/pedidos';
 import { Perfil } from '../pages/perfil/perfil';
 import { Loja } from '../pages/loja/loja';
+import { Categorias } from '../pages/loja/categorias';
 
 // Providers
 import { LoginService } from '../providers/login-service';
 import { PedidosService } from '../providers/pedidos-service';
 import { DetalhesService } from '../providers/detalhes-service';
 import { PesquisaService } from '../providers/pesquisa-service';
-import { ProdutosService } from '../providers/produtos-service';
+import { LojaService } from '../providers/loja-service';
 
 import { PATH } from '../providers/path';
 
@@ -45,14 +46,15 @@ import { PATH } from '../providers/path';
     Privacidade,
     DetalhesPedido,
     Loja,
-    DetalhesProduto
+    DetalhesProduto,
+    Categorias
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     IonicModule.forRoot(App)
-  ],  
+  ],
   bootstrap: [IonicApp],
   entryComponents: [
     App,
@@ -67,7 +69,8 @@ import { PATH } from '../providers/path';
     Privacidade,
     DetalhesPedido,
     Loja,
-    DetalhesProduto
+    DetalhesProduto,
+    Categorias
   ],
   providers: [
     StatusBar,
@@ -76,7 +79,7 @@ import { PATH } from '../providers/path';
     PedidosService,
     DetalhesService,
     PesquisaService,
-    ProdutosService,
+    LojaService,
     PATH,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
