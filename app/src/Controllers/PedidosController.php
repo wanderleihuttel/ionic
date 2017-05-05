@@ -7,9 +7,9 @@
 		public function pedidos(){
 			$pedidos = new Pedidos($this->db);
 			
-			$id = post('id_usuario', FILTER_SANITIZE_NUMBER_INT);
+			$cliente = post('cliente', FILTER_SANITIZE_NUMBER_INT);
 			
-			$dados = $pedidos->pedidos($id);
+			$dados = $pedidos->pedidos($cliente);
 			
 			echo json_encode($dados);
 		}
@@ -17,10 +17,10 @@
 		public function detalhes(){
 			$detalhes = new Pedidos($this->db);
 			
-			$id = post('id_pedido', FILTER_SANITIZE_NUMBER_INT);
-			$loja = post('id_loja', FILTER_SANITIZE_NUMBER_INT);
+			$loja = post('loja', FILTER_SANITIZE_NUMBER_INT);
+			$pedido = post('pedido', FILTER_SANITIZE_NUMBER_INT);
 			
-			$dados = $detalhes->detalhes($id, $loja);
+			$dados = $detalhes->detalhes($loja, $pedido);
 			
 			echo json_encode($dados);
 		}

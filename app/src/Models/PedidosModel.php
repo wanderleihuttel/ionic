@@ -4,7 +4,7 @@
 	
 	class PedidosModel extends Model
 	{
-        public function pedidos($id){
+        public function pedidos($cliente){
 			try {
 				$stmt = $this->db->prepare("
 					SELECT
@@ -12,11 +12,11 @@
 						`loja_pedidos`.`id_loja`,
 						`loja_pedidos`.`status`,
 						`loja_produtos`.`nome` as nome_produto,
-						`loja_produtos`.`foto` as foto_produto,
+						`loja_produtos`.`foto`,
 						`admin_lojas`.`nome` as nome_loja,
-						`admin_lojas`.`bairro` as bairro_loja,
-						`admin_lojas`.`rua` as rua_loja,
-						`admin_lojas`.`numero` as numero_loja
+						`admin_lojas`.`bairro`,
+						`admin_lojas`.`rua`,
+						`admin_lojas`.`numero`
 							FROM `loja_produtos_pedidos`
 								INNER JOIN `loja_pedidos` ON (`loja_pedidos`.`id` = `loja_produtos_pedidos`.`id_pedido`)
 								INNER JOIN `loja_produtos` ON (`loja_produtos`.`id` = `loja_produtos_pedidos`.`id_produto`)
@@ -25,7 +25,7 @@
 							WHERE `loja_pedidos`.`id_cliente` = :cliente
 				");
 				
-				$stmt->bindValue(':cliente', $id, PDO::PARAM_INT);
+				$stmt->bindValue(':cliente', $cliente, PDO::PARAM_INT);
 				$stmt->execute();
 				return $stmt->fetchAll(PDO::FETCH_ASSOC);
 			} catch(PDOException $e) {
@@ -33,7 +33,7 @@
 			}
         }
 		
-		public function detalhes($id, $loja){
+		public function detalhes($loja, $pedido){
 			try {				
 				$stmt = $this->db->prepare("
 					SELECT
@@ -46,8 +46,8 @@
 
 							WHERE `loja_pedidos`.`id` = :pedido AND `admin_lojas`.`id` = :loja
 				");
-				$stmt->bindValue(':pedido', $id, PDO::PARAM_INT);
 				$stmt->bindValue(':loja', $loja, PDO::PARAM_INT);
+				$stmt->bindValue(':pedido', $pedido, PDO::PARAM_INT);
 				$stmt->execute();
 				
 				return $stmt->fetchAll(PDO::FETCH_ASSOC);
