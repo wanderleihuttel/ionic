@@ -1,6 +1,6 @@
 <ion-header no-border>
-  <ion-navbar [ngClass]="{'cinza' : (status == 0), 'amarelo' : (status == 1), 'verde' : (status == 2)}">
-    <ion-title>{{nome_produto}}</ion-title>
+  <ion-navbar [ngClass]="{'cinza' : status == 0, 'amarelo' : status == 1, 'verde' : status == 2}">
+    <ion-title>{{nome_produto}} - {{status}}</ion-title>
   </ion-navbar>
 </ion-header>
 

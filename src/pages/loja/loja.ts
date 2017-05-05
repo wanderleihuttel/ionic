@@ -19,11 +19,11 @@ export class Loja {
 
   public detalhes(produto) {
     this.nav.push(DetalhesProduto, {
-      id_produto: produto.id,
-      id_loja: produto.id_loja,
-      nome_produto: produto.nome_produto,
-      foto_produto: produto.foto_produto,
-      descricao: produto.descricao,
+      loja: produto.id_loja,
+      produto: produto.id,
+      foto: produto.foto_produto,
+      nome: produto.nome_produto,
+      descricao: produto.descricao
     });
   }
 

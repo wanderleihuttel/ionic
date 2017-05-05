@@ -26,7 +26,7 @@ export class Home {
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
   }
 
-  public toggleShowSearchBar() {    
+  public toggleShowSearchBar() {
     this.lojas = [];
     this.showSearchBar = !this.showSearchBar;
     this.pesquisa = '';
@@ -35,7 +35,7 @@ export class Home {
     }, 200);*/
   }
 
-  public more() {
+  public menu() {
     const actionSheet = this.actionSheetCtrl.create({
       buttons: [
         {
@@ -109,8 +109,9 @@ export class Home {
         nome_loja: loja.nome
     });
   }
-  
+
   public cancelar() {
+    this.lojas = [];
     this.showSearchBar = !this.showSearchBar;
   }
 

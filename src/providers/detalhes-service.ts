@@ -10,7 +10,11 @@ export class DetalhesService {
 
   constructor(private http: Http, private path: PATH) {}
 
-  public listarDetalhes(dados) {
-      return this.http.post(this.path.getUrl() + 'detalhes', dados, this.options).map(res => res.json())
+  public pedidoFotosProduto(dados) {
+      return this.http.post(this.path.getUrl() + 'pedido', dados, this.options).map(res => res.json())
+  }
+
+  public produtoFotosProduto(dados) {
+      return this.http.post(this.path.getUrl() + 'produto', dados, this.options).map(res => res.json())
   }
 }

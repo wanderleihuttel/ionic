@@ -9,23 +9,23 @@ import { DetalhesService } from '../../providers/detalhes-service';
 export class DetalhesPedido {
   fotos: any;
 
-  id_pedido = this.params.get('id_pedido');
+  pedido = this.params.get('pedido');
   status = this.params.get('status');
-  foto_produto = this.params.get('foto_produto');
-  nome_loja = this.params.get('nome_loja');
-  bairro_loja = this.params.get('bairro_loja');
-  rua_loja = this.params.get('rua_loja');
-  numero_loja = this.params.get('numero_loja');
-  nome_produto = this.params.get('nome_produto');
+  foto = this.params.get('foto');
+  produto = this.params.get('nome_produto');
+  loja = this.params.get('nome_loja');
+  bairro = this.params.get('bairro');
+  rua = this.params.get('rua');
+  numero = this.params.get('numero');
 
   constructor(public service: DetalhesService, public toastCtrl: ToastController, public params: NavParams) {
     this.getDetalhes();
   }
 
   getDetalhes() {
-    this.service.listarDetalhes(this.jsonToURLEncoded({
-        id_pedido: this.params.get('id_pedido'),
-        id_loja: this.params.get('id_loja')
+    this.service.pedidoFotosProduto(this.jsonToURLEncoded({
+        loja: this.params.get('loja'),
+        pedido: this.params.get('pedido')
     })).subscribe(retorno => {
         this.fotos = retorno;
     }, error => {

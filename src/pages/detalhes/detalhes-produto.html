@@ -1,13 +1,13 @@
 <ion-header no-border>
   <ion-navbar color="secondary">
-    <ion-title>{{nome_produto}}</ion-title>
+    <ion-title>{{nome}}</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content class="detalhes-produto">    
+<ion-content class="detalhes-produto">
   <ion-slides class="slider" pager zoom>
     <ion-slide>
-      <img src="http://app.com.br/produtos/{{foto_produto}}" class="slide-image"/>
+      <img src="http://app.com.br/produtos/{{foto}}" class="slide-image"/>
     </ion-slide>
     <ion-slide *ngFor="let foto of fotos">
       <img src="http://app.com.br/produtos/{{foto.foto}}" class="slide-image"/>

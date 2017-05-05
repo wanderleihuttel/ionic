@@ -9,36 +9,36 @@ import { DetalhesPedido } from '../detalhes/detalhes-pedido';
 })
 export class Pedidos {
   pedidos: any;
-  usuario: any;
+  cliente: any;
 
   constructor(public nav: NavController, public service: PedidosService, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {
-    this.usuario = JSON.parse(localStorage.getItem('usuario'));
+    this.cliente = JSON.parse(localStorage.getItem('usuario'));
     this.listarPedidos();
   }
 
   // Pegar o id do pedido e da loja e o nome do produto, e exibe na página de Detalhes
   public detalhes(pedido) {
     this.nav.push(DetalhesPedido, {
-      id_pedido: pedido.id,
+      pedido: pedido.id,
       status: pedido.status,
-      id_loja: pedido.id_loja,
-      nome_loja: pedido.nome_loja,
-      bairro_loja: pedido.bairro_loja,
-      rua_loja: pedido.rua_loja,
-      numero_loja: pedido.numero_loja,
+      foto: pedido.foto,
       nome_produto: pedido.nome_produto,
-      foto_produto: pedido.foto_produto
+      loja: pedido.loja,
+      nome_loja: pedido.nome_loja,
+      bairro: pedido.bairro,
+      rua: pedido.rua,
+      numero: pedido.numero
     });
   }
 
   // Lista os pedidos
   listarPedidos() {
-    let usuario = this.usuario;
+    let cliente = this.cliente;
     
     let loading = this.loadingCtrl.create({content: 'Carregando...'}); 
     loading.present().then(()=>{
         this.service.listar(this.jsonToURLEncoded({
-            id_usuario: usuario.id
+            cliente: cliente.id
         })).subscribe(retorno => {
             this.pedidos = retorno;
             

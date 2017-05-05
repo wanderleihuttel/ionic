@@ -9,8 +9,8 @@ import { DetalhesService } from '../../providers/detalhes-service';
 export class DetalhesProduto {
   fotos: any;
 
-  nome_produto = this.params.get('nome_produto');
-  foto_produto = this.params.get('foto_produto');
+  foto = this.params.get('foto');
+  nome = this.params.get('nome');
   descricao = this.params.get('descricao');
 
   constructor(public service: DetalhesService, public toastCtrl: ToastController, public params: NavParams) {
@@ -18,9 +18,9 @@ export class DetalhesProduto {
   }
 
   getDetalhes() {
-    this.service.listarDetalhes(this.jsonToURLEncoded({
-        id_loja: this.params.get('id_loja'),
-        id_produto: this.params.get('id_produto')
+    this.service.produtoFotosProduto(this.jsonToURLEncoded({
+        loja: this.params.get('loja'),
+        produto: this.params.get('produto')
     })).subscribe(retorno => {
         this.fotos = retorno;
     }, error => {
