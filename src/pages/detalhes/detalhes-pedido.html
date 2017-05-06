@@ -1,13 +1,13 @@
 <ion-header no-border>
   <ion-navbar [ngClass]="{'cinza' : status == 0, 'amarelo' : status == 1, 'verde' : status == 2}">
-    <ion-title>{{nome_produto}} - {{status}}</ion-title>
+    <ion-title>{{produto}} - {{status}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="detalhes-pedido">
   <ion-slides class="slider" pager zoom>
     <ion-slide>
-      <img src="http://app.com.br/produtos/{{foto_produto}}" class="slide-image"/>
+      <img src="http://app.com.br/produtos/{{foto}}" class="slide-image"/>
     </ion-slide>
     <ion-slide *ngFor="let foto of fotos">
       <img src="http://app.com.br/produtos/{{foto.foto}}" class="slide-image"/>
@@ -16,7 +16,7 @@
   <ion-card>
     <ion-list>
       <button ion-item detail-none>
-        <h2>Número do pedido: <ion-badge>{{id_pedido}}</ion-badge></h2>
+        <h2>Número do pedido: <ion-badge>{{pedido}}</ion-badge></h2>
       </button>
     </ion-list>
   </ion-card>
@@ -27,11 +27,11 @@
         <ion-avatar item-left>
           <div class="circulo"><ion-icon name="pin" color="light" item-left></ion-icon></div>
         </ion-avatar>
-        <h2>{{nome_loja}}</h2>
+        <h2>{{loja}}</h2>
         <h3>Endereço:</h3>
-        <p>{{bairro_loja}},</p>
-        <p>{{rua_loja}},</p>
-        <p>Nº {{numero_loja}}</p>
+        <p>{{bairro}},</p>
+        <p>{{rua}},</p>
+        <p>Nº {{numero}}</p>
       </button>
     </ion-list>
   </ion-card>

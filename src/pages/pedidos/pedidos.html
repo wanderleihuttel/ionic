@@ -5,12 +5,19 @@
 </ion-header>
 
 <ion-content class="pedidos">
-
+  <ion-refresher (ionRefresh)="atualizar($event)" [pullMin]=90>
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Arraste para atualizar"
+      refreshingSpinner="circles"
+      refreshingText="Atualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-card *ngFor="let pedido of pedidos" [ngClass]="{'cinza' : (pedido.status == 0), 'amarelo' : (pedido.status == 1), 'verde' : (pedido.status == 2)}">
     <ion-list (click)="detalhes(pedido)">
       <button ion-item detail-none>
         <ion-thumbnail item-left>
-          <img src="http://app.com.br/produtos/{{pedido.foto_produto}}">
+          <img src="http://app.com.br/produtos/{{pedido.foto}}">
         </ion-thumbnail>
         <h2>{{pedido.nome_produto}}</h2>
         <ion-note [ngSwitch]="pedido.status">

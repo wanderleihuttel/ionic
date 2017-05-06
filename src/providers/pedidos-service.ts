@@ -10,7 +10,7 @@ export class PedidosService {
 
   constructor(private http: Http, private path: PATH) {}
 
-  public listar(dados) {
+  public pedidos(dados) {
       return this.http.post(this.path.getUrl() + 'pedidos', dados, this.options).map(res => res.json())
   }
 }

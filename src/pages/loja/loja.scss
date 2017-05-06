@@ -2,6 +2,9 @@ pagina-loja {
   .produtos {
     background: #f6f8fb;
   }
+  .has-refresher  .scroll-content {
+    border-top: 0 !important;
+  }
   .button-md, .button-ios {
     margin: 0;
   }

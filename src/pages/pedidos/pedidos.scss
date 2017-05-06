@@ -5,6 +5,9 @@ pagina-pedidos {
   .pedidos {
     background: #f6f8fb;
   }
+  .has-refresher  .scroll-content {
+    border-top: 0 !important;
+  }
   .item-md, .item-ios {
     padding: 0 !important;
   }

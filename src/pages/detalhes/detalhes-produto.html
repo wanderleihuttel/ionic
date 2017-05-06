@@ -13,11 +13,12 @@
       <img src="http://app.com.br/produtos/{{foto.foto}}" class="slide-image"/>
     </ion-slide>
   </ion-slides>
-  <ion-card>
+  <ion-card *ngIf="descricao">
     <ion-list>
       <button ion-item detail-none>
         <p>{{descricao}}</p>
       </button>
     </ion-list>
   </ion-card>
+  <button ion-button block color="secondary">Comprar</button>
 </ion-content>

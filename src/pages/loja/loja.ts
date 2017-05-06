@@ -17,6 +17,10 @@ export class Loja {
     this.getProdutos();
   }
 
+  public atualizar() {
+    this.getProdutos();
+  }
+
   public detalhes(produto) {
     this.nav.push(DetalhesProduto, {
       loja: produto.id_loja,

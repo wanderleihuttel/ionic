@@ -16,6 +16,23 @@ export class Pedidos {
     this.listarPedidos();
   }
 
+  public atualizar(refresher) {
+    //this.listarPedidos().then((success) => refresher.complete(), (error)=> refresher.complete());
+    let cliente = this.cliente;
+    
+    this.service.pedidos(this.jsonToURLEncoded({
+        cliente: cliente.id
+    })).subscribe(retorno => {
+        this.pedidos = retorno;
+
+        refresher.complete();
+    }, error => {
+        this.alerta(error);
+      
+        refresher.complete();
+    });
+  }
+
   // Pegar o id do pedido e da loja e o nome do produto, e exibe na página de Detalhes
   public detalhes(pedido) {
     this.nav.push(DetalhesPedido, {
@@ -34,14 +51,14 @@ export class Pedidos {
   // Lista os pedidos
   listarPedidos() {
     let cliente = this.cliente;
-    
-    let loading = this.loadingCtrl.create({content: 'Carregando...'}); 
+
+    let loading = this.loadingCtrl.create({content: 'Carregando...'});
     loading.present().then(()=>{
-        this.service.listar(this.jsonToURLEncoded({
+        this.service.pedidos(this.jsonToURLEncoded({
             cliente: cliente.id
         })).subscribe(retorno => {
             this.pedidos = retorno;
-            
+
             loading.dismiss();
         }, error => {
             loading.dismiss();
