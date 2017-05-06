@@ -9,7 +9,7 @@
 				$stmt = $this->db->prepare("
 					SELECT
 						`loja_pedidos`.`id`,
-						`loja_pedidos`.`id_loja`,
+						`loja_pedidos`.`id_loja` as loja,
 						`loja_pedidos`.`status`,
 						`loja_produtos`.`nome` as nome_produto,
 						`loja_produtos`.`foto`,
