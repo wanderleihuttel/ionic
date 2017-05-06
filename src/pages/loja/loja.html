@@ -1,5 +1,5 @@
 <ion-header no-border>
-  <ion-navbar hideBackButton color="navbar-orange">
+  <ion-navbar color="navbar-orange"> <!-- hideBackButton -->
     <ion-title>{{nome_loja}}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="categorias()">
@@ -36,4 +36,11 @@
   <ion-fab right bottom>
       <button ion-fab color="orange-dark"><ion-icon name="information-circle"></ion-icon></button>
   </ion-fab>
+    
+  <ion-infinite-scroll (ionInfinite)="carregar_mais($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Carregando...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

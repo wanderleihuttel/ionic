@@ -33,14 +33,14 @@ pagina-detalhes-pedido {
     .item-md ion-icon[item-left], .item-ios ion-icon[item-left] {
       margin: 0 !important;
     }
-    .cinza {
-      border-left: 5px solid #757575;
-    }
-    .amarelo {
-      border-left: 5px solid #FBC02D;
-    }
-    .verde {
-      border-left: 5px solid #00796B;
-    }
+  }
+  .cinza {
+    background-color: #757575 !important;
+  }
+  .amarelo {
+    background-color: #FBC02D !important;
+  }
+  .verde {
+    background-color: #00796B !important;
   }
 }

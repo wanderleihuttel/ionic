@@ -8,8 +8,11 @@ import { DetalhesPedido } from '../detalhes/detalhes-pedido';
   templateUrl: 'pedidos.html'
 })
 export class Pedidos {
+  //public refresher: boolean = false;
   pedidos: any;
   cliente: any;
+
+  items = [];
 
   constructor(public nav: NavController, public service: PedidosService, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {
     this.cliente = JSON.parse(localStorage.getItem('usuario'));
@@ -17,7 +20,6 @@ export class Pedidos {
   }
 
   public atualizar(refresher) {
-    //this.listarPedidos().then((success) => refresher.complete(), (error)=> refresher.complete());
     let cliente = this.cliente;
     
     this.service.pedidos(this.jsonToURLEncoded({
@@ -31,6 +33,19 @@ export class Pedidos {
       
         refresher.complete();
     });
+  }
+
+  carregar_mais(infiniteScroll) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      for (let i = 0; i < 30; i++) {
+        this.items.push(this.items.length);
+      }
+
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 500);
   }
 
   // Pegar o id do pedido e da loja e o nome do produto, e exibe na página de Detalhes

@@ -11,6 +11,8 @@ import { Categorias } from '../loja/categorias';
 export class Loja {
   produtos: any;
 
+  items = [];
+
   nome_loja = this.params.get('nome_loja');
 
   constructor(public nav: NavController, public service: LojaService, public toastCtrl: ToastController, public params: NavParams) {
@@ -19,6 +21,19 @@ export class Loja {
 
   public atualizar() {
     this.getProdutos();
+  }
+
+  carregar_mais(infiniteScroll) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      for (let i = 0; i < 30; i++) {
+        this.items.push(this.items.length);
+      }
+
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 500);
   }
 
   public detalhes(produto) {
