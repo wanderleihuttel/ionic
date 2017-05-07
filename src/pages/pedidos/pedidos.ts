@@ -20,19 +20,10 @@ export class Pedidos {
   }
 
   public atualizar(refresher) {
-    let cliente = this.cliente;
-    
-    this.service.pedidos(this.jsonToURLEncoded({
-        cliente: cliente.id
-    })).subscribe(retorno => {
-        this.pedidos = retorno;
-
+      setTimeout(() => {
         refresher.complete();
-    }, error => {
-        this.alerta(error);
-      
-        refresher.complete();
-    });
+        this.listarPedidos();
+      }, 500);
   }
 
   carregar_mais(infiniteScroll) {

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ToastController, NavParams } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
 import { DetalhesService } from '../../providers/detalhes-service';
 
 @Component({
@@ -18,8 +19,20 @@ export class DetalhesPedido {
   rua = this.params.get('rua');
   numero = this.params.get('numero');
 
-  constructor(public service: DetalhesService, public toastCtrl: ToastController, public params: NavParams) {
+  constructor(private statusBar: StatusBar, public service: DetalhesService, public toastCtrl: ToastController, public params: NavParams) {
     this.getDetalhes();
+      
+    switch (this.status) {
+	  case 0:
+		this.statusBar.backgroundColorByHexString("#616161");
+		break;
+	  case 1:
+		this.statusBar.backgroundColorByHexString("#FBC02D");
+        break;
+      case 2:
+        this.statusBar.backgroundColorByHexString("#388E3C");
+        break;
+	}
   }
 
   getDetalhes() {
