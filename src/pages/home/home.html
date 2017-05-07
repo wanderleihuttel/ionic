@@ -8,9 +8,8 @@
       [(ngModel)]="pesquisa"
       (ionInput)="loja($event)"
       (ionCancel)="cancelar($event)"
-      [showCancelButton]="true"
-      cancelButtonText="Cancelar"
-      placeholder="Pesquise pela loja"
+      [showCancelButton]="false"
+      placeholder="Estabelecimento"
       autocomplete="on">
     </ion-searchbar>
 

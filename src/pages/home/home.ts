@@ -39,12 +39,6 @@ export class Home {
     const actionSheet = this.actionSheetCtrl.create({
       buttons: [
         {
-          text: 'Compartilhar',
-          icon: 'share',
-          handler: () => {
-            console.log('Compartilhar');
-          }
-        },{
           text: 'Pedidos',
           icon: 'create',
           handler: () => {

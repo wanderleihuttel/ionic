@@ -8,7 +8,7 @@ import { DetalhesPedido } from '../detalhes/detalhes-pedido';
   templateUrl: 'pedidos.html'
 })
 export class Pedidos {
-  //public refresher: boolean = false;
+  public refresher: boolean = true;
   pedidos: any;
   cliente: any;
 
@@ -59,6 +59,7 @@ export class Pedidos {
     let cliente = this.cliente;
 
     let loading = this.loadingCtrl.create({content: 'Carregando...'});
+    if (this.refresher) {
     loading.present().then(()=>{
         this.service.pedidos(this.jsonToURLEncoded({
             cliente: cliente.id
@@ -71,6 +72,8 @@ export class Pedidos {
             this.alerta(error);
         });
     });
+        this.refresher = false;
+    }
   }
 
   private jsonToURLEncoded(jsonString) {
