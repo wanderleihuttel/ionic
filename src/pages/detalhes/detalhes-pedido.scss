@@ -1,4 +1,13 @@
-pagina-detalhes-pedido {  
+pagina-detalhes-pedido {
+  .toolbar-background {
+    background-color: inherit;
+  }
+  .back-button {
+    color: #ffffff;
+  }
+  .toolbar-title {
+    color: #ffffff;
+  }
   .detalhes-pedido {
     background-color: #f6f8fb;
 

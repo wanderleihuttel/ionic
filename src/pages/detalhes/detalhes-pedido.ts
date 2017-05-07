@@ -7,8 +7,8 @@ import { DetalhesService } from '../../providers/detalhes-service';
   templateUrl: 'detalhes-pedido.html'
 })
 export class DetalhesPedido {
-  fotos: any;
-
+  fotos: any;  
+    
   pedido = this.params.get('pedido');
   status = this.params.get('status');
   foto = this.params.get('foto');
