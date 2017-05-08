@@ -25,7 +25,7 @@
 
   <ion-toolbar *ngIf="pesquisa" class="pesquisa">
     <ion-list *ngFor="let loja of lojas">
-      <button ion-item detail-none no-lines (click)="produtos_loja(loja)">{{loja.nome}}</button>
+      <button ion-item detail-none no-lines (click)="produtos_loja(loja)">{{loja.nome}}<ion-note item-right>{{loja.nome_cidade}}</ion-note></button>
     </ion-list>
   </ion-toolbar>
 </ion-header>
@@ -35,7 +35,7 @@
     <img src="assets/img/cliente.jpg"/>
     <div class="card-title">{{usuario.codigo}}</div>
     <ion-card-content>
-      <p>Informe este código ao atendente, sempre que for realizar compras na loja</p>
+      <p>Informe este código ao atendente, sempre que for realizar compras</p>
     </ion-card-content>
   </ion-card>
   <ion-card>

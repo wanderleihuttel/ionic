@@ -57,25 +57,23 @@ export class Pedidos {
   // Lista os pedidos
   listarPedidos() {
     let cliente = this.cliente;
-
     let loading = this.loadingCtrl.create({content: 'Carregando...'});
 
     if (this.refresher) {
+      loading.present();
       this.refresher = false;
     }
-      loading.present().then(()=>{
-        this.service.pedidos(this.jsonToURLEncoded({
-            cliente: cliente.id
-        })).subscribe(retorno => {
-            this.pedidos = retorno;
 
-            loading.dismiss();
-        }, error => {
-            loading.dismiss();
-            this.alerta(error);
-        });
-      });
+    this.service.pedidos(this.jsonToURLEncoded({
+        cliente: cliente.id
+    })).subscribe(retorno => {
+        this.pedidos = retorno;
 
+        loading.dismiss();
+    }, error => {
+        loading.dismiss();
+        this.alerta(error);
+    });
   }
 
   private jsonToURLEncoded(jsonString) {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController, NavParams } from 'ionic-angular';
 import { LojaService } from '../../providers/loja-service';
+import { PesquisaService } from '../../providers/pesquisa-service';
 import { DetalhesProduto } from '../detalhes/detalhes-produto';
 import { Categorias } from '../loja/categorias';
 
@@ -20,7 +21,7 @@ export class Loja {
 
   nome_loja = this.params.get('nome_loja');
 
-  constructor(public nav: NavController, public service: LojaService, public toastCtrl: ToastController, public params: NavParams) {
+  constructor(public nav: NavController, public serviceLoja: LojaService, public servicePesquisa: PesquisaService, public toastCtrl: ToastController, public params: NavParams) {
     this.getProdutos();
   }
 
@@ -64,7 +65,7 @@ export class Loja {
   }
 
   getProdutos() {
-    this.service.listarProdutos(this.jsonToURLEncoded({
+    this.serviceLoja.listarProdutos(this.jsonToURLEncoded({
         loja: this.params.get('id_loja')
     })).subscribe(retorno => {
         if (retorno.resposta === 'erro') {
@@ -78,18 +79,18 @@ export class Loja {
   }
 
   public produto_loja(input) {
-    console.log('Digitou: ' + input.target.value);
-    /*let produto = input.target.value;
+    let produto = input.target.value;
 
     if (produto && produto.length >= 4) {
-      this.service.pesquisa(this.jsonToURLEncoded({
+      this.servicePesquisa.produto(this.jsonToURLEncoded({
+        loja: this.params.get('id_loja'),
         produto: produto
       })).subscribe(retorno => {
         this.produtos_pesquisa = retorno.produtos;
       }, error => {
         this.alerta('Erro ao realizar busca, tente novamente');
       });
-    }*/
+    }
   }
 
   public detalhes_produto_loja(produto) {

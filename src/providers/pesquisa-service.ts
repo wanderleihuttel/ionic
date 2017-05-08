@@ -10,7 +10,11 @@ export class PesquisaService {
 
   constructor(private http: Http, private path: PATH) {}
 
-  public pesquisa(dados) {
-      return this.http.post(this.path.getUrl() + 'pesquisa', dados, this.options).map(res => res.json())
+  public loja(dados) {
+      return this.http.post(this.path.getUrl() + 'pesquisa/loja', dados, this.options).map(res => res.json())
+  }
+
+  public produto(dados) {
+      return this.http.post(this.path.getUrl() + 'pesquisa/produto', dados, this.options).map(res => res.json())
   }
 }

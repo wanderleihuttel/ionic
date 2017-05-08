@@ -87,7 +87,7 @@ export class Home {
     let loja = input.target.value;
 
     if (loja && loja.length >= 4) {
-      this.service.pesquisa(this.jsonToURLEncoded({
+      this.service.loja(this.jsonToURLEncoded({
         loja: loja
       })).subscribe(retorno => {
         this.lojas = retorno.loja;
