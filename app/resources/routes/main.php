@@ -23,8 +23,11 @@
 			// Detalhes do pedido
 			$app->post('/pedido', DetalhesController::class . ':pedido', []);
 			
-			// Pesquisa
-			$app->post('/pesquisa', PesquisaController::class . ':pesquisa', []);
+			// Pesquisa pela loja
+			$app->post('/pesquisa/loja', PesquisaController::class . ':loja', []);
+			
+			// Pesquisa pelo produto da loja
+			$app->post('/pesquisa/produto', PesquisaController::class . ':produto', []);
 			
 			// Produtos
 			$app->post('/produtos', ProdutosController::class . ':produtos', []);
