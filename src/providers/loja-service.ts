@@ -13,4 +13,8 @@ export class LojaService {
   public listarProdutos(dados) {
       return this.http.post(this.path.getUrl() + 'produtos', dados, this.options).map(res => res.json())
   }
+
+  public produtosCategoria(dados) {
+      return this.http.post(this.path.getUrl() + 'produtos-categoria', dados, this.options).map(res => res.json())
+  }
 }

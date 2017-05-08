@@ -59,8 +59,11 @@ export class Pedidos {
     let cliente = this.cliente;
 
     let loading = this.loadingCtrl.create({content: 'Carregando...'});
+
     if (this.refresher) {
-    loading.present().then(()=>{
+      this.refresher = false;
+    }
+      loading.present().then(()=>{
         this.service.pedidos(this.jsonToURLEncoded({
             cliente: cliente.id
         })).subscribe(retorno => {
@@ -71,9 +74,8 @@ export class Pedidos {
             loading.dismiss();
             this.alerta(error);
         });
-    });
-        this.refresher = false;
-    }
+      });
+
   }
 
   private jsonToURLEncoded(jsonString) {

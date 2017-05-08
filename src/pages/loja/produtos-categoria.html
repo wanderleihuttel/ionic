@@ -1,0 +1,22 @@
+<ion-header no-border>
+  <ion-navbar color="light">
+    <ion-title>{{nome_categoria}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="produtos_categoria">
+  <ion-card *ngFor="let produto of produtos">
+    <img src="http://app.com.br/produtos/{{produto.foto_produto}}"/>
+    <ion-card-content>
+      <ion-chip>
+        <ion-label>{{produto.preco}}</ion-label>
+      </ion-chip>
+      <ion-chip>
+        <ion-icon name="cube" color="orange-dark"></ion-icon>
+        <ion-label>{{produto.estoque}} em estoque</ion-label>
+      </ion-chip>
+      <ion-card-title>{{produto.nome_produto}}</ion-card-title>
+    </ion-card-content>
+    <button ion-button full (click)="detalhes(produto)" color="secondary">Detalhes</button>
+  </ion-card>
+</ion-content>

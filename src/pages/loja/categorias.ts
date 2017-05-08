@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController, NavParams } from 'ionic-angular';
+import { ProdutosCategoria } from '../loja/produtos-categoria';
 
 @Component({
   selector: 'pagina-categorias',
@@ -7,8 +8,6 @@ import { NavController, ToastController, NavParams } from 'ionic-angular';
 })
 export class Categorias {
   categorias: any;
-
-  //nome_loja = this.params.get('nome_loja');
 
   constructor(public nav: NavController, public toastCtrl: ToastController, public params: NavParams) {
     this.getCategorias();
@@ -33,16 +32,15 @@ export class Categorias {
     ]
   }
 
-  public categoria(dados) {
-    console.log(dados.id);
+  public categoria(categoria) {
+    this.nav.push(ProdutosCategoria, {
+        loja: this.params.get('id_loja'),
+        nome_categoria: categoria.nome,
+        id_categoria: categoria.id
+    });
   }
 
-  private jsonToURLEncoded(jsonString) {
-    return Object.keys(jsonString).map(function(key) {
-      return encodeURIComponent(key) + '=' + encodeURIComponent(jsonString[key]);
-    }).join('&');
-  }
-
+  // Toast
   alerta(mensagem) {
     let toast = this.toastCtrl.create({
       message: mensagem,

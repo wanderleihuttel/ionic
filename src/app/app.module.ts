@@ -22,6 +22,7 @@ import { Pedidos } from '../pages/pedidos/pedidos';
 import { Perfil } from '../pages/perfil/perfil';
 import { Loja } from '../pages/loja/loja';
 import { Categorias } from '../pages/loja/categorias';
+import { ProdutosCategoria } from '../pages/loja/produtos-categoria';
 
 // Providers
 import { LoginService } from '../providers/login-service';
@@ -47,7 +48,8 @@ import { PATH } from '../providers/path';
     DetalhesPedido,
     Loja,
     DetalhesProduto,
-    Categorias
+    Categorias,
+    ProdutosCategoria
   ],
   imports: [
     BrowserModule,
@@ -70,7 +72,8 @@ import { PATH } from '../providers/path';
     DetalhesPedido,
     Loja,
     DetalhesProduto,
-    Categorias
+    Categorias,
+    ProdutosCategoria
   ],
   providers: [
     StatusBar,
