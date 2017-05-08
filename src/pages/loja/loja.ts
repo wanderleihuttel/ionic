@@ -9,6 +9,10 @@ import { Categorias } from '../loja/categorias';
   templateUrl: 'loja.html'
 })
 export class Loja {
+  showSearchBar: boolean = false;
+  pesquisa: string = '';
+  produto = []; // searchbar
+
   produtos: any;
 
   items = [];
@@ -17,6 +21,12 @@ export class Loja {
 
   constructor(public nav: NavController, public service: LojaService, public toastCtrl: ToastController, public params: NavParams) {
     this.getProdutos();
+  }
+
+  public toggleShowSearchBar() {
+    this.produto = [];
+    this.showSearchBar = !this.showSearchBar;
+    this.pesquisa = '';
   }
 
   public atualizar() {
@@ -64,6 +74,22 @@ export class Loja {
     }, error => {
         this.alerta(error);
     });
+  }
+
+  public produto_loja(input) {
+    console.log('Digitou: ' + input.target.value);
+  }
+
+  public detalhes_produto_loja(produto) {
+    this.nav.push(DetalhesProduto, {
+        produto: produto.id,
+        nome: produto.nome
+    });
+  }
+
+  public cancelar() {
+    this.produto = [];
+    this.showSearchBar = !this.showSearchBar;
   }
 
   private jsonToURLEncoded(jsonString) {

@@ -1,12 +1,33 @@
 <ion-header no-border>
   <ion-navbar color="navbar-orange"> <!-- hideBackButton -->
-    <ion-title>{{nome_loja}}</ion-title>
+    <ion-title *ngIf=!showSearchBar>{{nome_loja}}</ion-title>
+
+    <ion-searchbar
+      #searchbar
+      *ngIf=showSearchBar
+      [(ngModel)]="pesquisa"
+      (ionInput)="produto_loja($event)"
+      (ionCancel)="cancelar($event)"
+      [showCancelButton]="false"
+      placeholder="Produto"
+      autocomplete="on">
+    </ion-searchbar>
+
     <ion-buttons end>
+      <button ion-button icon-only (click)="toggleShowSearchBar()">
+          <ion-icon name="search"></ion-icon>
+      </button>
       <button ion-button icon-only (click)="categorias()">
           <ion-icon name="list"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
+
+  <ion-toolbar *ngIf="pesquisa" class="pesquisa">
+    <ion-list *ngFor="let produto of produtos">
+      <button ion-item detail-none no-lines (click)="detalhes_produto_loja(produto)">{{produto.nome}}</button>
+    </ion-list>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content class="produtos">
@@ -36,7 +57,7 @@
   <ion-fab right bottom>
       <button ion-fab color="orange-dark"><ion-icon name="information-circle"></ion-icon></button>
   </ion-fab>
-    
+
   <ion-infinite-scroll (ionInfinite)="carregar_mais($event)">
     <ion-infinite-scroll-content
       loadingSpinner="bubbles"
