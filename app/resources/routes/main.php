@@ -28,9 +28,15 @@
 			
 			// Produtos
 			$app->post('/produtos', ProdutosController::class . ':produtos', []);
+			$app->post('/produtos-categoria', ProdutosController::class . ':produtos_categoria', []);
 			
 			// Detalhes do produto
 			$app->post('/produto', DetalhesController::class . ':produto', []);
+			
+			// Carregar mais
+			$app->get('/carregar-mais/:qtd', function ($qtd) use ($app) {
+				return $app->resolve(ProdutosController::class, 'carregar_mais', $qtd);
+			}, []);
 		};
 		$app->group('/api', $mobile);
 	};

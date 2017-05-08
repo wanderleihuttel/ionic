@@ -7,7 +7,21 @@
 		public function pesquisa($loja){
 			$retorno['resposta'] = 'erro';
 			
-			$stmt = $this->db->prepare("SELECT `id`, `nome` FROM `admin_lojas` WHERE `nome` LIKE :nome LIMIT 3");
+			/*
+				SELECT `id`, `nome`, `cidade`
+				FROM `admin_lojas` WHERE `nome` LIKE :nome
+				LIMIT 5
+			*/
+			$stmt = $this->db->prepare("
+					SELECT
+						`admin_lojas`.`id`,
+						`admin_lojas`.`nome`,
+						`admin_lojas`.`cidade`,
+						`admin_cidades`.`nome` as nome_cidade
+							FROM `admin_lojas`
+								INNER JOIN `admin_cidades` ON (`admin_cidades`.`id` = `admin_lojas`.`cidade`)
+						WHERE `nome` LIKE :nome LIMIT 5
+			");
 			$stmt->bindValue(':nome', '%'.$loja.'%', PDO::PARAM_STR);
 			$stmt->execute();
 			
