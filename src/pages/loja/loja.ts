@@ -14,6 +14,7 @@ export class Loja {
   produto = []; // searchbar
 
   produtos: any;
+  produtos_pesquisa: any[]; // searchbar
 
   items = [];
 
@@ -78,6 +79,17 @@ export class Loja {
 
   public produto_loja(input) {
     console.log('Digitou: ' + input.target.value);
+    /*let produto = input.target.value;
+
+    if (produto && produto.length >= 4) {
+      this.service.pesquisa(this.jsonToURLEncoded({
+        produto: produto
+      })).subscribe(retorno => {
+        this.produtos_pesquisa = retorno.produtos;
+      }, error => {
+        this.alerta('Erro ao realizar busca, tente novamente');
+      });
+    }*/
   }
 
   public detalhes_produto_loja(produto) {
