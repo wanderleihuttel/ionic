@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToastController, NavParams } from 'ionic-angular';
+import { LoadingController, ToastController, NavParams } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { DetalhesService } from '../../providers/detalhes-service';
 
@@ -14,13 +14,13 @@ export class DetalhesPedido {
   status = this.params.get('status');
   foto = this.params.get('foto');
   produto = this.params.get('nome_produto');
-  loja = this.params.get('nome_loja');
+  estabelecimento = this.params.get('nome_estabelecimento');
   bairro = this.params.get('bairro');
   rua = this.params.get('rua');
   numero = this.params.get('numero');
 
-  constructor(private statusBar: StatusBar, public service: DetalhesService, public toastCtrl: ToastController, public params: NavParams) {
-    this.getDetalhes();
+  constructor(public loadingCtrl: LoadingController, public toastCtrl: ToastController, public params: NavParams, public statusBar: StatusBar, public service: DetalhesService) {
+    this.detalhes();
       
     switch (this.status) {
 	  case 0:
@@ -35,14 +35,19 @@ export class DetalhesPedido {
 	}
   }
 
-  getDetalhes() {
-    this.service.pedidoFotosProduto(this.jsonToURLEncoded({
-        loja: this.params.get('loja'),
+  detalhes() {
+    let loading = this.loadingCtrl.create({content: 'Carregando...'});
+    loading.present().then(() => {
+      this.service.pedidoFotosProduto(this.jsonToURLEncoded({
+        estabelecimento: this.params.get('estabelecimento'),
         pedido: this.params.get('pedido')
-    })).subscribe(retorno => {
+      })).subscribe(retorno => {
         this.fotos = retorno;
-    }, error => {
+        loading.dismiss();
+      }, error => {
         this.alerta(error);
+        loading.dismiss();
+      });
     });
   }
 
@@ -52,6 +57,7 @@ export class DetalhesPedido {
     }).join('&');
   }
 
+  // Toast
   alerta(mensagem) {
     let toast = this.toastCtrl.create({
       message: mensagem,

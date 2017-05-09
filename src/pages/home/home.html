@@ -6,7 +6,7 @@
       #searchbar
       *ngIf=showSearchBar
       [(ngModel)]="pesquisa"
-      (ionInput)="loja($event)"
+      (ionInput)="estabelecimento($event)"
       (ionCancel)="cancelar($event)"
       [showCancelButton]="false"
       placeholder="Estabelecimento"
@@ -24,8 +24,8 @@
   </ion-navbar>
 
   <ion-toolbar *ngIf="pesquisa" class="pesquisa">
-    <ion-list *ngFor="let loja of lojas">
-      <button ion-item detail-none no-lines (click)="produtos_loja(loja)">{{loja.nome}}<ion-note item-right>{{loja.nome_cidade}}</ion-note></button>
+    <ion-list *ngFor="let estabelecimento of estabelecimentos">
+      <button ion-item detail-none no-lines (click)="produtos_estabelecimento(estabelecimento)">{{estabelecimento.nome}}<ion-note item-right>{{estabelecimento.nome_cidade}}</ion-note></button>
     </ion-list>
   </ion-toolbar>
 </ion-header>

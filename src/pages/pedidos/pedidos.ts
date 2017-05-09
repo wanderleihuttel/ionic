@@ -14,7 +14,7 @@ export class Pedidos {
 
   items = [];
 
-  constructor(public nav: NavController, public service: PedidosService, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {
+  constructor(public nav: NavController, public loadingCtrl: LoadingController, public toastCtrl: ToastController, public service: PedidosService) {
     this.cliente = JSON.parse(localStorage.getItem('usuario'));
     this.listarPedidos();
   }
@@ -46,7 +46,7 @@ export class Pedidos {
       status: pedido.status,
       foto: pedido.foto,
       nome_produto: pedido.nome_produto,
-      loja: pedido.loja,
+      estabelecimento: pedido.estabelecimento,
       nome_loja: pedido.nome_loja,
       bairro: pedido.bairro,
       rua: pedido.rua,

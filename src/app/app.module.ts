@@ -20,7 +20,7 @@ import { DetalhesProduto } from '../pages/detalhes/detalhes-produto';
 import { Home } from '../pages/home/home';
 import { Pedidos } from '../pages/pedidos/pedidos';
 import { Perfil } from '../pages/perfil/perfil';
-import { Loja } from '../pages/loja/loja';
+import { Estabelecimento } from '../pages/estabelecimento/estabelecimento';
 import { Categorias } from '../pages/loja/categorias';
 import { ProdutosCategoria } from '../pages/loja/produtos-categoria';
 
@@ -29,7 +29,7 @@ import { LoginService } from '../providers/login-service';
 import { PedidosService } from '../providers/pedidos-service';
 import { DetalhesService } from '../providers/detalhes-service';
 import { PesquisaService } from '../providers/pesquisa-service';
-import { LojaService } from '../providers/loja-service';
+import { EstabelecimentoService } from '../providers/estabelecimento-service';
 
 import { PATH } from '../providers/path';
 
@@ -46,7 +46,7 @@ import { PATH } from '../providers/path';
     Termos,
     Privacidade,
     DetalhesPedido,
-    Loja,
+    Estabelecimento,
     DetalhesProduto,
     Categorias,
     ProdutosCategoria
@@ -70,7 +70,7 @@ import { PATH } from '../providers/path';
     Termos,
     Privacidade,
     DetalhesPedido,
-    Loja,
+    Estabelecimento,
     DetalhesProduto,
     Categorias,
     ProdutosCategoria
@@ -82,7 +82,7 @@ import { PATH } from '../providers/path';
     PedidosService,
     DetalhesService,
     PesquisaService,
-    LojaService,
+    EstabelecimentoService,
     PATH,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

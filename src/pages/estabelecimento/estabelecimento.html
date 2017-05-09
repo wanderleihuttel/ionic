@@ -1,0 +1,67 @@
+<ion-header no-border>
+  <ion-navbar color="navbar-orange"> <!-- hideBackButton -->
+    <ion-title *ngIf=!showSearchBar>{{nome_loja}}</ion-title>
+
+    <ion-searchbar
+      #searchbar
+      *ngIf=showSearchBar
+      [(ngModel)]="pesquisa"
+      (ionInput)="produto_loja($event)"
+      (ionCancel)="cancelar($event)"
+      [showCancelButton]="false"
+      placeholder="Produto"
+      autocomplete="on">
+    </ion-searchbar>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="toggleShowSearchBar()">
+          <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="categorias()">
+          <ion-icon name="list"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar *ngIf="pesquisa" class="pesquisa">
+    <ion-list *ngFor="let produto of produtos_pesquisa">
+      <button ion-item detail-none no-lines (click)="detalhes(produto)">{{produto.nome}}</button>
+    </ion-list>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="produtos">
+  <ion-refresher (ionRefresh)="atualizar($event)" pullMin="90">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Arraste para atualizar"
+      refreshingSpinner="circles"
+      refreshingText="Atualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngFor="let produto of produtos">
+    <img src="http://app.com.br/produtos/{{produto.foto}}"/>
+    <ion-card-content>
+      <ion-chip>
+        <ion-label>{{produto.preco}}</ion-label>
+      </ion-chip>
+      <ion-chip>
+        <ion-icon name="cube" color="orange-dark"></ion-icon>
+        <ion-label>{{produto.estoque}} em estoque</ion-label>
+      </ion-chip>
+      <ion-card-title>{{produto.nome}}</ion-card-title>
+    </ion-card-content>
+    <button ion-button full (click)="detalhes(produto)" color="secondary">Detalhes</button>
+  </ion-card>
+
+  <ion-fab right bottom>
+      <button ion-fab color="orange-dark"><ion-icon name="information-circle"></ion-icon></button>
+  </ion-fab>
+
+  <ion-infinite-scroll (ionInfinite)="carregar_mais($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Carregando...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

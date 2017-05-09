@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToastController, NavParams } from 'ionic-angular';
+import { LoadingController, ToastController, NavParams } from 'ionic-angular';
 import { DetalhesService } from '../../providers/detalhes-service';
 
 @Component({
@@ -13,18 +13,23 @@ export class DetalhesProduto {
   nome = this.params.get('nome');
   descricao = this.params.get('descricao');
 
-  constructor(public service: DetalhesService, public toastCtrl: ToastController, public params: NavParams) {
-    this.getDetalhes();
+  constructor(public loadingCtrl: LoadingController, public toastCtrl: ToastController, public params: NavParams, public service: DetalhesService) {
+    this.detalhes();
   }
 
-  getDetalhes() {
-    this.service.produtoFotosProduto(this.jsonToURLEncoded({
-        loja: this.params.get('loja'),
+  detalhes() {
+    let loading = this.loadingCtrl.create({content: 'Carregando...'});
+    loading.present().then(() => {
+      this.service.produtoFotosProduto(this.jsonToURLEncoded({
+        estabelecimento: this.params.get('estabelecimento'),
         produto: this.params.get('produto')
-    })).subscribe(retorno => {
+      })).subscribe(retorno => {
         this.fotos = retorno;
-    }, error => {
+        loading.dismiss();
+      }, error => {
         this.alerta(error);
+        loading.dismiss();
+      });
     });
   }
 
@@ -34,6 +39,7 @@ export class DetalhesProduto {
     }).join('&');
   }
 
+  // Toast
   alerta(mensagem) {
     let toast = this.toastCtrl.create({
       message: mensagem,

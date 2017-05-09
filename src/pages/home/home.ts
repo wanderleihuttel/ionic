@@ -4,7 +4,7 @@ import { NavController, ActionSheetController, AlertController, ToastController 
 import { Login } from '../login/login';
 import { Pedidos } from '../pedidos/pedidos';
 import { Perfil } from '../perfil/perfil';
-import { Loja } from '../loja/loja';
+import { Estabelecimento } from '../estabelecimento/estabelecimento';
 
 import { PesquisaService } from '../../providers/pesquisa-service';
 
@@ -20,14 +20,14 @@ export class Home {
 
   usuario: {};
 
-  lojas: any[];
+  estabelecimentos: any[];
 
   constructor(public nav: NavController, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, public toastCtrl: ToastController, public service: PesquisaService) {
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
   }
 
   public toggleShowSearchBar() {
-    this.lojas = [];
+    this.estabelecimentos = [];
     this.showSearchBar = !this.showSearchBar;
     this.pesquisa = '';
     /*setTimeout(()=>{
@@ -83,29 +83,29 @@ export class Home {
     alert.present();
   }
 
-  public loja(input) {
-    let loja = input.target.value;
+  public estabelecimento(input) {
+    let estabelecimento = input.target.value;
 
-    if (loja && loja.length >= 4) {
-      this.service.loja(this.jsonToURLEncoded({
-        loja: loja
+    if (estabelecimento && estabelecimento.length >= 4) {
+      this.service.estabelecimento(this.jsonToURLEncoded({
+        estabelecimento: estabelecimento
       })).subscribe(retorno => {
-        this.lojas = retorno.loja;
+        this.estabelecimentos = retorno.estabelecimento;
       }, error => {
         this.alerta('Erro ao realizar busca, tente novamente');
       });
     }
   }
 
-  public produtos_loja(loja) {
-    this.nav.push(Loja, {
-        id_loja: loja.id,
-        nome_loja: loja.nome
+  public produtos_estabelecimento(estabelecimento) {
+    this.nav.push(Estabelecimento, {
+        estabelecimento: estabelecimento.id,
+        nome_estabelecimento: estabelecimento.nome
     });
   }
 
   public cancelar() {
-    this.lojas = [];
+    this.estabelecimentos = [];
     this.showSearchBar = !this.showSearchBar;
   }
 
