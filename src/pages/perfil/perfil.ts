@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
+
 import { AtualizarSenha } from '../senha/atualizar-senha';
 
 @Component({

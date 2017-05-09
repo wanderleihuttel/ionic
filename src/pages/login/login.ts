@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
-import { LoginService } from '../../providers/login-service';
-import { Toast } from '../../providers/toast';
+
 import { Cadastro } from '../cadastro/cadastro';
 import { RecuperarSenha } from '../senha/recuperar-senha';
 import { Home } from '../home/home';
+
+import { LoginProvider } from '../../providers/login';
+import { ToastProvider } from '../../providers/toast';
+
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -17,7 +20,7 @@ export class Login {
   // Expressão regular
   er = /^[a-zA-Z0-9][a-zA-Z0-9\._-]+@([a-zA-Z0-9\._-]+\.)[a-zA-Z-0-9]{2,3}$/;
 
-  constructor(public nav: NavController, public login: LoginService, public loadingCtrl: LoadingController, public toast: Toast) {}
+  constructor(public nav: NavController, public loginProvider: LoginProvider, public loadingCtrl: LoadingController, public toast: ToastProvider) {}
 
   // Página de cadastro
   public cadastro() {
@@ -37,7 +40,7 @@ export class Login {
         loading.dismiss();
         this.toast.alerta("E-mail inválido");
     } else {
-        this.login.logar(this.jsonToURLEncoded({
+        this.loginProvider.logar(this.jsonToURLEncoded({
             email: this.dados.email,
             senha: this.dados.senha
         })).subscribe(retorno => {

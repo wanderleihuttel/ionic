@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class PATH {
+export class PathProvider {
   link = '';
 
   constructor() {
     this.link = 'http://app.com.br/api/';
   }
 
-  getUrl() {
+  url() {
     return this.link;
   }
 }

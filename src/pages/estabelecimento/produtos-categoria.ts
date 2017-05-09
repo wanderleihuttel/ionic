@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { EstabelecimentoService } from '../../providers/estabelecimento-service';
-import { Toast } from '../../providers/toast';
+
 import { DetalhesProduto } from '../detalhes/detalhes-produto';
+
+import { EstabelecimentoProvider } from '../../providers/estabelecimento';
+import { ToastProvider } from '../../providers/toast';
 
 @Component({
   selector: 'pagina-produtos-categoria',
@@ -15,7 +17,7 @@ export class ProdutosCategoria {
   nome_categoria = this.params.get('nome_categoria');
   id_categoria = this.params.get('id_categoria');
 
-  constructor(public nav: NavController, public serviceEstabelecimento: EstabelecimentoService, public params: NavParams, public toast: Toast) {
+  constructor(public nav: NavController, public estabelecimentoProvider: EstabelecimentoProvider, public params: NavParams, public toast: ToastProvider) {
     this.listarProdutos();
   }
 
@@ -30,7 +32,7 @@ export class ProdutosCategoria {
   }
 
   listarProdutos() {
-    this.serviceEstabelecimento.produtosCategoria(this.jsonToURLEncoded({
+    this.estabelecimentoProvider.produtosCategoria(this.jsonToURLEncoded({
         estabelecimento: this.estabelecimento,
         categoria: this.id_categoria
     })).subscribe(retorno => {

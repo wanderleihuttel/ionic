@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, NavParams } from 'ionic-angular';
-import { EstabelecimentoService } from '../../providers/estabelecimento-service';
-import { PesquisaService } from '../../providers/pesquisa-service';
-import { Toast } from '../../providers/toast';
+
 import { DetalhesProduto } from '../detalhes/detalhes-produto';
 import { Categorias } from '../estabelecimento/categorias';
+
+import { EstabelecimentoProvider } from '../../providers/estabelecimento';
+import { PesquisaProvider } from '../../providers/pesquisa';
+import { ToastProvider } from '../../providers/toast';
 
 @Component({
   selector: 'pagina-estabelecimento',
@@ -23,7 +25,7 @@ export class Estabelecimento {
 
   nome_estabelecimento = this.params.get('nome_estabelecimento');
 
-  constructor(public nav: NavController, public loadingCtrl: LoadingController, public params: NavParams, public estabelecimento: EstabelecimentoService, public servicePesquisa: PesquisaService, public toast: Toast) {
+  constructor(public nav: NavController, public loadingCtrl: LoadingController, public params: NavParams, public estabelecimentoProvider: EstabelecimentoProvider, public pesquisaProvider: PesquisaProvider, public toast: ToastProvider) {
     this.listarProdutos();
   }
 
@@ -77,7 +79,7 @@ export class Estabelecimento {
       this.refresher = false;
     }
 
-    this.estabelecimento.listarProdutos(this.jsonToURLEncoded({
+    this.estabelecimentoProvider.listarProdutos(this.jsonToURLEncoded({
         estabelecimento: this.params.get('estabelecimento')
     })).subscribe(retorno => {
         if (retorno.resposta === 'erro') {
@@ -96,7 +98,7 @@ export class Estabelecimento {
     let produto = input.target.value;
 
     if (produto && produto.length >= 4) {
-      this.servicePesquisa.produto(this.jsonToURLEncoded({
+      this.pesquisaProvider.produto(this.jsonToURLEncoded({
         estabelecimento: this.params.get('estabelecimento'),
         produto: produto
       })).subscribe(retorno => {

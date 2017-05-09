@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { LoadingController, NavParams } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
-import { DetalhesService } from '../../providers/detalhes-service';
-import { Toast } from '../../providers/toast';
+
+import { DetalhesProvider } from '../../providers/detalhes';
+import { ToastProvider } from '../../providers/toast';
 
 @Component({
   selector: 'pagina-detalhes-pedido',
@@ -20,7 +21,7 @@ export class DetalhesPedido {
   rua = this.params.get('rua');
   numero = this.params.get('numero');
 
-  constructor(public loadingCtrl: LoadingController, public params: NavParams, public statusBar: StatusBar, public service: DetalhesService, public toast: Toast) {
+  constructor(public loadingCtrl: LoadingController, public params: NavParams, public statusBar: StatusBar, public detalhesProvider: DetalhesProvider, public toast: ToastProvider) {
     this.detalhes();
 
     switch (this.status) {
@@ -39,7 +40,7 @@ export class DetalhesPedido {
   detalhes() {
     let loading = this.loadingCtrl.create({content: 'Carregando...'});
     loading.present().then(() => {
-      this.service.pedidoFotosProduto(this.jsonToURLEncoded({
+      this.detalhesProvider.pedidoFotosProduto(this.jsonToURLEncoded({
         estabelecimento: this.params.get('estabelecimento'),
         pedido: this.params.get('pedido')
       })).subscribe(retorno => {

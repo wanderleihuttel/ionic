@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
-import { PedidosService } from '../../providers/pedidos-service';
-import { Toast } from '../../providers/toast';
+
 import { DetalhesPedido } from '../detalhes/detalhes-pedido';
+
+import { PedidosProvider } from '../../providers/pedidos';
+import { ToastProvider } from '../../providers/toast';
 
 @Component({
   selector: 'pagina-pedidos',
@@ -15,7 +17,7 @@ export class Pedidos {
 
   items = [];
 
-  constructor(public nav: NavController, public loadingCtrl: LoadingController, public service: PedidosService, public toast: Toast) {
+  constructor(public nav: NavController, public loadingCtrl: LoadingController, public pedidosProvider: PedidosProvider, public toast: ToastProvider) {
     this.cliente = JSON.parse(localStorage.getItem('usuario'));
     this.listarPedidos();
   }
@@ -65,7 +67,7 @@ export class Pedidos {
       this.refresher = false;
     }
 
-    this.service.pedidos(this.jsonToURLEncoded({
+    this.pedidosProvider.pedidos(this.jsonToURLEncoded({
         cliente: cliente.id
     })).subscribe(retorno => {
         this.pedidos = retorno;

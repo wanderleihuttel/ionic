@@ -6,8 +6,8 @@ import { Pedidos } from '../pedidos/pedidos';
 import { Perfil } from '../perfil/perfil';
 import { Estabelecimento } from '../estabelecimento/estabelecimento';
 
-import { PesquisaService } from '../../providers/pesquisa-service';
-import { Toast } from '../../providers/toast';
+import { PesquisaProvider } from '../../providers/pesquisa';
+import { ToastProvider } from '../../providers/toast';
 
 @Component({
   selector: 'pagina-home',
@@ -23,7 +23,7 @@ export class Home {
 
   estabelecimentos: any[];
 
-  constructor(public nav: NavController, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, public service: PesquisaService, public toast: Toast) {
+  constructor(public nav: NavController, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, public pesquisaProvider: PesquisaProvider, public toast: ToastProvider) {
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
   }
 
@@ -88,7 +88,7 @@ export class Home {
     let estabelecimento = input.target.value;
 
     if (estabelecimento && estabelecimento.length >= 4) {
-      this.service.estabelecimento(this.jsonToURLEncoded({
+      this.pesquisaProvider.estabelecimento(this.jsonToURLEncoded({
         estabelecimento: estabelecimento
       })).subscribe(retorno => {
         this.estabelecimentos = retorno.estabelecimentos;

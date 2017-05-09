@@ -25,14 +25,13 @@ import { Categorias } from '../pages/estabelecimento/categorias';
 import { ProdutosCategoria } from '../pages/estabelecimento/produtos-categoria';
 
 // Providers
-import { LoginService } from '../providers/login-service';
-import { PedidosService } from '../providers/pedidos-service';
-import { DetalhesService } from '../providers/detalhes-service';
-import { PesquisaService } from '../providers/pesquisa-service';
-import { EstabelecimentoService } from '../providers/estabelecimento-service';
-
-import { PATH } from '../providers/path';
-import { Toast } from '../providers/toast';
+import { LoginProvider } from '../providers/login';
+import { PedidosProvider } from '../providers/pedidos';
+import { DetalhesProvider } from '../providers/detalhes';
+import { PesquisaProvider } from '../providers/pesquisa';
+import { EstabelecimentoProvider } from '../providers/estabelecimento';
+import { PathProvider } from '../providers/path';
+import { ToastProvider } from '../providers/toast';
 
 @NgModule({
   declarations: [
@@ -79,13 +78,13 @@ import { Toast } from '../providers/toast';
   providers: [
     StatusBar,
     SplashScreen,
-    LoginService,
-    PedidosService,
-    DetalhesService,
-    PesquisaService,
-    EstabelecimentoService,
-    PATH,
-    Toast,
+    LoginProvider,
+    PedidosProvider,
+    DetalhesProvider,
+    PesquisaProvider,
+    EstabelecimentoProvider,
+    PathProvider,
+    ToastProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

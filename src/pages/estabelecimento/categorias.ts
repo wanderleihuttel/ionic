@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Toast } from '../../providers/toast';
+
 import { ProdutosCategoria } from '../estabelecimento/produtos-categoria';
+
+import { ToastProvider } from '../../providers/toast';
 
 @Component({
   selector: 'pagina-categorias',
@@ -10,7 +12,7 @@ import { ProdutosCategoria } from '../estabelecimento/produtos-categoria';
 export class Categorias {
   categorias: any;
 
-  constructor(public nav: NavController, public params: NavParams, public toast: Toast) {
+  constructor(public nav: NavController, public params: NavParams, public toast: ToastProvider) {
     this.listarCategorias();
   }
 
