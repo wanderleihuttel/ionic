@@ -31,21 +31,21 @@ export class Login {
 
   // Logar
   public logar() {
-    const loading = this.loadingCtrl.create({content: 'Aguarde...'}); 
+    const loading = this.loadingCtrl.create({content: 'Aguarde...'});
     loading.present().then(()=>{
     if (!this.er.exec(this.dados.email)) {
         loading.dismiss();
-        this.alerta("E-mail inválido");
+        this.toast.alerta("E-mail inválido");
     } else {
         this.login.logar(this.jsonToURLEncoded({
             email: this.dados.email,
             senha: this.dados.senha
         })).subscribe(retorno => {
             if (retorno.resposta == 'logou') {
-            
+
               const dadosUsuario = {id: retorno.id, codigo: retorno.codigo, nome: retorno.nome, sobrenome: retorno.sobrenome, email: this.dados.email};
               localStorage.setItem('usuario', JSON.stringify(dadosUsuario));
-            
+
               this.nav.setRoot(Home);
             } else {
               this.toast.alerta("E-mail ou senha inválido");

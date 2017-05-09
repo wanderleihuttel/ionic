@@ -7,7 +7,7 @@ export class Toast {
 
   constructor(public toastCtrl: ToastController) {}
 
-  alerta() {
+  alerta(mensagem) {
     let toast = this.toastCtrl.create({
       message: this.mensagem,
       duration: 3000,
@@ -16,4 +16,3 @@ export class Toast {
     toast.present();
   }
 }
-  

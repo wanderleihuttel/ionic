@@ -91,7 +91,7 @@ export class Home {
       this.service.estabelecimento(this.jsonToURLEncoded({
         estabelecimento: estabelecimento
       })).subscribe(retorno => {
-        this.estabelecimentos = retorno.estabelecimento;
+        this.estabelecimentos = retorno.estabelecimentos;
       }, error => {
         this.toast.alerta('Erro ao realizar busca, tente novamente');
       });

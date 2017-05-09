@@ -1,12 +1,12 @@
 <ion-header no-border>
   <ion-navbar color="navbar-orange"> <!-- hideBackButton -->
-    <ion-title *ngIf=!showSearchBar>{{nome_loja}}</ion-title>
+    <ion-title *ngIf=!showSearchBar>{{nome_estabelecimento}}</ion-title>
 
     <ion-searchbar
       #searchbar
       *ngIf=showSearchBar
       [(ngModel)]="pesquisa"
-      (ionInput)="produto_loja($event)"
+      (ionInput)="produto_estabelecimento($event)"
       (ionCancel)="cancelar($event)"
       [showCancelButton]="false"
       placeholder="Produto"

@@ -9,8 +9,8 @@ import { Toast } from '../../providers/toast';
   templateUrl: 'detalhes-pedido.html'
 })
 export class DetalhesPedido {
-  fotos: any;  
-    
+  fotos: any;
+
   pedido = this.params.get('pedido');
   status = this.params.get('status');
   foto = this.params.get('foto');
@@ -22,7 +22,7 @@ export class DetalhesPedido {
 
   constructor(public loadingCtrl: LoadingController, public params: NavParams, public statusBar: StatusBar, public service: DetalhesService, public toast: Toast) {
     this.detalhes();
-      
+
     switch (this.status) {
 	  case 0:
 		this.statusBar.backgroundColorByHexString("#616161");
