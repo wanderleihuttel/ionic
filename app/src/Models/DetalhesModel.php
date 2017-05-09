@@ -4,7 +4,7 @@
 	
 	class DetalhesModel extends Model
 	{		
-		public function pedido($loja, $pedido){
+		public function pedido($estabelecimento, $pedido){
 			try {				
 				$stmt = $this->db->prepare("
 					SELECT
@@ -17,7 +17,7 @@
 
 							WHERE `loja_pedidos`.`id` = :pedido AND `admin_lojas`.`id` = :loja
 				");
-				$stmt->bindValue(':loja', $loja, PDO::PARAM_INT);
+				$stmt->bindValue(':loja', $estabelecimento, PDO::PARAM_INT);
 				$stmt->bindValue(':pedido', $pedido, PDO::PARAM_INT);
 				$stmt->execute();
 				
@@ -27,7 +27,7 @@
 			}
 		}
 		
-		public function produto($loja, $produto){
+		public function produto($estabelecimento, $produto){
 			try {				
 				$stmt = $this->db->prepare("
 					SELECT
@@ -38,7 +38,7 @@
 
 							WHERE `loja_produtos`.`id` = :produto AND `admin_lojas`.`id` = :loja
 				");
-				$stmt->bindValue(':loja', $loja, PDO::PARAM_INT);
+				$stmt->bindValue(':loja', $estabelecimento, PDO::PARAM_INT);
 				$stmt->bindValue(':produto', $produto, PDO::PARAM_INT);
 				$stmt->execute();
 				

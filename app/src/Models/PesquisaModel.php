@@ -23,7 +23,7 @@
 			$dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			
 			if (count($dados) > 0) {
-				$retorno = array('estabelecimento' => $dados);
+				$retorno = array('estabelecimentos' => $dados);
 			}
 			return $retorno;
 		}
@@ -34,7 +34,7 @@
 			$stmt = $this->db->prepare("
 				SELECT `id`, `id_loja`, `foto`, `nome`, `descricao` FROM `loja_produtos` WHERE `nome` LIKE :nome AND `id_loja` = :loja LIMIT 3
 			");
-			$stmt->bindValue(':estabelecimento', $estabelecimento, PDO::PARAM_INT);
+			$stmt->bindValue(':loja', $estabelecimento, PDO::PARAM_INT);
 			$stmt->bindValue(':nome', '%'.$produto.'%', PDO::PARAM_STR);
 			$stmt->execute();
 			
