@@ -21,8 +21,8 @@ import { Home } from '../pages/home/home';
 import { Pedidos } from '../pages/pedidos/pedidos';
 import { Perfil } from '../pages/perfil/perfil';
 import { Estabelecimento } from '../pages/estabelecimento/estabelecimento';
-import { Categorias } from '../pages/loja/categorias';
-import { ProdutosCategoria } from '../pages/loja/produtos-categoria';
+import { Categorias } from '../pages/estabelecimento/categorias';
+import { ProdutosCategoria } from '../pages/estabelecimento/produtos-categoria';
 
 // Providers
 import { LoginService } from '../providers/login-service';

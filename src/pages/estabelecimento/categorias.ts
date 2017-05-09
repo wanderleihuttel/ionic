@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Toast } from '../../providers/toast';
-import { ProdutosCategoria } from '../loja/produtos-categoria';
+import { ProdutosCategoria } from '../estabelecimento/produtos-categoria';
 
 @Component({
   selector: 'pagina-categorias',

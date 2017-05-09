@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { LojaService } from '../../providers/loja-service';
+import { EstabelecimentoService } from '../../providers/estabelecimento-service';
 import { Toast } from '../../providers/toast';
 import { DetalhesProduto } from '../detalhes/detalhes-produto';
 
@@ -15,7 +15,7 @@ export class ProdutosCategoria {
   nome_categoria = this.params.get('nome_categoria');
   id_categoria = this.params.get('id_categoria');
 
-  constructor(public nav: NavController, public service: LojaService, public params: NavParams, public toast: Toast) {
+  constructor(public nav: NavController, public serviceEstabelecimento: EstabelecimentoService, public params: NavParams, public toast: Toast) {
     this.listarProdutos();
   }
 
@@ -30,7 +30,7 @@ export class ProdutosCategoria {
   }
 
   listarProdutos() {
-    this.service.produtosCategoria(this.jsonToURLEncoded({
+    this.serviceEstabelecimento.produtosCategoria(this.jsonToURLEncoded({
         estabelecimento: this.estabelecimento,
         categoria: this.id_categoria
     })).subscribe(retorno => {

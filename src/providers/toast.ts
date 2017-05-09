@@ -9,7 +9,7 @@ export class Toast {
 
   alerta() {
     let toast = this.toastCtrl.create({
-      message: mensagem,
+      message: this.mensagem,
       duration: 3000,
       position: 'bottom'
     });

@@ -4,13 +4,13 @@ import { EstabelecimentoService } from '../../providers/estabelecimento-service'
 import { PesquisaService } from '../../providers/pesquisa-service';
 import { Toast } from '../../providers/toast';
 import { DetalhesProduto } from '../detalhes/detalhes-produto';
-import { Categorias } from '../loja/categorias';
+import { Categorias } from '../estabelecimento/categorias';
 
 @Component({
   selector: 'pagina-estabelecimento',
   templateUrl: 'estabelecimento.html'
 })
-export class Loja {
+export class Estabelecimento {
   public refresher: boolean = true;
   showSearchBar: boolean = false;
   pesquisa: string = '';
@@ -23,7 +23,7 @@ export class Loja {
 
   nome_estabelecimento = this.params.get('nome_estabelecimento');
 
-  constructor(public nav: NavController, public loadingCtrl: LoadingController, public params: NavParams, public serviceLoja: EstabelecimentoService, public servicePesquisa: PesquisaService, public toast: Toast) {
+  constructor(public nav: NavController, public loadingCtrl: LoadingController, public params: NavParams, public estabelecimento: EstabelecimentoService, public servicePesquisa: PesquisaService, public toast: Toast) {
     this.listarProdutos();
   }
 
@@ -77,7 +77,7 @@ export class Loja {
       this.refresher = false;
     }
 
-    this.serviceLoja.listarProdutos(this.jsonToURLEncoded({
+    this.estabelecimento.listarProdutos(this.jsonToURLEncoded({
         estabelecimento: this.params.get('estabelecimento')
     })).subscribe(retorno => {
         if (retorno.resposta === 'erro') {
