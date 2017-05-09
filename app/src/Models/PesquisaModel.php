@@ -4,7 +4,7 @@
 	
 	class PesquisaModel extends Model
 	{
-		public function loja($loja){
+		public function estabelecimento($estabelecimento){
 			$retorno['resposta'] = 'erro';
 
 			$stmt = $this->db->prepare("
@@ -17,24 +17,24 @@
 								INNER JOIN `admin_cidades` ON (`admin_cidades`.`id` = `admin_lojas`.`cidade`)
 						WHERE `admin_lojas`.`nome` LIKE :nome LIMIT 5
 			");
-			$stmt->bindValue(':nome', '%'.$loja.'%', PDO::PARAM_STR);
+			$stmt->bindValue(':nome', '%'.$estabelecimento.'%', PDO::PARAM_STR);
 			$stmt->execute();
 			
 			$dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			
 			if (count($dados) > 0) {
-				$retorno = array('loja' => $dados);
+				$retorno = array('estabelecimento' => $dados);
 			}
 			return $retorno;
 		}
 		
-		public function produto($loja, $produto){
+		public function produto($estabelecimento, $produto){
 			$retorno['resposta'] = 'erro';
 
 			$stmt = $this->db->prepare("
-				SELECT `id`, `foto`, `nome` FROM `loja_produtos` WHERE `nome` LIKE :nome AND `id_loja` = :loja LIMIT 3
+				SELECT `id`, `id_loja`, `foto`, `nome`, `descricao` FROM `loja_produtos` WHERE `nome` LIKE :nome AND `id_loja` = :loja LIMIT 3
 			");
-			$stmt->bindValue(':loja', $loja, PDO::PARAM_INT);
+			$stmt->bindValue(':estabelecimento', $estabelecimento, PDO::PARAM_INT);
 			$stmt->bindValue(':nome', '%'.$produto.'%', PDO::PARAM_STR);
 			$stmt->execute();
 			

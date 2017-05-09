@@ -24,7 +24,7 @@
 			$app->post('/pedido', DetalhesController::class . ':pedido', []);
 			
 			// Pesquisa pela loja
-			$app->post('/pesquisa/loja', PesquisaController::class . ':loja', []);
+			$app->post('/pesquisa/estabelecimento', PesquisaController::class . ':estabelecimento', []);
 			
 			// Pesquisa pelo produto da loja
 			$app->post('/pesquisa/produto', PesquisaController::class . ':produto', []);

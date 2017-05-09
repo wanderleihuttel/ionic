@@ -4,11 +4,11 @@
 	
 	class PesquisaController extends Controller
 	{
-		public function loja(){
+		public function estabelecimento(){
 			$pesquisa = new Pesquisa($this->db);
 			
-			$loja = post('loja', FILTER_SANITIZE_STRING);
-			$resposta = $pesquisa->loja($loja);
+			$estabelecimento = post('estabelecimento', FILTER_SANITIZE_STRING);
+			$resposta = $pesquisa->estabelecimento($estabelecimento);
 			
 			echo json_encode($resposta);
 		}
@@ -16,9 +16,9 @@
 		public function produto(){
 			$pesquisa = new Pesquisa($this->db);
 			
-			$loja = post('loja', FILTER_SANITIZE_NUMBER_INT);
+			$estabelecimento = post('estabelecimento', FILTER_SANITIZE_NUMBER_INT);
 			$produto = post('produto', FILTER_SANITIZE_STRING);
-			$resposta = $pesquisa->produto($loja, $produto);
+			$resposta = $pesquisa->produto($estabelecimento, $produto);
 			
 			echo json_encode($resposta);
 		}
