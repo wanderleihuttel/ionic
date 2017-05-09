@@ -19,7 +19,7 @@ export class Estabelecimento {
   produtos: any;
   produtos_pesquisa: any[]; // searchbar
 
-  items = [];
+  items = []; // infinite scroll
 
   nome_estabelecimento = this.params.get('nome_estabelecimento');
 
