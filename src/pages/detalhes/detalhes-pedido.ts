@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { LoadingController, ToastController, NavParams } from 'ionic-angular';
+import { LoadingController, NavParams } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { DetalhesService } from '../../providers/detalhes-service';
+import { Toast } from '../../providers/toast';
 
 @Component({
   selector: 'pagina-detalhes-pedido',
@@ -19,7 +20,7 @@ export class DetalhesPedido {
   rua = this.params.get('rua');
   numero = this.params.get('numero');
 
-  constructor(public loadingCtrl: LoadingController, public toastCtrl: ToastController, public params: NavParams, public statusBar: StatusBar, public service: DetalhesService) {
+  constructor(public loadingCtrl: LoadingController, public params: NavParams, public statusBar: StatusBar, public service: DetalhesService, public toast: Toast) {
     this.detalhes();
       
     switch (this.status) {
@@ -45,7 +46,7 @@ export class DetalhesPedido {
         this.fotos = retorno;
         loading.dismiss();
       }, error => {
-        this.alerta(error);
+        this.toast.alerta(error);
         loading.dismiss();
       });
     });
@@ -55,16 +56,5 @@ export class DetalhesPedido {
     return Object.keys(jsonString).map(function(key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(jsonString[key]);
     }).join('&');
-  }
-
-  // Toast
-  alerta(mensagem) {
-    let toast = this.toastCtrl.create({
-      message: mensagem,
-      duration: 3000,
-      position: 'bottom'
-    });
-
-    toast.present();
   }
 }

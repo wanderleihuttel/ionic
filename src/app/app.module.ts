@@ -32,6 +32,7 @@ import { PesquisaService } from '../providers/pesquisa-service';
 import { EstabelecimentoService } from '../providers/estabelecimento-service';
 
 import { PATH } from '../providers/path';
+import { Toast } from '../providers/toast';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { PATH } from '../providers/path';
     PesquisaService,
     EstabelecimentoService,
     PATH,
+    Toast,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

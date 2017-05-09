@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { PedidosService } from '../../providers/pedidos-service';
+import { Toast } from '../../providers/toast';
 import { DetalhesPedido } from '../detalhes/detalhes-pedido';
 
 @Component({
@@ -14,7 +15,7 @@ export class Pedidos {
 
   items = [];
 
-  constructor(public nav: NavController, public loadingCtrl: LoadingController, public toastCtrl: ToastController, public service: PedidosService) {
+  constructor(public nav: NavController, public loadingCtrl: LoadingController, public service: PedidosService, public toast: Toast) {
     this.cliente = JSON.parse(localStorage.getItem('usuario'));
     this.listarPedidos();
   }
@@ -72,7 +73,7 @@ export class Pedidos {
         loading.dismiss();
     }, error => {
         loading.dismiss();
-        this.alerta(error);
+        this.toast.alerta(error);
     });
   }
 
@@ -80,16 +81,5 @@ export class Pedidos {
     return Object.keys(jsonString).map(function(key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(jsonString[key]);
     }).join('&');
-  }
-
-  // Toast
-  alerta(mensagem) {
-    let toast = this.toastCtrl.create({
-      message: mensagem,
-      duration: 3000,
-      position: 'bottom'
-    });
-
-    toast.present();
   }
 }

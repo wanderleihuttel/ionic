@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'; //ViewChild
-import { NavController, ActionSheetController, AlertController, ToastController } from 'ionic-angular'; //Searchbar
+import { NavController, ActionSheetController, AlertController } from 'ionic-angular'; //Searchbar
 
 import { Login } from '../login/login';
 import { Pedidos } from '../pedidos/pedidos';
@@ -7,6 +7,7 @@ import { Perfil } from '../perfil/perfil';
 import { Estabelecimento } from '../estabelecimento/estabelecimento';
 
 import { PesquisaService } from '../../providers/pesquisa-service';
+import { Toast } from '../../providers/toast';
 
 @Component({
   selector: 'pagina-home',
@@ -22,7 +23,7 @@ export class Home {
 
   estabelecimentos: any[];
 
-  constructor(public nav: NavController, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, public toastCtrl: ToastController, public service: PesquisaService) {
+  constructor(public nav: NavController, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, public service: PesquisaService, public toast: Toast) {
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
   }
 
@@ -92,7 +93,7 @@ export class Home {
       })).subscribe(retorno => {
         this.estabelecimentos = retorno.estabelecimento;
       }, error => {
-        this.alerta('Erro ao realizar busca, tente novamente');
+        this.toast.alerta('Erro ao realizar busca, tente novamente');
       });
     }
   }
@@ -113,16 +114,5 @@ export class Home {
     return Object.keys(jsonString).map(function(key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(jsonString[key]);
     }).join('&');
-  }
-
-  // Toast
-  alerta(mensagem) {
-    let toast = this.toastCtrl.create({
-      message: mensagem,
-      duration: 3000,
-      position: 'bottom'
-    });
-
-    toast.present();
   }
 }

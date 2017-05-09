@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, ToastController, NavParams } from 'ionic-angular';
+import { NavController, LoadingController, NavParams } from 'ionic-angular';
 import { EstabelecimentoService } from '../../providers/estabelecimento-service';
 import { PesquisaService } from '../../providers/pesquisa-service';
+import { Toast } from '../../providers/toast';
 import { DetalhesProduto } from '../detalhes/detalhes-produto';
 import { Categorias } from '../loja/categorias';
 
@@ -22,7 +23,7 @@ export class Loja {
 
   nome_estabelecimento = this.params.get('nome_estabelecimento');
 
-  constructor(public nav: NavController, public loadingCtrl: LoadingController, public toastCtrl: ToastController, public params: NavParams, public serviceLoja: EstabelecimentoService, public servicePesquisa: PesquisaService) {
+  constructor(public nav: NavController, public loadingCtrl: LoadingController, public params: NavParams, public serviceLoja: EstabelecimentoService, public servicePesquisa: PesquisaService, public toast: Toast) {
     this.listarProdutos();
   }
 
@@ -86,7 +87,7 @@ export class Loja {
         }
         loading.dismiss();
     }, error => {
-        this.alerta(error);
+        this.toast.alerta(error);
         loading.dismiss();
     });
   }
@@ -101,7 +102,7 @@ export class Loja {
       })).subscribe(retorno => {
         this.produtos_pesquisa = retorno.produtos;
       }, error => {
-        this.alerta('Erro ao realizar busca, tente novamente');
+        this.toast.alerta('Erro ao realizar busca, tente novamente');
       });
     }
   }
@@ -115,16 +116,5 @@ export class Loja {
     return Object.keys(jsonString).map(function(key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(jsonString[key]);
     }).join('&');
-  }
-
-  // Toast
-  alerta(mensagem) {
-    let toast = this.toastCtrl.create({
-      message: mensagem,
-      duration: 3000,
-      position: 'bottom'
-    });
-
-    toast.present();
   }
 }

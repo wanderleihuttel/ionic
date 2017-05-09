@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { LoginService } from '../../providers/login-service';
+import { Toast } from '../../providers/toast';
 import { Cadastro } from '../cadastro/cadastro';
 import { RecuperarSenha } from '../senha/recuperar-senha';
 import { Home } from '../home/home';
@@ -16,7 +17,7 @@ export class Login {
   // Expressão regular
   er = /^[a-zA-Z0-9][a-zA-Z0-9\._-]+@([a-zA-Z0-9\._-]+\.)[a-zA-Z-0-9]{2,3}$/;
 
-  constructor(public nav: NavController, public login: LoginService, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {}
+  constructor(public nav: NavController, public login: LoginService, public loadingCtrl: LoadingController, public toast: Toast) {}
 
   // Página de cadastro
   public cadastro() {
@@ -47,12 +48,12 @@ export class Login {
             
               this.nav.setRoot(Home);
             } else {
-              this.alerta("E-mail ou senha inválido");
+              this.toast.alerta("E-mail ou senha inválido");
             }
             loading.dismiss();
         }, error => {
             loading.dismiss();
-            this.alerta("Erro ao conectar, tente mais tarde");
+            this.toast.alerta("Erro ao conectar, tente mais tarde");
         });
     }
     });
@@ -62,16 +63,5 @@ export class Login {
     return Object.keys(jsonString).map(function(key){
       return encodeURIComponent(key) + '=' + encodeURIComponent(jsonString[key]);
     }).join('&');
-  }
-
-  // Toast
-  alerta(mensagem) {
-    let toast = this.toastCtrl.create({
-      message: mensagem,
-      duration: 3000,
-      position: 'bottom'
-    });
-
-    toast.present();
   }
 }
