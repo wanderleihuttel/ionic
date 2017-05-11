@@ -67,7 +67,7 @@ export class Estabelecimento {
       this.refresher = false;
     }
       
-    this.estabelecimentoProvider.listarProdutos(this.start()).subscribe(retorno => {
+    this.estabelecimentoProvider.listarProdutos(this.start, this.params.get('estabelecimento')).subscribe(retorno => {
         if (retorno.resposta === 'erro') {
           console.log('Esta loja não possui produtos cadastrados em nosso sistema');
         } else {
@@ -102,7 +102,7 @@ export class Estabelecimento {
 
   carregar_mais(infiniteScroll) {
      this.start += 10;
-     
+      
      this.listarProdutos().then(() => {
        infiniteScroll.complete();
      });
