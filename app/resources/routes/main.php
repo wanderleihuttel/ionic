@@ -18,23 +18,23 @@
 			$app->post('/logar', LoginController::class . ':login', []);
 			
 			// Pedidos
-			$app->post('/pedidos', PedidosController::class . ':pedidos', []);
+			$app->get('/pedidos', PedidosController::class . ':pedidos', []);
 			
 			// Detalhes do pedido
-			$app->post('/pedido', DetalhesController::class . ':pedido', []);
+			$app->get('/pedido', DetalhesController::class . ':pedido', []);
 			
 			// Pesquisa pela loja
-			$app->post('/pesquisa/estabelecimento', PesquisaController::class . ':estabelecimento', []);
+			$app->get('/pesquisa/estabelecimento', PesquisaController::class . ':estabelecimento', []);
 			
 			// Pesquisa pelo produto da loja
-			$app->post('/pesquisa/produto', PesquisaController::class . ':produto', []);
+			$app->get('/pesquisa/produto', PesquisaController::class . ':produto', []);
 			
 			// Produtos
-			$app->post('/produtos', ProdutosController::class . ':produtos', []);
-			$app->post('/produtos-categoria', ProdutosController::class . ':produtos_categoria', []);
+			$app->get('/produtos', ProdutosController::class . ':produtos', []);
+			$app->get('/produtos-categoria', ProdutosController::class . ':produtos_categoria', []);
 			
 			// Detalhes do produto
-			$app->post('/produto', DetalhesController::class . ':produto', []);
+			$app->get('/produto', DetalhesController::class . ':produto', []);
 			
 			// Carregar mais
 			$app->get('/carregar-mais/:qtd', function ($qtd) use ($app) {
