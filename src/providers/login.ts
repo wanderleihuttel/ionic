@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class LoginProvider {
   headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'});
+  //headers.append('Authorization', getToken );
   options = new RequestOptions({headers: this.headers});
 
   constructor(private http: Http, private path: PathProvider) {}

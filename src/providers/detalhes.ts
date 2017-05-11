@@ -13,10 +13,10 @@ export class DetalhesProvider {
   constructor(private http: Http, private path: PathProvider) {}
 
   public pedidoFotosProduto(dados) {
-      return this.http.post(this.path.url() + 'pedido', dados, this.options).map(res => res.json())
+      return this.http.get(this.path.url() + 'pedido', dados, this.options).map(res => res.json())
   }
 
   public produtoFotosProduto(dados) {
-      return this.http.post(this.path.url() + 'produto', dados, this.options).map(res => res.json())
+      return this.http.get(this.path.url() + 'produto', dados, this.options).map(res => res.json())
   }
 }

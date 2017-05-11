@@ -14,6 +14,7 @@ import { ToastProvider } from '../../providers/toast';
 })
 export class Estabelecimento {
   public refresher: boolean = true;
+  private start: number = 0;
   showSearchBar: boolean = false;
   pesquisa: string = '';
   produto = []; // searchbar
@@ -42,19 +43,6 @@ export class Estabelecimento {
       }, 500);
   }
 
-  carregar_mais(infiniteScroll) {
-    console.log('Iniciou a operação assíncrona');
-
-    setTimeout(() => {
-      for (let i = 0; i < 10; i++) {
-        this.items.push(this.items.length);
-      }
-
-      console.log('A operação assíncrona terminou');
-      infiniteScroll.complete();
-    }, 500);
-  }
-
   public detalhes(produto) {
     this.nav.push(DetalhesProduto, {
       estabelecimento: produto.id_loja,
@@ -78,22 +66,48 @@ export class Estabelecimento {
       loading.present();
       this.refresher = false;
     }
-
-    this.estabelecimentoProvider.listarProdutos(this.jsonToURLEncoded({
-        estabelecimento: this.params.get('estabelecimento')
-    })).subscribe(retorno => {
+      
+    this.estabelecimentoProvider.listarProdutos(this.start()).subscribe(retorno => {
         if (retorno.resposta === 'erro') {
           console.log('Esta loja não possui produtos cadastrados em nosso sistema');
         } else {
-          this.produtos = retorno.produtos;
+            for (let produtosLoja of retorno.produtos) {
+              this.produtos.push(produtosLoja);
+            }
         }
         loading.dismiss();
     }, error => {
         this.toast.alerta(error);
         loading.dismiss();
     });
+
+    /*this.estabelecimentoProvider.listarProdutos(this.start(this.jsonToURLEncoded({
+        estabelecimento: this.params.get('estabelecimento')
+      })
+    )).subscribe(retorno => {
+        if (retorno.resposta === 'erro') {
+          console.log('Esta loja não possui produtos cadastrados em nosso sistema');
+        } else {
+          //this.produtos = retorno.produtos;
+            for (let produtosLoja of retorno.produtos) {
+              this.produtos.push(produtosLoja);
+            }
+        }
+        loading.dismiss();
+    }, error => {
+        this.toast.alerta(error);
+        loading.dismiss();
+    });*/
   }
 
+  carregar_mais(infiniteScroll) {
+     this.start += 10;
+     
+     this.listarProdutos().then(() => {
+       infiniteScroll.complete();
+     });
+  }
+  
   public produto_estabelecimento(input) {
     let produto = input.target.value;
 
