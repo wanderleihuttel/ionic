@@ -15,13 +15,14 @@ import { ToastProvider } from '../../providers/toast';
 export class Estabelecimento {
   public refresher: boolean = true;
 
+  // InfiniteScroll
   public parametros = {start: 0, estabelecimento: this.params.get('estabelecimento')};
+  produtos:any = [];
 
+  // Searchbar
   showSearchBar: boolean = false;
   pesquisa: string = '';
   produto = []; // searchbar
-
-  produtos:any = [];
   produtos_pesquisa: any[]; // searchbar
 
   nome_estabelecimento = this.params.get('nome_estabelecimento');
@@ -80,24 +81,6 @@ export class Estabelecimento {
         this.toast.alerta(error);
         loading.dismiss();
     });
-
-    /*this.estabelecimentoProvider.listarProdutos(this.start(this.jsonToURLEncoded({
-        estabelecimento: this.params.get('estabelecimento')
-      })
-    )).subscribe(retorno => {
-        if (retorno.resposta === 'erro') {
-          console.log('Esta loja não possui produtos cadastrados em nosso sistema');
-        } else {
-          //this.produtos = retorno.produtos;
-            for (let produtosLoja of retorno.produtos) {
-              this.produtos.push(produtosLoja);
-            }
-        }
-        loading.dismiss();
-    }, error => {
-        this.toast.alerta(error);
-        loading.dismiss();
-    });*/
   }
 
   carregar_mais(infiniteScroll) {
