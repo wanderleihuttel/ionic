@@ -17,15 +17,12 @@ export class Estabelecimento {
 
   public parametros = {start: 0, estabelecimento: this.params.get('estabelecimento')};
 
-  private start: number = 0;
   showSearchBar: boolean = false;
   pesquisa: string = '';
   produto = []; // searchbar
 
-  produtos: any;
+  produtos:any = [];
   produtos_pesquisa: any[]; // searchbar
-
-  items = []; // infinite scroll
 
   nome_estabelecimento = this.params.get('nome_estabelecimento');
 
@@ -104,9 +101,10 @@ export class Estabelecimento {
   }
 
   carregar_mais(infiniteScroll) {
-     this.start += 10;
+     let start = this.parametros.start += 10;
 
-     this.listarProdutos().then(() => {
+     this.estabelecimentoProvider.listarProdutos(start).subscribe(retorno => {
+       this.produtos = retorno.produtos;
        infiniteScroll.complete();
      });
   }

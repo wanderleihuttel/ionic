@@ -12,11 +12,11 @@ export class PesquisaProvider {
 
   constructor(private http: Http, private path: PathProvider) {}
 
-  public estabelecimento(dados) {
-      return this.http.get(this.path.url() + 'pesquisa/estabelecimento?estabelecimento=dados.estabelecimento', this.options).map(res => res.json())
+  public estabelecimento(estabelecimento) {
+      return this.http.get(this.path.url() + 'pesquisa/estabelecimento?' + estabelecimento, this.options).map(res => res.json())
   }
 
   public produto(dados) {
-      return this.http.get(this.path.url() + 'pesquisa/produto?estabelecimento=dados.estabelecimento&produto=dados.produto', this.options).map(res => res.json())
+      return this.http.get(this.path.url() + 'pesquisa/produto?estabelecimento=' + dados.estabelecimento + '&produto=' + dados.produto, this.options).map(res => res.json())
   }
 }

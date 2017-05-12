@@ -15,7 +15,7 @@ export class EstabelecimentoProvider {
   constructor(private http: Http, private path: PathProvider) {}
 
   public listarProdutos(dados) {
-      return this.http.get(this.path.url() + 'produtos?estabelecimento='+ dados.estabelecimento + '&filter[limit]='+ this.por_pagina +'&filter[skip]='+ dados.start, this.options).map(res => res.json())
+      return this.http.get(this.path.url() + 'produtos?estabelecimento=' + dados.estabelecimento + '&limit=' + this.por_pagina + '&skip=' + dados.start, this.options).map(res => res.json())
   }
 
   public produtosCategoria(dados) {
