@@ -7,13 +7,15 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class EstabelecimentoProvider {
+  por_pagina: number = 10;
+
   headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'});
   options = new RequestOptions({headers: this.headers});
 
   constructor(private http: Http, private path: PathProvider) {}
 
   public listarProdutos(dados) {
-      return this.http.get(this.path.url() + 'produtos?estabelecimento=dados.estabelecimento&start=dados.start', this.options).map(res => res.json())
+      return this.http.get(this.path.url() + 'produtos?estabelecimento='+ dados.estabelecimento + '&filter[limit]='+ this.por_pagina +'&filter[skip]='+ dados.start, this.options).map(res => res.json())
   }
 
   public produtosCategoria(dados) {

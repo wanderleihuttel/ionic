@@ -14,6 +14,9 @@ import { ToastProvider } from '../../providers/toast';
 })
 export class Estabelecimento {
   public refresher: boolean = true;
+
+  public parametros = {start: 0, estabelecimento: this.params.get('estabelecimento')};
+
   private start: number = 0;
   showSearchBar: boolean = false;
   pesquisa: string = '';
@@ -66,8 +69,8 @@ export class Estabelecimento {
       loading.present();
       this.refresher = false;
     }
-      
-    this.estabelecimentoProvider.listarProdutos(this.start, this.params.get('estabelecimento')).subscribe(retorno => {
+
+    this.estabelecimentoProvider.listarProdutos(this.parametros).subscribe(retorno => {
         if (retorno.resposta === 'erro') {
           console.log('Esta loja não possui produtos cadastrados em nosso sistema');
         } else {
@@ -102,12 +105,12 @@ export class Estabelecimento {
 
   carregar_mais(infiniteScroll) {
      this.start += 10;
-      
+
      this.listarProdutos().then(() => {
        infiniteScroll.complete();
      });
   }
-  
+
   public produto_estabelecimento(input) {
     let produto = input.target.value;
 
