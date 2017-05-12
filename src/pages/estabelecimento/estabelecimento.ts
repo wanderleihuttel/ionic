@@ -15,10 +15,6 @@ import { ToastProvider } from '../../providers/toast';
 export class Estabelecimento {
   public refresher: boolean = true;
 
-  // InfiniteScroll
-  public parametros = {start: 0, estabelecimento: this.params.get('estabelecimento')};
-  produtos:any = [];
-
   // Searchbar
   showSearchBar: boolean = false;
   pesquisa: string = '';
@@ -26,6 +22,11 @@ export class Estabelecimento {
   produtos_pesquisa: any[]; // searchbar
 
   nome_estabelecimento = this.params.get('nome_estabelecimento');
+
+  // InfiniteScroll
+  public parametros = {start: 0, estabelecimento: this.params.get('estabelecimento')};
+  public parametrosScroll = {start: this.parametros.start += 10, estabelecimento: this.params.get('estabelecimento')};
+  produtos:any = [];
 
   constructor(public nav: NavController, public loadingCtrl: LoadingController, public params: NavParams, public estabelecimentoProvider: EstabelecimentoProvider, public pesquisaProvider: PesquisaProvider, public toast: ToastProvider) {
     this.listarProdutos();
@@ -84,12 +85,10 @@ export class Estabelecimento {
   }
 
   carregar_mais(infiniteScroll) {
-     let start = this.parametros.start += 10;
-
-     this.estabelecimentoProvider.listarProdutos(start).subscribe(retorno => {
-       this.produtos = retorno.produtos;
-       infiniteScroll.complete();
-     });
+    this.estabelecimentoProvider.listarProdutos(this.parametrosScroll).subscribe(retorno => {
+      this.produtos = retorno.produtos;
+      infiniteScroll.complete();
+    });
   }
 
   public produto_estabelecimento(input) {
