@@ -7,8 +7,8 @@
 		public function pedido(){
 			$detalhes = new Detalhes($this->db);
 			
-			$estabelecimento = post('estabelecimento', FILTER_SANITIZE_NUMBER_INT);
-			$pedido = post('pedido', FILTER_SANITIZE_NUMBER_INT);
+			$estabelecimento = get('estabelecimento', FILTER_SANITIZE_NUMBER_INT);
+			$pedido = get('pedido', FILTER_SANITIZE_NUMBER_INT);
 			
 			$dados = $detalhes->pedido($estabelecimento, $pedido);
 			
@@ -18,8 +18,8 @@
 		public function produto(){
 			$detalhes = new Detalhes($this->db);
 			
-			$estabelecimento = post('estabelecimento', FILTER_SANITIZE_NUMBER_INT);
-			$produto = post('produto', FILTER_SANITIZE_NUMBER_INT);
+			$estabelecimento = get('estabelecimento', FILTER_SANITIZE_NUMBER_INT);
+			$produto = get('produto', FILTER_SANITIZE_NUMBER_INT);
 			
 			$dados = $detalhes->produto($estabelecimento, $produto);
 			
